@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <p:layout fullPage="true">
+                <p:layoutUnit position="center">
+                    <h:form id="formulario">
+                        <p:panelGrid id="cadastro" columns="2">
+                            <p:outputLabel value="Nome: "/>
+                            <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}"/>
+                            <p:outputLabel value="CNPJ: "/>
+                            <p:inputMask mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}"/>
+                            <p:outputLabel value="Telefone: "/>
+                            <p:inputMask mask="(99) 99999-9999" value="#{fornecedorController.fornecedor.contatoFornecedor}"/>
+                            <p:commandButton value="Salvar" action="#{fornecedorController.salvar()}" update="formulario"/>
+                        </p:panelGrid>
+                        <p:panel id="listagem" header="Listagem">
+                            <p:dataTable var="fornecedor" value="#{fornecedorController.listar()}">
+                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}" > 
+                                    <p:outputLabel value="#{fornecedor.idFornecedor}"/> 
+                                </p:column>
+                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.nomeFornecedor}"/> 
+                                </p:column>
+                            <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
+                                </p:column>
+                            <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.cnpjFornecedor}"/> 
+                                </p:column>
+                                <p:column headerText="Opções" >
+                                    <p:commandButton value="Editar" update=":formulario" style="width: 100px; height:50px; text-align: center" >
+                                        <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
+                                                                     value="#{fornecedor}" />      
+                                    </p:commandButton>
+                                    <p:commandButton value="Remover" update=":formulario" style="width: 100px; height:50px; text-align: center"
+                                                     action="#{fornecedorController.remover(fornecedor)}">
+                                    </p:commandButton>
+                                </p:column>
+                            </p:dataTable>
+                        </p:panel>
+                    </h:form>
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
+
