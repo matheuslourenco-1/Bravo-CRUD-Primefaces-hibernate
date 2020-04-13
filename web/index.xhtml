@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Fornecedor</title>
+            </f:facet>
+           <h:outputStylesheet library="css" name="css/crud.css" />
+        </h:head>
+        <h:body>
+            <p:layout fullPage="true">
+                <p:layoutUnit position="center">
+                    <h:form id="formulario">
+                       <p:panelGrid id="cadastro" columns="2">
+                            <p:outputLabel value="Nome: "/>
+                            <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}"/>
+                            <p:outputLabel value="CNPJ: "/>
+                            <p:inputMask mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}"/>
+                            <p:outputLabel value="Telefone: "/>
+                            <p:inputMask mask="(99) 99999-9999" value="#{fornecedorController.fornecedor.contatoFornecedor}"/>
+                            <p:commandButton value="Salvar" action="#{fornecedorController.salvar()}" update="formulario"/>
+                        </p:panelGrid>
+                        <p:panel id="listagem" header="Listagem">
+                            <p:dataTable var="fornecedor" value="#{fornecedorController.listar()}">
+                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}" > 
+                                    <p:outputLabel value="#{fornecedor.idFornecedor}"/> 
+                                </p:column>
+                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.nomeFornecedor}"/> 
+                                </p:column>
+                            <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
+                                </p:column>
+                            <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.cnpjFornecedor}"/> 
+                                </p:column>
+                                <p:column headerText="Opções" >
+                                    <p:commandButton value="Editar" update=":formulario" style="width: 100px; height:50px; text-align: center" >
+                                        <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
+                                                                     value="#{fornecedor}" />      
+                                    </p:commandButton>
+                                    <p:commandButton value="Remover" update=":formulario" style="width: 100px; height:50px; text-align: center"
+                                                     action="#{fornecedorController.remover(fornecedor)}">
+                                    </p:commandButton>
+                                </p:column>
+                            </p:dataTable>
+                        </p:panel>
+                    </h:form>
+                </p:layoutUnit>
+            </p:layout>
+            		<h:form id="form">
+
+			<p:growl id="msg" />
+			
+			<p:toolbar style="margin-bottom:30px;" >
+				<p:toolbarGroup align="left" >
+					<p:commandButton value="Novo Usuário" icon="ui-icon-document" action="newUser" >
+						<f:setPropertyActionListener value="#{usuarioBean.nullUser}" target="#{usuarioBean.usuario}" />
+					</p:commandButton>
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<p:panel>
+				<p:dataTable id="table" value="#{usuarioBean.usuarios}" var="usr"
+					paginator="true" rows="10">
+
+					<f:facet name="header">Lista de Usuários</f:facet>
+
+					<p:column headerText="ID" style="text-align: center">
+						<h:outputText value="#{usr.id}" />
+					</p:column>
+
+					<p:column headerText="NOME" style="text-align: center">
+						<h:outputText value="#{usr.nome}" />
+					</p:column>
+
+					<p:column headerText="CPF" style="text-align: center">
+						<h:outputText value="#{usr.cpf}" />
+					</p:column>
+
+					<p:column headerText="TELEFONE" style="text-align: center">
+						<h:outputText value="#{usr.telefone}" />
+					</p:column>
+
+					<p:column headerText="E-MAIL" style="text-align: center">
+						<h:outputText value="#{usr.email}" />
+					</p:column>
+
+					<p:column style="text-align: center">
+						<p:commandButton id="detailButton" icon="ui-icon-search" update=":form:detailDisplay" oncomplete="detailWidget.show()">
+							<f:setPropertyActionListener value="#{usr}" target="#{usuarioBean.usuario}" />
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-pencil" update=":form:editDisplay" oncomplete="editWidget.show()">
+							<f:setPropertyActionListener value="#{usr}" target="#{usuarioBean.usuario}" />
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-trash" update=":form:removeDialog" oncomplete="removeWidget.show()">
+							<f:setPropertyActionListener value="#{usr}" target="#{usuarioBean.usuario}" />
+						</p:commandButton>
+					</p:column>
+
+				</p:dataTable>
+			</p:panel>
+
+			<p:dialog header="Detalhes" widgetVar="detailWidget"
+				resizable="false" modal="true">
+											
+				<h:panelGrid id="detailDisplay" columns="2" cellpadding="4"
+					style="margin:0 auto;">
+
+					<h:outputText value="Id:" />
+					<h:outputText value="#{usuarioBean.usuario.id}"
+						style="font-weight:bold" />
+
+					<h:outputText value="Nome:" />
+					<h:outputText value="#{usuarioBean.usuario.nome}"
+						style="font-weight:bold" />
+
+					<h:outputText value="Cpf" />
+					<h:outputText value="#{usuarioBean.usuario.cpf}"
+						style="font-weight:bold" />
+
+					<h:outputText value="Telefone:" />
+					<h:outputText value="#{usuarioBean.usuario.telefone}"
+						style="font-weight:bold" />
+
+					<h:outputText value="E-mail" />
+					<h:outputText value="#{usuarioBean.usuario.email}"
+						style="font-weight:bold" />
+
+				</h:panelGrid>
+			</p:dialog>
+
+			<p:dialog header="Editar" widgetVar="editWidget" resizable="false"
+				modal="true">
+											
+				<h:panelGrid id="editDisplay" columns="2" cellpadding="4"
+					style="margin:0 auto;">
+
+					<h:outputText value="Id:" />
+					<p:inputText value="#{usuarioBean.usuario.id}" disabled="true" />
+
+					<h:outputText value="Nome:" />
+					<p:inputText value="#{usuarioBean.usuario.nome}" />
+
+					<h:outputText value="Cpf" />
+					<p:inputMask value="#{usuarioBean.usuario.cpf}" mask="999.999.999-99" />
+
+					<h:outputText value="Telefone:" />
+					<p:inputMask value="#{usuarioBean.usuario.telefone}" mask="(99) 9999-9999" />
+
+					<h:outputText value="E-mail" />
+					<p:inputText value="#{usuarioBean.usuario.email}" />
+
+					<p:commandButton value="Atualizar" icon="ui-icon-check"
+						action="#{usuarioBean.atualizar}" oncomplete="editWidget.hide()"
+						update="table, msg" />
+
+				</h:panelGrid>
+			</p:dialog>
+
+			<p:confirmDialog id="removeDialog" widgetVar="removeWidget" header="Remoção de usuário"
+				message="Deseja realmente apagar o usuário #{usuarioBean.usuario.nome}?"
+				severity="alert" >
+				
+				<p:commandButton value="Sim" icon="ui-icon-check" action="#{usuarioBean.remover}"
+					oncomplete="removeWidget.hide()" update="table, msg" />
+			</p:confirmDialog>
+
+		</h:form>
+        </h:body>
+    </f:view>
+</html>
+
