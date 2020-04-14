@@ -4,12 +4,13 @@
     padding: 0;
     margin: 0;
 }
-body{
+
+html,
+body,
+#root{
     font-family:Arial;
     font-size:12px;
-    margin:0px;
-    padding:0px;
-    min-width: 700px;
+    height: 100vw;
 }
 
 
@@ -51,31 +52,71 @@ body{
     float: bottom;
 }
 
-.ui-menubar{
-    transition: background 2s;
+/*Barra Lateral*/
+
+.BarraLateral > ui-layout-unit{
+    margin: 10px;
+
 }
+.ui-layout {
+
+}
+.BarraLateral{
+    height: 100vw;
+    margin: 0px;
+    background: #000;
+    width: 100vw;
+}
+.BarraLateral2{
+    height: 100vw;
+    margin: 0px;
+    width: 22em;
+    background: #000;
+}
+.ui-layout-unit-content{
+    padding:0.2em 0em;
+    overflow:auto;
+}
+
+.ui-menubar{
+    
+}
+.ui-menu{
+    background: #000000;
+}
+
 .ui-menubar:hover{
 }
 .ui-menu-list{
-
+    width: 100vw;
+    border-radius: 0px;
 }
 .ui-menuitem{
+    width: 100vw;
+    background: red;
 
 }
 .ui-menuitem:hover{
+    background: purple;
 
 }
 
 .ui-menuitem-link{
+    height: 1.9em;
 
+    width: 100vw;
+}
+.ui-menuitem-link:hover{
+    background: purple;
+    width: 50vw;
 }
 .ui-menuitem-text{
-    font-size: 15px;
+    font-size: 20px;
     text-align: center;
 }
 
 .ui-button{
-
+    padding: 1px 0;
 }
 .ui-button:hover{
 
@@ -83,37 +124,23 @@ body{
 .ui-button-text-only {}
 .ui-button-text {}
 
-#barraLateral{
-    background: red;
-    width: 750px;
-}
 .ui-layout{
     visibility:hidden;
-    padding:0.2em;
-    border: 1px #000 solid;
-    background: #000;
+    font-size: 50px;
 }
-.ui-layout-unit{
-    visibility:hidden;
-    padding:0.5em;
-    background: #000;
-}
+
 .ui-layout-unit-header, .ui-layout-unit-footer{
     padding:0.7em ;
     background: #4E4852;
     color: #fff;
-    width: 100em;
+    width: 20em;
+    
 
 }
 .ui-layout-unit-header-title, .ui-layout-unit-footer-title{
 
 }
-.ui-layout-unit .ui-layout-unit-content{
-    padding:0.2em 0em;
-    border:0px none;
-    overflow:auto;
-    background: #000;
-}
+
 .ui-layout-unit-header-icon{
     float:right;
 }
@@ -128,3 +155,4 @@ body{
     left:4px;
     top:2px;
 }
+
