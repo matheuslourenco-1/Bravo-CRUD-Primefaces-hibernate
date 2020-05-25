@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Cadastro Fornecedor</title>
+            </f:facet>
+            <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+            <link type="text/css" rel="stylesheet" href="css/style.css" />
+
+        </h:head>
+        <h:body>
+            <p:layout>   
+                <p:layoutUnit position="center">
+                    <h:form id="formulario">
+                       <p:panelGrid id="cadastro" columns="2">
+                            <p:outputLabel value="Nome: "/>
+                            <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}"/>
+                            <p:outputLabel value="CNPJ: "/>
+                            <p:inputMask mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}"/>
+                            <p:outputLabel value="Telefone: "/>
+                            <p:inputMask mask="(99) 99999-9999" value="#{fornecedorController.fornecedor.contatoFornecedor}"/>
+                            <i></i><p:commandButton value="Salvar"  action="#{fornecedorController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
+                        </p:panelGrid> 
+                        <br />
+                        
+                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Fornecedores">
+                            <p:dataTable var="fornecedor" value="#{fornecedorController.listar()}">
+                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}" > 
+                                    <p:outputLabel value="#{fornecedor.idFornecedor}"/> 
+                            </p:column>
+                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.nomeFornecedor}"/> 
+                            </p:column>    
+                            <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.cnpjFornecedor}"/> 
+                            </p:column>
+                            <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
+                                    <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
+                            </p:column>
+                                
+                                <p:column headerText="Opções" >
+                                    <p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario" style="width: 100px; margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
+                                        <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
+                                                                     value="#{fornecedor}" />      
+                                    </p:commandButton>
+                                    <p:commandButton value="Remover" icon="pi pi-trash" update=":formulario" style="width: 120px; height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                                     action="#{fornecedorController.remover(fornecedor)}">
+                                    </p:commandButton>
+                                    
+                                </p:column>
+                            </p:dataTable>
+                        </p:panel>
+                    </h:form>
+                </p:layoutUnit>
+            </p:layout>
+
+        </h:body>
+    </f:view>
+</html>
+

@@ -54,18 +54,10 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-          <section id= 'fornecedor'>
-                <iframe src="CadastroFornecedor.xhtml" style="width: 100%;height:100%;" ></iframe>
-          </section>
-          <section id= 'check'>
-                <iframe src="CadastroFornecedor.xhtml" style="width: 100%;height:100%;" ></iframe>
-          </section>
-          <section id= 'caminhao'>
-                <iframe src="CadastroFornecedor.xhtml" style="width: 100%;height:100%;" ></iframe>
-          </section>
-          <section id= 'motorista'>
-                <iframe src="CadastroFornecedor.xhtml" style="width: 100%;height:100%;" ></iframe>
-          </section>
+          <h4 >Cadastro Fornecedor</h1>
+          <div class="wrapper">    
+                <iframe src="Cadastros/CadastroFornecedor.xhtml" style="width: 100%;height:100%;" ></iframe>
+          </div>
       </div>
                 </div>
 
