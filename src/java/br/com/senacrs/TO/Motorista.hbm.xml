@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13/04/2016 09:29:45 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="Bravo" name="br.com.senacrs.TO.Motorista" optimistic-lock="version" table="Motorista">
+    <id name="idMotorista" type="java.lang.Integer">
+      <column name="idMotorista"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nomeMotorista" type="string">
+      <column length="45" name="nomeMotorista" not-null="true"/>
+    </property>
+    <property name="cnpjMotorista" type="string">
+      <column length="45" name="cnpjMotorista" not-null="true" unique="true"/>
+    </property>
+    <property name="contatoMotorista" type="string">
+      <column length="45" name="contatoMotorista"/>
+    </property>
+  </class>
+</hibernate-mapping>

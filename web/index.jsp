@@ -17,22 +17,8 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.jsp">Bravo Logistica</a></h1>
 						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">Inicio</a></li>
-											
-											<li><a href="login.jsp" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);margin: 5px 0px 0px 2px;"><img class="avatar" src="images/login.png" alt="">Login</a></li>
-                                                                                        
-										</ul>
-									
-								</li>
-							</ul>
-						</nav>
+
 					</header>
 
 				<!-- Banner -->
@@ -40,25 +26,11 @@
 						<div class="inner">
 							<h2>Bravo Logistica</h2>
 							<ul class="actions special">
-                                                            <li><a href="CadastroFornecedor.xhtml" class="button primary">Entrar</a></li>
+                                                            <li><a href="painel.jsp" class="button primary">Entrar</a></li>
 							</ul>
 						</div>
 
 					</section>
-
-				<!-- One -->
-					
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-						</ul>
-					</footer>
-
 			</div>
 
 		<!-- Scripts -->

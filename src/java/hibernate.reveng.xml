@@ -2,5 +2,7 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="Bravo"/>
+  <table-filter match-name="motorista"/>
+  <table-filter match-name="caminhao"/>
   <table-filter match-name="fornecedor"/>
 </hibernate-reverse-engineering>

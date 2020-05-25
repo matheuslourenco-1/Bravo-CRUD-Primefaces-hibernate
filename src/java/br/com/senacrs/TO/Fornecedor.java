@@ -2,7 +2,8 @@ package br.com.senacrs.TO;
 
 public class Fornecedor  implements java.io.Serializable {
 
-
+    //declaração das variaveis 
+    
      private Integer idFornecedor;
      private String nomeFornecedor;
      private String cnpjFornecedor;
@@ -11,6 +12,7 @@ public class Fornecedor  implements java.io.Serializable {
      public Fornecedor(){
          
      }
+     //construtores
     public Fornecedor(String nomeFornecedor,  String cnpjFornecedor){
         this.nomeFornecedor = nomeFornecedor;
         this.cnpjFornecedor = cnpjFornecedor;
@@ -21,8 +23,6 @@ public class Fornecedor  implements java.io.Serializable {
         this.cnpjFornecedor = cnpjFornecedor;
         this.contatoFornecedor = contatoFornecedor;
     }
-
-
 
     public Integer getIdFornecedor() {
         return idFornecedor;

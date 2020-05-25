@@ -23,16 +23,18 @@ public class FornecedorController implements Serializable{
     public void setFornecedor(Fornecedor cliente) {
         this.cliente = cliente;
     }
-    
+    //Metodo Salvar
     public void salvar(){
         FornecedorDAO client = new FornecedorDAO();
         client.salvar(cliente);
         cliente = new Fornecedor();
     }
+    //metodo listar
     public List<Fornecedor> listar(){
         FornecedorDAO client = new FornecedorDAO();
         return client.listar();
     }
+    //metodo excluir
     public void remover(Fornecedor cliente){
         FornecedorDAO client = new FornecedorDAO();
         client.remover(cliente);
