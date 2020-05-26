@@ -10,8 +10,9 @@
             
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Cadastro Fornecedor</title>
+                <title>Cadastro Caminhao</title>
             </f:facet>
+            <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
             <link type="text/css" rel="stylesheet" href="css/style.css" />
 
         </h:head>
@@ -21,38 +22,39 @@
                     <h:form id="formulario">
                        <p:panelGrid id="cadastro" columns="2">
                             <p:outputLabel value="Nome: "/>
-                            <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}"/>
+                            <p:inputText value="#{caminhaoController.caminhao.nomeCaminhao}"/>
                             <p:outputLabel value="CNPJ: "/>
-                            <p:inputMask mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}"/>
+                            <p:inputMask mask="99.999.999/9999-99" value="#{caminhaoController.caminhao.cnpjCaminhao}"/>
                             <p:outputLabel value="Telefone: "/>
-                            <p:inputMask mask="(99) 99999-9999" value="#{fornecedorController.fornecedor.contatoFornecedor}"/>
-
-                            <p:commandButton value="Salvar" class="button" action="#{fornecedorController.salvar()}" update="formulario" style="margin-right:20px;"/><i class="pi pi-save"></i>
-                        </p:panelGrid>
-                        <p:panel id="listagem" header="Lista de Fornecedores">
-                            <p:dataTable var="fornecedor" value="#{fornecedorController.listar()}">
-                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}" > 
-                                    <p:outputLabel value="#{fornecedor.idFornecedor}"/> 
+                            <p:inputMask mask="(99) 99999-9999" value="#{caminhaoController.caminhao.contatoCaminhao}"/>
+                            <i></i><p:commandButton value="Salvar"  action="#{caminhaoController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
+                        </p:panelGrid> 
+                        <br />
+                        
+                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Caminhaoes">
+                            <p:dataTable var="caminhao" value="#{caminhaoController.listar()}">
+                            <p:column headerText="ID" filterBy="#{caminhao.idCaminhao}" > 
+                                    <p:outputLabel value="#{caminhao.idCaminhao}"/> 
                             </p:column>
-                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.nomeFornecedor}"/> 
+                            <p:column headerText="Nome" filterBy="#{caminhao.nomeCaminhao}"> 
+                                    <p:outputLabel value="#{caminhao.nomeCaminhao}"/> 
                             </p:column>    
-                            <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.cnpjFornecedor}"/> 
+                            <p:column headerText="CNPJ" filterBy="#{caminhao.cnpjCaminhao}"> 
+                                    <p:outputLabel value="#{caminhao.cnpjCaminhao}"/> 
                             </p:column>
-                            <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
+                            <p:column headerText="Telefone" filterBy="#{caminhao.contatoCaminhao}"> 
+                                    <p:outputLabel value="#{caminhao.contatoCaminhao}"/> 
                             </p:column>
                                 
-
                                 <p:column headerText="Opções" >
-                                    <p:commandButton value="Editar" update=":formulario" style="width: 100px; height:50px; text-align: center" >
-                                        <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
-                                                                     value="#{fornecedor}" />      
+                                    <p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario" style="width: 100px; margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
+                                        <f:setPropertyActionListener target="#{caminhaoController.caminhao}"
+                                                                     value="#{caminhao}" />      
                                     </p:commandButton>
-                                    <p:commandButton value="Remover" update=":formulario" style="width: 100px; height:50px; text-align: center"
-                                                     action="#{fornecedorController.remover(fornecedor)}">
+                                    <p:commandButton value="Remover" icon="pi pi-trash" update=":formulario" style="width: 120px; height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                                     action="#{caminhaoController.remover(caminhao)}">
                                     </p:commandButton>
+                                    
                                 </p:column>
                             </p:dataTable>
                         </p:panel>

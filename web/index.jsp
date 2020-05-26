@@ -26,7 +26,7 @@
 						<div class="inner">
 							<h2>Bravo Logistica</h2>
 							<ul class="actions special">
-                                                            <li><a href="painel.jsp" class="button primary">Entrar</a></li>
+                                                            <li><a href="painelForncedor.jsp" class="button primary">Entrar</a></li>
 							</ul>
 						</div>
 

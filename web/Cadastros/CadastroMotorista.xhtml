@@ -10,8 +10,9 @@
             
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Cadastro Fornecedor</title>
+                <title>Cadastro Motorista</title>
             </f:facet>
+            <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
             <link type="text/css" rel="stylesheet" href="css/style.css" />
 
         </h:head>
@@ -21,38 +22,39 @@
                     <h:form id="formulario">
                        <p:panelGrid id="cadastro" columns="2">
                             <p:outputLabel value="Nome: "/>
-                            <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}"/>
+                            <p:inputText value="#{motoristaController.motorista.nomeMotorista}"/>
                             <p:outputLabel value="CNPJ: "/>
-                            <p:inputMask mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}"/>
+                            <p:inputMask mask="99.999.999/9999-99" value="#{motoristaController.motorista.cnpjMotorista}"/>
                             <p:outputLabel value="Telefone: "/>
-                            <p:inputMask mask="(99) 99999-9999" value="#{fornecedorController.fornecedor.contatoFornecedor}"/>
-
-                            <p:commandButton value="Salvar" class="button" action="#{fornecedorController.salvar()}" update="formulario" style="margin-right:20px;"/><i class="pi pi-save"></i>
-                        </p:panelGrid>
-                        <p:panel id="listagem" header="Lista de Fornecedores">
-                            <p:dataTable var="fornecedor" value="#{fornecedorController.listar()}">
-                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}" > 
-                                    <p:outputLabel value="#{fornecedor.idFornecedor}"/> 
+                            <p:inputMask mask="(99) 99999-9999" value="#{motoristaController.motorista.contatoMotorista}"/>
+                            <i></i><p:commandButton value="Salvar"  action="#{motoristaController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
+                        </p:panelGrid> 
+                        <br />
+                        
+                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Motoristaes">
+                            <p:dataTable var="motorista" value="#{motoristaController.listar()}">
+                            <p:column headerText="ID" filterBy="#{motorista.idMotorista}" > 
+                                    <p:outputLabel value="#{motorista.idMotorista}"/> 
                             </p:column>
-                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.nomeFornecedor}"/> 
+                            <p:column headerText="Nome" filterBy="#{motorista.nomeMotorista}"> 
+                                    <p:outputLabel value="#{motorista.nomeMotorista}"/> 
                             </p:column>    
-                            <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.cnpjFornecedor}"/> 
+                            <p:column headerText="CNPJ" filterBy="#{motorista.cnpjMotorista}"> 
+                                    <p:outputLabel value="#{motorista.cnpjMotorista}"/> 
                             </p:column>
-                            <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
+                            <p:column headerText="Telefone" filterBy="#{motorista.contatoMotorista}"> 
+                                    <p:outputLabel value="#{motorista.contatoMotorista}"/> 
                             </p:column>
                                 
-
                                 <p:column headerText="Opções" >
-                                    <p:commandButton value="Editar" update=":formulario" style="width: 100px; height:50px; text-align: center" >
-                                        <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
-                                                                     value="#{fornecedor}" />      
+                                    <p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario" style="width: 100px; margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
+                                        <f:setPropertyActionListener target="#{motoristaController.motorista}"
+                                                                     value="#{motorista}" />      
                                     </p:commandButton>
-                                    <p:commandButton value="Remover" update=":formulario" style="width: 100px; height:50px; text-align: center"
-                                                     action="#{fornecedorController.remover(fornecedor)}">
+                                    <p:commandButton value="Remover" icon="pi pi-trash" update=":formulario" style="width: 120px; height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                                     action="#{motoristaController.remover(motorista)}">
                                     </p:commandButton>
+                                    
                                 </p:column>
                             </p:dataTable>
                         </p:panel>

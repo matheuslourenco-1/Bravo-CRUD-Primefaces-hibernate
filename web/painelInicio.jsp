@@ -34,19 +34,19 @@
         <ul class="list-unstyled components mb-5">
           <li class="active">
           
-            <a href="#"><span class="fa fa-home mr-3"></span> Inicio</a>
+            <a href="painelInicio.jsp"><span class="fa fa-home mr-3"></span> Inicio</a>
           </li>
           <li>
-            <a href="#check"> Check List</a>
+            <a href="painelChecklist.jsp"> Check List</a>
           </li>
           <li>
-            <a href="#fornecedor"> Fornecedor</a>
+            <a href="painelFornecedor.jsp"> Fornecedor</a>
           </li>
           <li>
-            <a href="#caminhao"> Caminhão</a>
+            <a href="painelCaminhao.jsp"> Caminhão</a>
           </li>
           <li>
-            <a href="#motorista"> Motorista</a>
+            <a href="painelMotorista.jsp"> Motorista</a>
           </li>
         </ul>
 
@@ -54,9 +54,9 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-          <h4 >Cadastro Fornecedor</h1>
+          <h4 >Inicio</h1>
           <div class="wrapper">    
-                <iframe src="Cadastros/CadastroFornecedor.xhtml" style="width: 100%;height:100%;" ></iframe>
+                
           </div>
       </div>
                 </div>
