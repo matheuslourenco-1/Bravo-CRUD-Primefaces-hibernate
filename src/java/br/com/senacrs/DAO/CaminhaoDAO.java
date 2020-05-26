@@ -1,6 +1,6 @@
 package br.com.senacrs.DAO;
 
-import br.com.senacrs.TO.Fornecedor;
+import br.com.senacrs.TO.Caminhao;
 import br.com.senacrs.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
@@ -15,21 +15,21 @@ public class CaminhaoDAO {
     
 
     
-    public List<Fornecedor> listar(){
-        List<Fornecedor> fornecedor = session.createCriteria(Fornecedor.class).list();
+    public List<Caminhao> listar(){
+        List<Caminhao> caminhao = session.createCriteria(Caminhao.class).list();
         session.close();
-        return fornecedor;
+        return caminhao;
     }
-    public void remover(Object fornecedor){
+    public void remover(Object caminhao){
         session.beginTransaction();
-        session.delete(fornecedor);
+        session.delete(caminhao);
         session.getTransaction().commit();
         session.close();
     }
 
-    public void salvar(Fornecedor fornecedor) {
+    public void salvar(Caminhao caminhao) {
         session.beginTransaction();
-        session.saveOrUpdate(fornecedor);
+        session.saveOrUpdate(caminhao);
         session.getTransaction().commit();
         session.close();
     }
