@@ -7,6 +7,7 @@ Este projeto apresenta um simples CRUD utilizando as tecnologias citadas, sem fo
 - [Hibernate 4.3.1](http://hibernate.org/orm/documentation/4.3/)
 - [Glassfish Server 4.1](https://glassfish.java.net/docs/4.1/release-notes.pdf)
 - [Mysql 5.7](https://dev.mysql.com/doc/refman/5.7/en/)
+- [BootStrap] (https://getbootstrap.com)
 
 ## Execução no Netbeans
 1. Clone no projeto 
