@@ -3,7 +3,7 @@ Este projeto apresenta um simples CRUD utilizando as tecnologias citadas, sem fo
 
 ## Tecnologias utilizadas
 - [JSF 2.2](https://javaserverfaces.java.net/docs/2.2/)
-- [Primefaces 5.0](https://www.primefaces.org/docs/guide/primefaces_user_guide_5_0.pdf)
+- [Primefaces 8.0](https://primefaces.github.io/primefaces/8_0/#/)
 - [Hibernate 4.3.1](http://hibernate.org/orm/documentation/4.3/)
 - [Glassfish Server 4.1](https://glassfish.java.net/docs/4.1/release-notes.pdf)
 - [Mysql 5.7](https://dev.mysql.com/doc/refman/5.7/en/)
