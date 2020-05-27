@@ -1,7 +1,7 @@
 package br.com.senacrs.controller;
 
-import br.com.senacrs.DAO.FornecedorDAO;
-import br.com.senacrs.TO.Fornecedor;
+import br.com.senacrs.DAO.CaminhaoDAO;
+import br.com.senacrs.TO.Caminhao;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -12,31 +12,31 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class CaminhaoController implements Serializable{
     private static final long serialVersionUID = 1L;
-    private Fornecedor cliente = new Fornecedor();
+    private Caminhao cliente = new Caminhao();
     
     
     
-    public Fornecedor getFornecedor() {
+    public Caminhao getCaminhao() {
         return cliente;
     }
 
-    public void setFornecedor(Fornecedor cliente) {
+    public void setCaminhao(Caminhao cliente) {
         this.cliente = cliente;
     }
     //Metodo Salvar
     public void salvar(){
-        FornecedorDAO client = new FornecedorDAO();
+        CaminhaoDAO client = new CaminhaoDAO();
         client.salvar(cliente);
-        cliente = new Fornecedor();
+        cliente = new Caminhao();
     }
     //metodo listar
-    public List<Fornecedor> listar(){
-        FornecedorDAO client = new FornecedorDAO();
+    public List<Caminhao> listar(){
+        CaminhaoDAO client = new CaminhaoDAO();
         return client.listar();
     }
     //metodo excluir
-    public void remover(Fornecedor cliente){
-        FornecedorDAO client = new FornecedorDAO();
+    public void remover(Caminhao cliente){
+        CaminhaoDAO client = new CaminhaoDAO();
         client.remover(cliente);
     }
     
