@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+    <h:head>
+
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+            <title>Cadastro Fornecedor</title>
+        </f:facet>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <link type="text/css" rel="stylesheet" href="css/style.css" />
+<style type="text/css">
+    .ui-datalist ul {
+        padding: 0px 10px 0 20px;
+        margin: 5px 0;
+    }
+ 
+    .ui-datalist {
+        margin-bottom: 10px
+    }
+ 
+    .ui-noborder tr.ui-widget-content {
+        background: none;
+    }
+</style>
+    </h:head>
+    <h:body>
+        <p:layout>
+            <p:layoutUnit position="center">
+                <h:form id="formulario">
+                    <p:panel  header="Checklist" style="margin-bottom:20px">
+ <h:form>
+     <p:selectManyCheckbox id="basic" columns="1" layout="pageDirection">
+        <f:selectItem itemLabel="Cinto de segurança perfeito e funcionando" itemValue="Cinto de segurança perfeito e funcionando" />
+        <f:selectItem itemLabel="Pneus em bom estado" itemValue="Pneus em bom estado" />
+        <f:selectItem itemLabel="Rodas em bom estado" itemValue="Rodas em bom estado" />
+        <f:selectItem itemLabel="Freio funcionando perfeitamente" itemValue="Freio funcionando perfeitamente" />
+        <f:selectItem itemLabel="Freio de Estacionamento ok" itemValue="Freio de Estacionamento ok" />
+        <f:selectItem itemLabel="Direção em bom estado" itemValue="Direção em bom estado" />
+        <f:selectItem itemLabel="Limpador de Pára-Brisa funcionando bem" itemValue="Limpador de Pára-Brisa funcionando bem" />
+        <f:selectItem itemLabel="Instrumentos do Painel" itemValue="Instrumentos do Painel" />
+        <f:selectItem itemLabel="Luz de Freio funcionando" itemValue="Luz de Freio funcionando" />
+        <f:selectItem itemLabel="Óleo Hidráulico, nível correto" itemValue="Óleo Hidráulico, nível correto" />
+        <f:selectItem itemLabel="Tampa de combustivel, existe e está ok" itemValue="Tampa de combustivel, existe e está ok" />
+        <f:selectItem itemLabel="Chave de segurança e Triângulo de Sinalização existe" itemValue="Chave de segurança e Triângulo de Sinalização existe" />
+        <f:selectItem itemLabel="Carroceria em bom estado" itemValue="Carroceria em bom estado" />      
+        <f:selectItem itemLabel="Farol funcionando bem" itemValue="Farol funcionando bem" />
+        <f:selectItem itemLabel="Luz de Freio funcionando" itemValue="Luz de Freio funcionando" />
+        
+    </p:selectManyCheckbox>
+ 
+ 
+    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="pi pi-check" />
+ 
+    <p:dialog header="Values" modal="true" showEffect="clip" widgetVar="dlg" resizable="false">
+        <p:outputPanel id="display">
+            <p:dataList value="#{checkboxView.selectedConsoles}" var="console">
+                <f:facet name="header">
+                    Basic
+                </f:facet>
+                #{console}
+            </p:dataList>
+        </p:outputPanel>
+    </p:dialog>
+</h:form>
+
+
+                    </p:panel>
+                    
+                    <br />
+
+                    <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Fornecedores">
+                        <p:dataTable var="fornecedor" value="#{fornecedorController.listar()}">
+                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}">
+                                <p:outputLabel value="#{fornecedor.idFornecedor}" />
+                            </p:column>
+                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}">
+                                <p:outputLabel value="#{fornecedor.nomeFornecedor}" />
+                            </p:column>
+                            <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}">
+                                <p:outputLabel value="#{fornecedor.cnpjFornecedor}" />
+                            </p:column>
+                            <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}">
+                                <p:outputLabel value="#{fornecedor.contatoFornecedor}" />
+                            </p:column>
+
+                            <p:column headerText="Opções">
+                                <p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario"
+                                    style="width: 100px; margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center">
+                                    <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
+                                        value="#{fornecedor}" />
+                                </p:commandButton>
+                                <p:commandButton value="Remover" icon="pi pi-trash" update=":formulario"
+                                    style="width: 120px; height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                    action="#{fornecedorController.remover(fornecedor)}">
+                                </p:commandButton>
+
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+
+    </h:body>
+</f:view>
+
+</html>

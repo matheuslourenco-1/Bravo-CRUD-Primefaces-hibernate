@@ -56,7 +56,7 @@
       <div id="content" class="p-4 p-md-5 pt-5">
           <h4 >Checklist</h1>
           <div class="wrapper">    
-                <iframe src="Cadastros/CadastroFornecedor.xhtml" style="width: 100%;height:100%;" ></iframe>
+                <iframe src="Cadastros/Checklist.xhtml" style="width: 100%;height:100%;" ></iframe>
           </div>
       </div>
                 </div>
