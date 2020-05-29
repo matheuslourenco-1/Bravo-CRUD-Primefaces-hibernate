@@ -1,10 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
-
 <f:view contentType="text/html">
 	<h:head>
-
 		<f:facet name="first">
 			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
 			<title>Cadastro Fornecedor</title>
@@ -53,24 +51,46 @@
                             text-shadow: 1px 1px 1px #333;
                             text-transform: uppercase;
                         }
-                        
+                        .ui-panelgrid .ui-panelgrid-cell {
+                            border-width: 1px;
+                            border-style: solid;
+                            border-color: inherit;
+                            padding: 6px 17px;
+                        }
+                        .ui-selectmanycheckbox .ui-chkbox .ui-chkbox-box {
+                            display: block;
+                            border-radius: 100%;
+                        }
+
 		</style>
 	</h:head>
 	<h:body>
 		<p:layout>
 			<p:layoutUnit position="center">
 				<h:form id="formulario">
+                                    
 					<p:panel id="checklist" header="Checklist" style="margin-bottom:20px">
-						<h:form>
-                                                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                                                    </h:panelGrid>
+						<h:form> 
+                                                   <p:panelGrid id="menuboxes" style="width: 770px;" columns="4">
                                                     <p:outputLabel for="@next" value="Fornecedor: " />
-                                                    <p:selectOneMenu id="car" value="#{fornecedor.nomeFornecedor}">
-                                                        <f:selectItem itemLabel="Selecione Um" itemValue="" />
+                                                    <p:selectOneMenu style="width:200px;" id="fornecedor" value="#{fornecedor.nomeFornecedor}">
+                                                        <f:selectItem itemLabel="SELECIONE UM" itemValue="" />
                                                         <f:selectItems value="#{fornecedor.nomeFornecedor}" />
                                                     </p:selectOneMenu>
-                                                    <br /> 
+                                                    <p:outputLabel for="@next" value="Caminhão: " />
+                                                    <p:selectOneMenu style="width:200px;" id="caminhao" value="#{fornecedor.nomeFornecedor}">
+                                                        <f:selectItem itemLabel="SELECIONE UM" itemValue="" />
+                                                        <f:selectItems value="#{fornecedor.nomeFornecedor}" />
+                                                    </p:selectOneMenu>
+                                                    <p:outputLabel for="@next" value="Motorista: " />
+                                                    <p:selectOneMenu style="width:200px;" id="motorista" value="#{fornecedor.nomeFornecedor}">
+                                                        <f:selectItem itemLabel="SELECIONE UM" itemValue="" />
+                                                        <f:selectItems value="#{fornecedor.nomeFornecedor}" />
+                                                    </p:selectOneMenu>
                                                     
+                                                   </p:panelGrid>
+
+                                                    <p:panelGrid id="check" style="width: 770px;" columns="1">
 							<p:selectManyCheckbox id="basic" columns="1" layout="pageDirection">
 								<f:selectItem itemLabel="Cinto de segurança perfeito e funcionando"
 									itemValue="Cinto de segurança perfeito e funcionando" />
@@ -97,49 +117,13 @@
 								<f:selectItem itemLabel="Farol funcionando bem" itemValue="Farol funcionando bem" />
 								<f:selectItem itemLabel="Luz de Freio funcionando"
 									itemValue="Luz de Freio funcionando" />
-
 							</p:selectManyCheckbox>
-
-
 							<p:commandButton value="Salvar" action="#{fornecedorController.salvar()}"
 								update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;" />
-
+                                                    </p:panelGrid>
 						</h:form>
-
-
 					</p:panel>
-
 					<br />
-
-					<p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Fornecedores">
-						<p:dataTable var="fornecedor" value="#{fornecedorController.listar()}">
-							<p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}">
-								<p:outputLabel value="#{fornecedor.idFornecedor}" />
-							</p:column>
-							<p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}">
-								<p:outputLabel value="#{fornecedor.nomeFornecedor}" />
-							</p:column>
-							<p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}">
-								<p:outputLabel value="#{fornecedor.cnpjFornecedor}" />
-							</p:column>
-							<p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}">
-								<p:outputLabel value="#{fornecedor.contatoFornecedor}" />
-							</p:column>
-
-							<p:column headerText="Opções">
-								<p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario"
-									style="width: 100px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center">
-									<f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
-										value="#{fornecedor}" />
-								</p:commandButton>
-								<p:commandButton value="Remover" icon="pi pi-trash" update=":formulario"
-									style="width: 120px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
-									action="#{fornecedorController.remover(fornecedor)}">
-								</p:commandButton>
-
-							</p:column>
-						</p:dataTable>
-					</p:panel>
 				</h:form>
 			</p:layoutUnit>
 		</p:layout>
