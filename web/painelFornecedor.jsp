@@ -17,6 +17,35 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    		<style type="text/css">
+                    .ui-widget-header {
+                        background: #333;
+                        color: white;
+                        font-weight: 500;
+                    }
+                    
+			.ui-datalist ul {
+				padding: 0px 10px 0 20px;
+				margin: 5px 0;
+			}
+
+			.ui-datalist {
+				margin-bottom: 10px
+			}
+
+			.ui-noborder tr.ui-widget-content {
+				background: none;
+			}
+                        .ui-state-default{
+                                box-shadow: inset 0 0px 0 #fff;
+                        }
+                        .ui-panel{
+                            padding: 0em;
+                        }
+                        .ui-layout{
+                            height:100%;
+                        }
+		</style>
   </head>
   <body>
 		<div class="wrapper d-flex align-items-stretch">

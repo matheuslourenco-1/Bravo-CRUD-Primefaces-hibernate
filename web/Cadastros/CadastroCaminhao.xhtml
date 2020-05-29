@@ -14,6 +14,35 @@
             </f:facet>
             <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
             <link type="text/css" rel="stylesheet" href="css/style.css" />
+            		<style type="text/css">
+                    .ui-widget-header {
+                        background: #333;
+                        color: white;
+                        font-weight: 500;
+                    }
+                    
+			.ui-datalist ul {
+				padding: 0px 10px 0 20px;
+				margin: 5px 0;
+			}
+
+			.ui-datalist {
+				margin-bottom: 10px
+			}
+
+			.ui-noborder tr.ui-widget-content {
+				background: none;
+			}
+                        .ui-state-default{
+                                box-shadow: inset 0 0px 0 #fff;
+                        }
+                        .ui-panel{
+                            padding: 0em;
+                        }
+                        .ui-layout{
+                            height:100%;
+                        }
+		</style>
 
         </h:head>
         <h:body>
@@ -47,11 +76,11 @@
                             </p:column>
                                 
                                 <p:column headerText="Opções" >
-                                    <p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario" style="width: 100px; margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
+                                    <p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario" style="width: 100px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
                                         <f:setPropertyActionListener target="#{caminhaoController.caminhao}"
                                                                      value="#{caminhao}" />      
                                     </p:commandButton>
-                                    <p:commandButton value="Remover" icon="pi pi-trash" update=":formulario" style="width: 120px; height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                    <p:commandButton value="Remover" icon="pi pi-trash" update=":formulario" style="width: 120px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                                      action="#{caminhaoController.remover(caminhao)}">
                                     </p:commandButton>
                                     

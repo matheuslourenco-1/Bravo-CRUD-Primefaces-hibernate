@@ -39,6 +39,21 @@
                         .ui-layout{
                             height:100%;
                         }
+                        .ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+                            background: #fff;
+                            -moz-box-shadow: inset 0 2px 2px #8f8f8f;
+                            -webkit-box-shadow: inset 0 0px 0px #8f8f8f; 
+                            box-shadow: inset 0 0px 0px #8f8f8f;
+                            color: #313131;
+                        }
+                        .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+                            border: 1px solid #666;
+                            background: #ababab;
+                            color: #fff;
+                            text-shadow: 1px 1px 1px #333;
+                            text-transform: uppercase;
+                        }
+                        
 		</style>
 	</h:head>
 	<h:body>
@@ -47,6 +62,15 @@
 				<h:form id="formulario">
 					<p:panel id="checklist" header="Checklist" style="margin-bottom:20px">
 						<h:form>
+                                                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                                    </h:panelGrid>
+                                                    <p:outputLabel for="@next" value="Fornecedor: " />
+                                                    <p:selectOneMenu id="car" value="#{fornecedor.nomeFornecedor}">
+                                                        <f:selectItem itemLabel="Selecione Um" itemValue="" />
+                                                        <f:selectItems value="#{fornecedor.nomeFornecedor}" />
+                                                    </p:selectOneMenu>
+                                                    <br /> 
+                                                    
 							<p:selectManyCheckbox id="basic" columns="1" layout="pageDirection">
 								<f:selectItem itemLabel="Cinto de segurança perfeito e funcionando"
 									itemValue="Cinto de segurança perfeito e funcionando" />
@@ -104,12 +128,12 @@
 
 							<p:column headerText="Opções">
 								<p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario"
-									style="width: 100px; margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center">
+									style="width: 100px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center">
 									<f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
 										value="#{fornecedor}" />
 								</p:commandButton>
 								<p:commandButton value="Remover" icon="pi pi-trash" update=":formulario"
-									style="width: 120px; height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+									style="width: 120px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
 									action="#{fornecedorController.remover(fornecedor)}">
 								</p:commandButton>
 
