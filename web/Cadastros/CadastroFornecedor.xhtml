@@ -4,58 +4,60 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-
     <f:view contentType="text/html">
         <h:head>
-            
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
                 <title>Cadastro Fornecedor</title>
             </f:facet>
             <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
             <link type="text/css" rel="stylesheet" href="css/style.css" />
-            		<style type="text/css">
-                    .ui-widget-header {
-                        background: #333;
-                        color: white;
-                        font-weight: 500;
-                    }
-                    
-			.ui-datalist ul {
-				padding: 0px 10px 0 20px;
-				margin: 5px 0;
-			}
-
-			.ui-datalist {
-				margin-bottom: 10px
-			}
-
-			.ui-noborder tr.ui-widget-content {
-				background: none;
-			}
-                        .ui-state-default{
-                                box-shadow: inset 0 0px 0 #fff;
-                        }
-                        .ui-panel{
-                            padding: 0em;
-                        }
-                        .ui-layout{
-                            height:100%;
-                        }
-		</style>
+            <style type="text/css">
+                .ui-widget-header {
+                    background: #333;
+                    color: white;
+                    font-weight: 500;
+                }
+                .ui-datalist ul {
+                    padding: 0px 10px 0 20px;
+                    margin: 5px 0;
+                }
+                .ui-datalist {
+                    margin-bottom: 10px
+                }
+                .ui-noborder tr.ui-widget-content {
+                    background: none;
+                }
+                .ui-state-default{
+                    box-shadow: inset 0 0px 0 #fff;
+                }
+                .ui-panel{
+                    padding: 0em;
+                }
+                .ui-layout{
+                    height:100%;
+                }
+                .ui-widget .ui-icon.pi, .ui-icon.pi {
+                    background: none repeat scroll 0 0 transparent!important;
+                    margin: -13px 0px 0px -7px;
+                    height: auto;
+                    width: auto;
+                    text-indent: 0!important;
+                }
+            </style>
         </h:head>
         <h:body>
             <p:layout>   
                 <p:layoutUnit position="center">
                     <h:form id="formulario">
-                       <p:panelGrid id="cadastro" columns="2">
+                        <p:panelGrid id="cadastro" columns="2">
                             <p:outputLabel value="Nome: "/>
                             <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}"/>
                             <p:outputLabel value="CNPJ: "/>
                             <p:inputMask mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}"/>
                             <p:outputLabel value="Telefone: "/>
                             <p:inputMask mask="(99) 99999-9999" value="#{fornecedorController.fornecedor.contatoFornecedor}"/>
-                            <i></i><p:commandButton value="Salvar"  action="#{fornecedorController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
+                            <i></i><p:commandButton value="Salvar"  action="#{fornecedorController.salvar()}" update="formulario" icon="pi pi-save" style=" float: right;"/>
                         </p:panelGrid> 
                         <br />
                         
@@ -73,23 +75,20 @@
                             <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
                                     <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
                             </p:column>
-                                
                                 <p:column headerText="Opções" >
-                                    <p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario" style="width: 100px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
+                                    <p:commandButton value="" icon="pi pi-pencil" update=":formulario" style="font-size:25px; width: 40px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
                                         <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
                                                                      value="#{fornecedor}" />      
                                     </p:commandButton>
-                                    <p:commandButton value="Remover" icon="pi pi-trash" update=":formulario" style="width: 120px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                    <p:commandButton value="" icon="pi pi-trash" update=":formulario" style=" font-size:25px; width: 40px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                                      action="#{fornecedorController.remover(fornecedor)}">
                                     </p:commandButton>
-                                    
                                 </p:column>
                             </p:dataTable>
                         </p:panel>
                     </h:form>
                 </p:layoutUnit>
             </p:layout>
-
         </h:body>
     </f:view>
 </html>
