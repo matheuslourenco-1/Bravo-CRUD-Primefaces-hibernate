@@ -68,7 +68,7 @@
             <div id="content" class="p-4 p-md-5 pt-5">
                 <h4 >Cadastro Motorista</h1>
                 <div class="wrapper">    
-                    <iframe src="Cadastros/CadastroCaminhao.xhtml" style="width: 100%;height:100%;" ></iframe>
+                    <iframe src="Cadastros/CadastroMotorista.xhtml" style="width: 100%;height:100%;" ></iframe>
                 </div>
             </div>   
         </div>

@@ -6,23 +6,16 @@ public class Motorista  implements java.io.Serializable {
     
      private Integer idMotorista;
      private String nomeMotorista;
-     private String cnpjMotorista;
-     private String contatoMotorista;
+     private String cnhMotorista;
 
      public Motorista(){
          
      }
      //construtores
-    public Motorista(String nomeMotorista,  String cnpjMotorista){
+    public Motorista(String nomeMotorista,  String cnhMotorista){
         this.nomeMotorista = nomeMotorista;
-        this.cnpjMotorista = cnpjMotorista;
+        this.cnhMotorista = cnhMotorista;
      }
-
-    public Motorista( String nomeMotorista, String cnpjMotorista, String contatoMotorista) {
-        this.nomeMotorista = nomeMotorista;
-        this.cnpjMotorista = cnpjMotorista;
-        this.contatoMotorista = contatoMotorista;
-    }
 
     public Integer getIdMotorista() {
         return idMotorista;
@@ -40,23 +33,11 @@ public class Motorista  implements java.io.Serializable {
         this.nomeMotorista = nomeMotorista;
     }
 
-    public String getCnpjMotorista() {
-        return cnpjMotorista;
+    public String getCnhMotorista() {
+        return cnhMotorista;
     }
 
-    public void setCnpjMotorista(String cnpjMotorista) {
-        this.cnpjMotorista = cnpjMotorista;
+    public void setCnhMotorista(String cnhMotorista) {
+        this.cnhMotorista = cnhMotorista;
     }
-
-    public String getContatoMotorista() {
-        return contatoMotorista;
-    }
-
-    public void setContatoMotorista(String contatoMotorista) {
-        this.contatoMotorista = contatoMotorista;
-    }
-
-   
-    
-
 }

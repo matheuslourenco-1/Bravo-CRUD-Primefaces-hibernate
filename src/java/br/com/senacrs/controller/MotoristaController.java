@@ -13,13 +13,10 @@ import javax.faces.bean.SessionScoped;
 public class MotoristaController implements Serializable{
     private static final long serialVersionUID = 1L;
     private Motorista cliente = new Motorista();
-    
-    
-    
+ 
     public Motorista getMotorista() {
         return cliente;
     }
-
     public void setMotorista(Motorista cliente) {
         this.cliente = cliente;
     }

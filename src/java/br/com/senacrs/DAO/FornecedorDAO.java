@@ -13,8 +13,6 @@ public class FornecedorDAO {
         session = HibernateUtil.getSessionFactory().openSession();
     }
     
-
-    
     public List<Fornecedor> listar(){
         List<Fornecedor> fornecedor = session.createCriteria(Fornecedor.class).list();
         session.close();

@@ -50,12 +50,14 @@
                 <p:layoutUnit position="center">
                     <h:form id="formulario">
                        <p:panelGrid id="cadastro" columns="2">
-                            <p:outputLabel value="Nome: "/>
-                            <p:inputText value="#{caminhaoController.caminhao.nomeCaminhao}"/>
-                            <p:outputLabel value="CNPJ: "/>
-                            <p:inputMask mask="99.999.999/9999-99" value="#{caminhaoController.caminhao.cnpjCaminhao}"/>
-                            <p:outputLabel value="Telefone: "/>
-                            <p:inputMask mask="(99) 99999-9999" value="#{caminhaoController.caminhao.contatoCaminhao}"/>
+                            <p:outputLabel value="Placa do Caminhão: "/>
+                            <p:inputText value="#{caminhaoController.caminhao.placaCaminhao}"/>
+                            <p:outputLabel value="Modelo do Caminhão: "/>
+                            <p:inputMask  value="#{caminhaoController.caminhao.modeloCaminhao}"/>
+                            <p:outputLabel value="Peso Inicial: "/>
+                            <p:inputMask  value="#{caminhaoController.caminhao.pesoInicialCaminhao}"/>
+                            <p:outputLabel value="Peso Final: "/>
+                            <p:inputMask  value="#{caminhaoController.caminhao.pesoInicialCaminhao}"/>
                             <i></i><p:commandButton value="Salvar"  action="#{caminhaoController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
                         </p:panelGrid> 
                         <br />
@@ -65,14 +67,17 @@
                             <p:column headerText="ID" filterBy="#{caminhao.idCaminhao}" > 
                                     <p:outputLabel value="#{caminhao.idCaminhao}"/> 
                             </p:column>
-                            <p:column headerText="Nome" filterBy="#{caminhao.nomeCaminhao}"> 
-                                    <p:outputLabel value="#{caminhao.nomeCaminhao}"/> 
+                            <p:column headerText="Placa" filterBy="#{caminhao.placaCaminhao}"> 
+                                    <p:outputLabel value="#{caminhao.placaCaminhao}"/> 
                             </p:column>    
-                            <p:column headerText="CNPJ" filterBy="#{caminhao.cnpjCaminhao}"> 
-                                    <p:outputLabel value="#{caminhao.cnpjCaminhao}"/> 
+                            <p:column headerText="Modelo" filterBy="#{caminhao.modeloCaminhao}"> 
+                                    <p:outputLabel value="#{caminhao.modeloCaminhao}"/> 
                             </p:column>
-                            <p:column headerText="Telefone" filterBy="#{caminhao.contatoCaminhao}"> 
-                                    <p:outputLabel value="#{caminhao.contatoCaminhao}"/> 
+                            <p:column headerText="Peso Inicial" filterBy="#{caminhao.pesoInicialCaminhao}"> 
+                                    <p:outputLabel value="#{caminhao.pesoInicialCaminhao}"/> 
+                            </p:column>
+                            <p:column headerText="Peso Final" filterBy="#{caminhao.pesoFinalCaminhao}"> 
+                                    <p:outputLabel value="#{caminhao.pesoFinalCaminhao}"/> 
                             </p:column>
                                 
                                 <p:column headerText="Opções" >

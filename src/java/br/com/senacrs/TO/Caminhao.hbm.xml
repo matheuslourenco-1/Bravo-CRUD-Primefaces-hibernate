@@ -7,14 +7,17 @@
       <column name="idCaminhao"/>
       <generator class="identity"/>
     </id>
-    <property name="nomeCaminhao" type="string">
-      <column length="45" name="nomeCaminhao" not-null="true"/>
+    <property name="placaCaminhao" type="string">
+      <column length="8" name="placaCaminhao" not-null="true" unique="true"/>
     </property>
-    <property name="cnpjCaminhao" type="string">
-      <column length="45" name="cnpjCaminhao" not-null="true" unique="true"/>
+    <property name="modeloCaminhao" type="string">
+      <column length="45" name="modeloCaminhao" not-null="true"/>
     </property>
-    <property name="contatoCaminhao" type="string">
-      <column length="45" name="contatoCaminhao"/>
+    <property name="pesoInicialCaminhao" type="double">
+      <column name="pesoInicialCaminhao" not-null="true" />
+    </property>
+    <property name="pesoFinalCaminhao" type="double">
+      <column name="pesoFinalCaminhao" not-null="true" />
     </property>
   </class>
 </hibernate-mapping>

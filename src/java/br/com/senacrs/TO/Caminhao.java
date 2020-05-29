@@ -5,24 +5,22 @@ public class Caminhao  implements java.io.Serializable {
     //declaração das variaveis 
     
      private Integer idCaminhao;
-     private String nomeCaminhao;
-     private String cnpjCaminhao;
-     private String contatoCaminhao;
+     private String placaCaminhao;
+     private String modeloCaminhao;
+     private double pesoInicialCaminhao;
+     private double pesoFinalCaminhao;
 
      public Caminhao(){
          
      }
      //construtores
-    public Caminhao(String nomeCaminhao,  String cnpjCaminhao){
-        this.nomeCaminhao = nomeCaminhao;
-        this.cnpjCaminhao = cnpjCaminhao;
+    public Caminhao(String placaCaminhao,  String modeloCaminhao, double pesoInicialCaminhao, double pesoFinalCaminhao){
+        this.placaCaminhao = placaCaminhao;
+        this.modeloCaminhao = modeloCaminhao;
+        this.pesoInicialCaminhao = pesoInicialCaminhao;
+        this.pesoFinalCaminhao = pesoFinalCaminhao;
      }
 
-    public Caminhao( String nomeCaminhao, String cnpjCaminhao, String contatoCaminhao) {
-        this.nomeCaminhao = nomeCaminhao;
-        this.cnpjCaminhao = cnpjCaminhao;
-        this.contatoCaminhao = contatoCaminhao;
-    }
 
     public Integer getIdCaminhao() {
         return idCaminhao;
@@ -32,31 +30,35 @@ public class Caminhao  implements java.io.Serializable {
         this.idCaminhao = idCaminhao;
     }
 
-    public String getNomeCaminhao() {
-        return nomeCaminhao;
+    public String getPlacaCaminhao() {
+        return placaCaminhao;
     }
 
-    public void setNomeCaminhao(String nomeCaminhao) {
-        this.nomeCaminhao = nomeCaminhao;
+    public void setPlacaCaminhao(String placaCaminhao) {
+        this.placaCaminhao = placaCaminhao;
     }
 
-    public String getCnpjCaminhao() {
-        return cnpjCaminhao;
+    public String getModeloCaminhao() {
+        return modeloCaminhao;
     }
 
-    public void setCnpjCaminhao(String cnpjCaminhao) {
-        this.cnpjCaminhao = cnpjCaminhao;
+    public void setModeloCaminhao(String modeloCaminhao) {
+        this.modeloCaminhao = modeloCaminhao;
     }
 
-    public String getContatoCaminhao() {
-        return contatoCaminhao;
+    public double getPesoInicialCaminhao() {
+        return pesoInicialCaminhao;
     }
 
-    public void setContatoCaminhao(String contatoCaminhao) {
-        this.contatoCaminhao = contatoCaminhao;
+    public void setPesoInicialCaminhao(double pesoInicialCaminhao) {
+        this.pesoInicialCaminhao = pesoInicialCaminhao;
     }
 
-   
-    
+    public double getPesoFinalCaminhao() {
+        return pesoFinalCaminhao;
+    }
 
+    public void setPesoFinalCaminhao(double pesoFinalCaminhao) {
+        this.pesoFinalCaminhao = pesoFinalCaminhao;
+    }
 }

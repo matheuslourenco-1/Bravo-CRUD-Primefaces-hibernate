@@ -13,9 +13,7 @@ import javax.faces.bean.SessionScoped;
 public class CaminhaoController implements Serializable{
     private static final long serialVersionUID = 1L;
     private Caminhao cliente = new Caminhao();
-    
-    
-    
+
     public Caminhao getCaminhao() {
         return cliente;
     }

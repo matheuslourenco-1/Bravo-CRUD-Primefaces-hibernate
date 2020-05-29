@@ -5,16 +5,12 @@ import br.com.senacrs.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 
-
 public class CaminhaoDAO {
     Session session;
 
     public CaminhaoDAO() {
         session = HibernateUtil.getSessionFactory().openSession();
     }
-    
-
-    
     public List<Caminhao> listar(){
         List<Caminhao> caminhao = session.createCriteria(Caminhao.class).list();
         session.close();
