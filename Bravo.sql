@@ -30,26 +30,32 @@ CREATE TABLE IF NOT EXISTS `Bravo`.`fornecedor` (
   `contatoFornecedor` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idFornecedor`),
   UNIQUE INDEX `cnpjFornecedor_UNIQUE` (`cnpjFornecedor` ASC))
-
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 18
+  DEFAULT CHARACTER SET = latin1;
+  
 CREATE TABLE IF NOT EXISTS `Bravo`.`caminhao` (
   `idCaminhao` INT(11) NOT NULL AUTO_INCREMENT,
   `placaCaminhao` VARCHAR(8) NOT NULL,
   `modeloCaminhao` VARCHAR(45) NOT NULL,
-  `pesoFinalCaminhao` DOUBLE NOT NULL,
-  `pesoInicialCaminhao` DOUBLE NULL DEFAULT NULL,
+  `pesoFinalCaminhao` VARCHAR(45) NOT NULL,
+  `pesoInicialCaminhao` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCaminhao`),
   UNIQUE INDEX `placa_UNIQUE` (`placaCaminhao` ASC))
-
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 18
+  DEFAULT CHARACTER SET = latin1;
+  
 CREATE TABLE IF NOT EXISTS `Bravo`.`motorista` (
   `idMotorista` INT(11) NOT NULL AUTO_INCREMENT,
-  `nomeMotorista` VARCHAR(8) NOT NULL,
+  `nomeMotorista` VARCHAR(45) NOT NULL,
   `cnhMotorista` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idMotorista`))
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 18
+  DEFAULT CHARACTER SET = latin1;
 
 
-ENGINE = InnoDB
-AUTO_INCREMENT = 18
-DEFAULT CHARACTER SET = latin1;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
