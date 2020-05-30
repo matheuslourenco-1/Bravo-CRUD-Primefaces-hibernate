@@ -1,6 +1,5 @@
 package br.com.senacrs.TO;
 
-import java.math.BigDecimal;
 
 public class Caminhao  implements java.io.Serializable {
 

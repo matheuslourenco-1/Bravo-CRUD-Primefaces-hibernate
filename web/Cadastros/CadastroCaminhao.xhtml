@@ -57,14 +57,21 @@
                 <p:layoutUnit position="center">
                     <h:form id="formulario">
                        <p:panelGrid id="cadastro" columns="2">
+                          
                             <p:outputLabel value="Placa do Caminhao: "/>
-                            <p:inputText value="#{caminhaoController.caminhao.placaCaminhao}"/>
+                            <p:inputText maxlength="8" placeholder="ABC-1234" value="#{caminhaoController.caminhao.placaCaminhao}">
+                                <p:keyFilter mask="alphanum"/>
+                            </p:inputText>
                             <p:outputLabel value="Modelo do Caminhao "/>
-                            <p:inputMask  value="#{caminhaoController.caminhao.modeloCaminhao}"/>
-                            <p:outputLabel value="Peso Inicial: "/>
-                            <p:inputText value="#{caminhaoController.caminhao.pesoInicialCaminhao}"/>
-                            <p:outputLabel value="Peso Final: "/>
-                            <p:inputText value="#{caminhaoController.caminhao.pesoFinalCaminhao}"/>
+                            <p:inputMask   placeholder="Ex.: Truck, Toco, Bitrem..." value="#{caminhaoController.caminhao.modeloCaminhao}"/>
+                            <p:outputLabel value="Peso Inicial(kg): "/>
+                            <p:inputText maxlength="5"  value="#{caminhaoController.caminhao.pesoInicialCaminhao}">
+                                <p:keyFilter mask="num" />
+                            </p:inputText>
+                            <p:outputLabel value="Peso Final(kg): "/>
+                            <p:inputText maxlength="5"  value="#{caminhaoController.caminhao.pesoFinalCaminhao}">
+                                <p:keyFilter mask="pnum" />
+                            </p:inputText>
                             <i></i><p:commandButton value="Salvar"  action="#{caminhaoController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
                         </p:panelGrid> 
                         <br />
