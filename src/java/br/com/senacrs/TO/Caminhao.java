@@ -65,5 +65,3 @@ public class Caminhao  implements java.io.Serializable {
 
    
 }
-
-   
