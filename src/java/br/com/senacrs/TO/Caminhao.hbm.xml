@@ -13,11 +13,11 @@
     <property name="modeloCaminhao" type="string">
       <column length="45" name="modeloCaminhao" not-null="true"/>
     </property>
-    <property name="pesoInicialCaminhao" type="double">
-      <column name="pesoInicialCaminhao" not-null="true" />
+    <property name="pesoInicialCaminhao" type="string">
+      <column length="45" name="pesoInicialCaminhao" not-null="true" />
     </property>
-    <property name="pesoFinalCaminhao" type="double">
-      <column name="pesoFinalCaminhao" not-null="true" />
+    <property name="pesoFinalCaminhao" type="string">
+      <column length="45" name="pesoFinalCaminhao" not-null="true" />
     </property>
   </class>
 </hibernate-mapping>

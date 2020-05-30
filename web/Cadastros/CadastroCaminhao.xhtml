@@ -42,6 +42,13 @@
                         .ui-layout{
                             height:100%;
                         }
+                        .ui-widget .ui-icon.pi, .ui-icon.pi {
+                            background: none repeat scroll 0 0 transparent!important;
+                            margin: -13px 0px 0px -7px;
+                            height: auto;
+                            width: auto;
+                            text-indent: 0!important;
+                        }
 		</style>
 
         </h:head>
@@ -50,42 +57,42 @@
                 <p:layoutUnit position="center">
                     <h:form id="formulario">
                        <p:panelGrid id="cadastro" columns="2">
-                            <p:outputLabel value="Placa do Caminhão: "/>
+                            <p:outputLabel value="Placa do Caminhao: "/>
                             <p:inputText value="#{caminhaoController.caminhao.placaCaminhao}"/>
-                            <p:outputLabel value="Modelo do Caminhão: "/>
+                            <p:outputLabel value="Modelo do Caminhao "/>
                             <p:inputMask  value="#{caminhaoController.caminhao.modeloCaminhao}"/>
                             <p:outputLabel value="Peso Inicial: "/>
-                            <p:inputMask  value="#{caminhaoController.caminhao.pesoInicialCaminhao}"/>
+                            <p:inputText  value="#{caminhaoController.caminhao.pesoInicialCaminhao}"/>
                             <p:outputLabel value="Peso Final: "/>
-                            <p:inputMask  value="#{caminhaoController.caminhao.pesoInicialCaminhao}"/>
+                            <p:inputText  value="#{caminhaoController.caminhao.pesoFinalCaminhao}"/>
                             <i></i><p:commandButton value="Salvar"  action="#{caminhaoController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
                         </p:panelGrid> 
                         <br />
                         
-                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Caminhaoes">
+                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Caminhaos">
                             <p:dataTable var="caminhao" value="#{caminhaoController.listar()}">
                             <p:column headerText="ID" filterBy="#{caminhao.idCaminhao}" > 
                                     <p:outputLabel value="#{caminhao.idCaminhao}"/> 
                             </p:column>
-                            <p:column headerText="Placa" filterBy="#{caminhao.placaCaminhao}"> 
+                            <p:column headerText="Placa" filterBy="#{caminhao.nomeCaminhao}"> 
                                     <p:outputLabel value="#{caminhao.placaCaminhao}"/> 
                             </p:column>    
-                            <p:column headerText="Modelo" filterBy="#{caminhao.modeloCaminhao}"> 
+                            <p:column headerText="Modelo" filterBy="#{caminhao.cnhCaminhao}"> 
                                     <p:outputLabel value="#{caminhao.modeloCaminhao}"/> 
                             </p:column>
-                            <p:column headerText="Peso Inicial" filterBy="#{caminhao.pesoInicialCaminhao}"> 
+                            <p:column headerText="Peso Inicial(kg)" filterBy="#{caminhao.pesoInicialCaminhao}"> 
                                     <p:outputLabel value="#{caminhao.pesoInicialCaminhao}"/> 
-                            </p:column>
-                            <p:column headerText="Peso Final" filterBy="#{caminhao.pesoFinalCaminhao}"> 
+                            </p:column>    
+                            <p:column headerText="Peso Final(kg)" filterBy="#{caminhao.pesoFinalCaminhao}"> 
                                     <p:outputLabel value="#{caminhao.pesoFinalCaminhao}"/> 
                             </p:column>
                                 
                                 <p:column headerText="Opções" >
-                                    <p:commandButton value="Editar" icon="pi pi-pencil" update=":formulario" style="width: 100px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
+                                    <p:commandButton value="" icon="pi pi-pencil" update=":formulario" style="font-size:25px; width: 40px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:40px; text-align: center" >
                                         <f:setPropertyActionListener target="#{caminhaoController.caminhao}"
                                                                      value="#{caminhao}" />      
                                     </p:commandButton>
-                                    <p:commandButton value="Remover" icon="pi pi-trash" update=":formulario" style="width: 120px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                    <p:commandButton value="" icon="pi pi-trash" update=":formulario" style=" font-size:25px; width: 40px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:40px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                                      action="#{caminhaoController.remover(caminhao)}">
                                     </p:commandButton>
                                     

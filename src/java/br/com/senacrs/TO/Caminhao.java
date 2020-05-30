@@ -1,5 +1,7 @@
 package br.com.senacrs.TO;
 
+import java.math.BigDecimal;
+
 public class Caminhao  implements java.io.Serializable {
 
     //declaração das variaveis 
@@ -7,20 +9,19 @@ public class Caminhao  implements java.io.Serializable {
      private Integer idCaminhao;
      private String placaCaminhao;
      private String modeloCaminhao;
-     private double pesoInicialCaminhao;
-     private double pesoFinalCaminhao;
-
+     private String pesoInicialCaminhao;
+     private String pesoFinalCaminhao;
+     
      public Caminhao(){
          
      }
-     //construtores
-    public Caminhao(String placaCaminhao,  String modeloCaminhao, double pesoInicialCaminhao, double pesoFinalCaminhao){
+
+    public Caminhao(String placaCaminhao, String modeloCaminhao, String pesoInicialCaminhao, String pesoFinalCaminhao) {
         this.placaCaminhao = placaCaminhao;
         this.modeloCaminhao = modeloCaminhao;
         this.pesoInicialCaminhao = pesoInicialCaminhao;
         this.pesoFinalCaminhao = pesoFinalCaminhao;
-     }
-
+    }
 
     public Integer getIdCaminhao() {
         return idCaminhao;
@@ -46,19 +47,23 @@ public class Caminhao  implements java.io.Serializable {
         this.modeloCaminhao = modeloCaminhao;
     }
 
-    public double getPesoInicialCaminhao() {
+    public String getPesoInicialCaminhao() {
         return pesoInicialCaminhao;
     }
 
-    public void setPesoInicialCaminhao(double pesoInicialCaminhao) {
+    public void setPesoInicialCaminhao(String pesoInicialCaminhao) {
         this.pesoInicialCaminhao = pesoInicialCaminhao;
     }
 
-    public double getPesoFinalCaminhao() {
+    public String getPesoFinalCaminhao() {
         return pesoFinalCaminhao;
     }
 
-    public void setPesoFinalCaminhao(double pesoFinalCaminhao) {
+    public void setPesoFinalCaminhao(String pesoFinalCaminhao) {
         this.pesoFinalCaminhao = pesoFinalCaminhao;
     }
+
+   
 }
+
+   
