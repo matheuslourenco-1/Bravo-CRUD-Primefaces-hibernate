@@ -57,7 +57,7 @@
                 <!--menu-->
                 <ul class="list-unstyled components mb-5">
                     <li class="active"><a href="painelInicio.jsp"><span class="fa fa-home mr-3"></span> Inicio</a></li>
-                    <li><a href="painelChecklist.jsp"> Check List</a></li>
+                    <li><a href="painelGerenciador.jsp"> Gerenciador</a></li>
                     <li><a href="painelFornecedor.jsp"> Fornecedor</a></li>
                     <li><a href="painelCaminhao.jsp"> Caminhão</a></li>
                     <li><a href="painelMotorista.jsp"> Motorista</a></li>

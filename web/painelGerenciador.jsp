@@ -30,7 +30,7 @@
                 </div>
                 <ul class="list-unstyled components mb-5">
                     <li class="active"><a href="painelInicio.jsp"><span class="fa fa-home mr-3"></span> Inicio</a></li>
-                    <li><a href="painelChecklist.jsp"> Check List</a></li>
+                    <li><a href="painelGerenciador.jsp"> Gerenciador</a></li>
                     <li><a href="painelFornecedor.jsp"> Fornecedor</a></li>
                     <li><a href="painelCaminhao.jsp"> Caminhão</a></li>
                     <li><a href="painelMotorista.jsp"> Motorista</a></li>
@@ -40,7 +40,7 @@
             <div id="content" class="p-4 p-md-5 pt-5">
                 <h4>Checklist</h1>
                 <div class="wrapper">  
-                    <iframe scrolling="no" src="Cadastros/Checklist.xhtml" style="width: 100%;height:100%;" ></iframe>
+                    <iframe scrolling="no" src="Cadastros/Gerenciador.xhtml" style="width: 100%;height:100%;" ></iframe>
                 </div>
             </div>
         </div>
