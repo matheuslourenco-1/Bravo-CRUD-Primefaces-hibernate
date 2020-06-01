@@ -5,4 +5,5 @@
   <table-filter match-name="tb_fornecedor"/>
   <table-filter match-name="tb_motorista"/>
   <table-filter match-name="tb_caminhao"/>
+  <table-filter match-name="tb_gerenciador"/>
 </hibernate-reverse-engineering>
