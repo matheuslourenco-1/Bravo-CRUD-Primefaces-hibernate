@@ -1,15 +1,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
-<f:view contentType="text/html">
-	<h:head>
-		<f:facet name="first">
-			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
-			<title>Cadastro Fornecedor</title>
-		</f:facet>
-		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
-		<link type="text/css" rel="stylesheet" href="css/style.css" />
-		<style type="text/css">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Cadastro Gerenciador</title>
+            </f:facet>
+            <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+            <link type="text/css" rel="stylesheet" href="css/style.css" />
+            		<style type="text/css">
                     .ui-widget-header {
                         background: #333;
                         color: white;
@@ -37,98 +42,68 @@
                         .ui-layout{
                             height:100%;
                         }
-                        .ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
-                            background: #fff;
-                            -moz-box-shadow: inset 0 2px 2px #8f8f8f;
-                            -webkit-box-shadow: inset 0 0px 0px #8f8f8f; 
-                            box-shadow: inset 0 0px 0px #8f8f8f;
-                            color: #313131;
+                        .ui-widget .ui-icon.pi, .ui-icon.pi {
+                            background: none repeat scroll 0 0 transparent!important;
+                            margin: -13px 0px 0px -7px;
+                            height: auto;
+                            width: auto;
+                            text-indent: 0!important;
                         }
-                        .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
-                            border: 1px solid #666;
-                            background: #ababab;
-                            color: #fff;
-                            text-shadow: 1px 1px 1px #333;
-                            text-transform: uppercase;
-                        }
-                        .ui-panelgrid .ui-panelgrid-cell {
-                            border-width: 1px;
-                            border-style: solid;
-                            border-color: inherit;
-                            padding: 6px 17px;
-                        }
-                        .ui-selectmanycheckbox .ui-chkbox .ui-chkbox-box {
-                            display: block;
-                            border-radius: 100%;
-                        }
-
 		</style>
-	</h:head>
-	<h:body>
-		<p:layout>
-			<p:layoutUnit position="center">
-				<h:form id="formulario">
+
+        </h:head>
+        <h:body>
+            <p:layout>   
+                <p:layoutUnit position="center">
+                    <h:form id="formulario">
+                       <p:panelGrid id="gerenciador" columns="2">
+                            <p:outputLabel value="Nome do Fornecedor: "/>
+                            <p:inputText value="#{gerenciadorController.gerenciador.nomeFornecedor}"/>
+                            <p:outputLabel value="Plca do Caminhão: "/>
+                            <p:inputText value="#{gerenciadorController.gerenciador.placaCaminhao}"/>
+                            <p:outputLabel value="Nome do Motorista: "/>
+                            <p:inputText value="#{gerenciadorController.gerenciador.nomeMotorista}"/>
+                            <p:outputLabel value="CNH do Motorista: "/>
+                            <p:inputText value="#{gerenciadorController.gerenciador.cnhMotorista}"/>
+                            <i></i><p:commandButton value="Salvar"  action="#{gerenciadorController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
+                        </p:panelGrid> 
+                        <br />
+                        
+                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Gerenciadors">
+                            <p:dataTable var="gerenciador" value="#{gerenciadorController.listar()}">
+                            <p:column headerText="ID" filterBy="#{gerenciador.idGerenciador}" > 
+                                    <p:outputLabel value="#{gerenciador.idGerenciador}"/> 
+                            </p:column>
+                            <p:column headerText="Nome do Gerenciador" filterBy="#{gerenciador.nomeFornecedor}"> 
+                                    <p:outputLabel value="#{gerenciador.nomeFornecedor}"/> 
+                            </p:column>    
+                            <p:column headerText="CNH" filterBy="#{gerenciador.placaCaminhao}"> 
+                                    <p:outputLabel value="#{gerenciador.placaCaminhao}"/> 
+                            </p:column>
+                            <p:column headerText="CNH" filterBy="#{gerenciador.nomeMotorista}"> 
+                                    <p:outputLabel value="#{gerenciador.nomeMotorista}"/> 
+                            </p:column>
+                            <p:column headerText="CNH" filterBy="#{gerenciador.cnhMotorista}"> 
+                                    <p:outputLabel value="#{gerenciador.cnhMotorista}"/> 
+                            </p:column>
+                                
+                                <p:column style="width: 81px;" headerText="Opções" >
+                                    <p:commandButton value="" icon="pi pi-pencil" update=":formulario" style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center" >
+                                        <f:setPropertyActionListener target="#{gerenciadorController.gerenciador}"
+                                                                     value="#{gerenciador}" />      
+                                    </p:commandButton>
+                                    <p:commandButton value="" icon="pi pi-trash" update=":formulario" style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                                     action="#{gerenciadorController.remover(gerenciador)}">
+                                    </p:commandButton>
                                     
-					<p:panel id="checklist" header="Checklist" style="margin-bottom:20px">
-						<h:form> 
-                                                   <p:panelGrid id="menuboxes" style="width: 770px;" columns="4">
-                                                    <p:outputLabel for="@next" value="Fornecedor: " />
-                                                    <p:selectOneMenu style="width:200px;" id="fornecedor" value="#{fornecedor.nomeFornecedor}">
-                                                        <f:selectItem itemLabel="SELECIONE UM" itemValue="" />
-                                                        <f:selectItems value="#{fornecedor.nomeFornecedor}" />
-                                                    </p:selectOneMenu>
-                                                    <p:outputLabel for="@next" value="Caminhão: " />
-                                                    <p:selectOneMenu style="width:200px;" id="caminhao" value="#{fornecedor.nomeFornecedor}">
-                                                        <f:selectItem itemLabel="SELECIONE UM" itemValue="" />
-                                                        <f:selectItems value="#{fornecedor.nomeFornecedor}" />
-                                                    </p:selectOneMenu>
-                                                    <p:outputLabel for="@next" value="Motorista: " />
-                                                    <p:selectOneMenu style="width:200px;" id="motorista" value="#{fornecedor.nomeFornecedor}">
-                                                        <f:selectItem itemLabel="SELECIONE UM" itemValue="" />
-                                                        <f:selectItems value="#{fornecedor.nomeFornecedor}" />
-                                                    </p:selectOneMenu>
-                                                    
-                                                   </p:panelGrid>
+                                </p:column>
+                            </p:dataTable>
+                        </p:panel>
+                    </h:form>
+                </p:layoutUnit>
+            </p:layout>
 
-                                                    <p:panelGrid id="check" style="width: 770px;" columns="1">
-							<p:selectManyCheckbox id="basic" columns="1" layout="pageDirection">
-								<f:selectItem itemLabel="Cinto de segurança perfeito e funcionando"
-									itemValue="Cinto de segurança perfeito e funcionando" />
-								<f:selectItem itemLabel="Pneus em bom estado" itemValue="Pneus em bom estado" />
-								<f:selectItem itemLabel="Rodas em bom estado" itemValue="Rodas em bom estado" />
-								<f:selectItem itemLabel="Freio funcionando perfeitamente"
-									itemValue="Freio funcionando perfeitamente" />
-								<f:selectItem itemLabel="Freio de Estacionamento ok"
-									itemValue="Freio de Estacionamento ok" />
-								<f:selectItem itemLabel="Direção em bom estado" itemValue="Direção em bom estado" />
-								<f:selectItem itemLabel="Limpador de Pára-Brisa funcionando bem"
-									itemValue="Limpador de Pára-Brisa funcionando bem" />
-								<f:selectItem itemLabel="Instrumentos do Painel" itemValue="Instrumentos do Painel" />
-								<f:selectItem itemLabel="Luz de Freio funcionando"
-									itemValue="Luz de Freio funcionando" />
-								<f:selectItem itemLabel="Óleo Hidráulico, nível correto"
-									itemValue="Óleo Hidráulico, nível correto" />
-								<f:selectItem itemLabel="Tampa de combustivel, existe e está ok"
-									itemValue="Tampa de combustivel, existe e está ok" />
-								<f:selectItem itemLabel="Chave de segurança e Triângulo de Sinalização existe"
-									itemValue="Chave de segurança e Triângulo de Sinalização existe" />
-								<f:selectItem itemLabel="Carroceria em bom estado"
-									itemValue="Carroceria em bom estado" />
-								<f:selectItem itemLabel="Farol funcionando bem" itemValue="Farol funcionando bem" />
-								<f:selectItem itemLabel="Luz de Freio funcionando"
-									itemValue="Luz de Freio funcionando" />
-							</p:selectManyCheckbox>
-							<p:commandButton value="Salvar" action="#{fornecedorController.salvar()}"
-								update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;" />
-                                                    </p:panelGrid>
-						</h:form>
-					</p:panel>
-					<br />
-				</h:form>
-			</p:layoutUnit>
-		</p:layout>
-
-	</h:body>
-</f:view>
-
+        </h:body>
+    </f:view>
 </html>
+
