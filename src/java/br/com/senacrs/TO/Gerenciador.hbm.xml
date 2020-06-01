@@ -3,9 +3,9 @@
 <!-- Generated 13/04/2016 09:29:45 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <!--Mapa de caminho da classes no banco de dados-->
-  <class catalog="Bravo" name="br.com.senacrs.TO.Caminhao" optimistic-lock="version" table="tb_caminhao">
+  <class catalog="Bravo" name="br.com.senacrs.TO.Caminhao" optimistic-lock="version" table="tb_gerenciador">
     <id name="idCaminhao" type="java.lang.Integer">
-      <column name="idCaminhao"/>
+      <column name="idGerenciador"/>
       <generator class="identity"/>
     </id>
     <property name="placaCaminhao" type="string">

@@ -21,6 +21,7 @@ public class Caminhao  implements java.io.Serializable {
         this.pesoInicialCaminhao = pesoInicialCaminhao;
         this.pesoFinalCaminhao = pesoFinalCaminhao;
     }
+    /*Getters e Setters*/
 
     public Integer getIdCaminhao() {
         return idCaminhao;

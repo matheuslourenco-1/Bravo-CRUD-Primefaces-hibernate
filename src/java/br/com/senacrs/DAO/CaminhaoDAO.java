@@ -11,18 +11,20 @@ public class CaminhaoDAO {
     public CaminhaoDAO() {
         session = HibernateUtil.getSessionFactory().openSession();
     }
+    /*Construtor listar*/
     public List<Caminhao> listar(){
         List<Caminhao> caminhao = session.createCriteria(Caminhao.class).list();
         session.close();
         return caminhao;
     }
+    /*Construtor remover*/
     public void remover(Object caminhao){
         session.beginTransaction();
         session.delete(caminhao);
         session.getTransaction().commit();
         session.close();
     }
-
+    /*Construtor salvar*/
     public void salvar(Caminhao caminhao) {
         session.beginTransaction();
         session.saveOrUpdate(caminhao);

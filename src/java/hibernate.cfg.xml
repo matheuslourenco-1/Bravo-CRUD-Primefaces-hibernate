@@ -8,6 +8,6 @@
     <property name="hibernate.connection.username">root</property>
     <mapping resource="br/com/senacrs/TO/Fornecedor.hbm.xml"/>
     <mapping resource="br/com/senacrs/TO/Motorista.hbm.xml"/>
-    <mapping resource="br/com/senacrs/TO/Caminhao.hbm.xml"/>   
+    <mapping resource="br/com/senacrs/TO/Caminhao.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

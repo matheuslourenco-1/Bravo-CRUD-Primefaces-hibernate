@@ -1,4 +1,3 @@
-
 package br.com.senacrs.util;
 
 import org.hibernate.cfg.AnnotationConfiguration;
