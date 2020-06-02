@@ -7,7 +7,8 @@ import org.hibernate.Session;
 
 public class CaminhaoDAO {
     Session session;
-
+    
+    /*Iniciando a sessão com o banco*/
     public CaminhaoDAO() {
         session = HibernateUtil.getSessionFactory().openSession();
     }
