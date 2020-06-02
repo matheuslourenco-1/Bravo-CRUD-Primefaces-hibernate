@@ -58,9 +58,9 @@
                     <h:form id="formulario">
                        <p:panelGrid id="gerenciador" columns="2">
                             <p:outputLabel value="CNPJ Fornecedor: "/>
-                            <p:inputText value="#{gerenciadorController.gerenciador.gerenciador_cnpjFornecedor}"/>
+                            <p:inputMask mask="99.999.999/9999-99" value="#{gerenciadorController.gerenciador.gerenciador_cnpjFornecedor}"/>
                             <p:outputLabel value="Placa do Caminhão: "/>
-                            <p:inputText value="#{gerenciadorController.gerenciador.gerenciador_placaCaminhao}"/>
+                            <p:inputMask mask="aaa-9999" style="text-transform: uppercase;" placeholder="ABC-9999" value="#{gerenciadorController.gerenciador.gerenciador_cnpjFornecedor}"/>
                             <p:outputLabel value="Nome do Motorista: "/>
                             <p:inputText value="#{gerenciadorController.gerenciador.gerenciador_nomeMotorista}"/>
                             <i></i><p:commandButton value="Salvar"  action="#{gerenciadorController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
@@ -72,14 +72,14 @@
                             <p:column headerText="ID" filterBy="#{gerenciador.idGerenciador}" > 
                                     <p:outputLabel value="#{gerenciador.idGerenciador}"/> 
                             </p:column>
-                            <p:column headerText="Nome do Gerenciador" filterBy="#{gerenciador.gerenciador_cnpjFornecedor}"> 
+                            <p:column headerText="CNPJ" filterBy="#{gerenciador.gerenciador_cnpjFornecedor}"> 
                                     <p:outputLabel value="#{gerenciador.gerenciador_cnpjFornecedor}"/> 
                             </p:column>    
-                            <p:column headerText="CNH" filterBy="#{gerenciador.gerenciador_placaCaminhao}"> 
+                            <p:column headerText="Placa" filterBy="#{gerenciador.gerenciador_placaCaminhao}"> 
                                     <p:outputLabel value="#{gerenciador.gerenciador_placaCaminhao}"/> 
                             </p:column>
-                            <p:column headerText="CNH" filterBy="#{gerenciador.gerenciador_cnpjFornecedor}"> 
-                                    <p:outputLabel value="#{gerenciador.gerenciador_cnpjFornecedor}"/> 
+                            <p:column headerText="Nome Motorista" filterBy="#{gerenciador.gerenciador_nomeMotorista}"> 
+                                    <p:outputLabel value="#{gerenciador.gerenciador_nomeMotorista}"/> 
                             </p:column>
                                 
                                 <p:column style="width: 81px;" headerText="Opções" >

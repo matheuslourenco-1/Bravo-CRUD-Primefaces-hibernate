@@ -59,9 +59,9 @@
                        <p:panelGrid id="cadastro" columns="2">
                           
                             <p:outputLabel value="Placa do Caminhao: "/>
-                            <p:inputText maxlength="8" placeholder="ABC-1234" value="#{caminhaoController.caminhao.placaCaminhao}">
+                            <p:inputMask mask="aaa-9999" style="text-transform:uppercase;" placeholder="ABC-1234" value="#{caminhaoController.caminhao.placaCaminhao}">
                                 <p:keyFilter mask="alphanum"/>
-                            </p:inputText>
+                            </p:inputMask>
                             <p:outputLabel value="Modelo do Caminhao "/>
                             <p:inputMask   placeholder="Ex.: Truck, Toco, Bitrem..." value="#{caminhaoController.caminhao.modeloCaminhao}"/>
                             <p:outputLabel value="Peso Inicial(kg): "/>

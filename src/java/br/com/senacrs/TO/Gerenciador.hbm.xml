@@ -2,20 +2,20 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 13/04/2016 09:29:45 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <!--Mapa de caminho da classes no banco de dados-->
-  <class catalog="Bravo" name="br.com.senacrs.TO.Caminhao" optimistic-lock="version" table="tb_gerenciador">
-    <id name="idCaminhao" type="java.lang.Integer">
+  <!--Mapa de caminho da classes no banco de dados-->
+  <class catalog="Bravo" name="br.com.senacrs.TO.Gerenciador" optimistic-lock="version" table="tb_gerenciador">
+    <id name="idGerenciador" type="java.lang.Integer">
       <column name="idGerenciador"/>
       <generator class="identity"/>
     </id>
     <property name="gerenciador_cnpjFornecedor" type="string">
-      <column length="45" name="gerenciador_cnpjFornecedor" not-null="true"/>
+      <column length="45" name="gerenciador_cnpjFornecedor" />
     </property>
     <property name="gerenciador_placaCaminhao" type="string">
-      <column length="8" name="gerenciador_placaCaminhao" not-null="true"/>
+      <column length="8" name="gerenciador_placaCaminhao" />
     </property>
     <property name="gerenciador_nomeMotorista" type="string">
-      <column length="45" name="gerenciador_nomeMotorista" not-null="true" />
+      <column length="45" name="gerenciador_nomeMotorista"  />
     </property>
   </class>
 </hibernate-mapping>
