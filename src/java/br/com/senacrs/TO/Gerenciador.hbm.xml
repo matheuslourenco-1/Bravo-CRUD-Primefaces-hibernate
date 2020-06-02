@@ -17,5 +17,9 @@
     <property name="gerenciador_nomeMotorista" type="string">
       <column length="45" name="gerenciador_nomeMotorista"  />
     </property>
+    <property name="gerenciador_horarioEntrada" type="java.util.Date">
+      <column  name="gerenciador_horarioEntrada"  />
+    </property>
+    
   </class>
 </hibernate-mapping>

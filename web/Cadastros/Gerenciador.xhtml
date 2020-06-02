@@ -63,6 +63,12 @@
                             <p:inputMask mask="aaa-9999" style="text-transform: uppercase;" placeholder="ABC-9999" value="#{gerenciadorController.gerenciador.gerenciador_cnpjFornecedor}"/>
                             <p:outputLabel value="Nome do Motorista: "/>
                             <p:inputText value="#{gerenciadorController.gerenciador.gerenciador_nomeMotorista}"/>
+                            <p:outputLabel for="timeonly" value="Horario de Entrada:" />
+                            <p:datePicker id="timeonly"  value="#{gerenciadorController.gerenciador.gerenciador_horarioEntrada}" timeOnly="true" pattern="HH:mm"/>
+                            <h:outputText value="Horario de Entrada:" />
+                            <h:outputText value="#{gerenciadorController.gerenciador.gerenciador_horarioEntrada}">
+                                <f:convertDateTime pattern="HH:mm" />
+                            </h:outputText>
                             <i></i><p:commandButton value="Salvar"  action="#{gerenciadorController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
                         </p:panelGrid> 
                         <br />
@@ -80,6 +86,9 @@
                             </p:column>
                             <p:column headerText="Nome Motorista" filterBy="#{gerenciador.gerenciador_nomeMotorista}"> 
                                     <p:outputLabel value="#{gerenciador.gerenciador_nomeMotorista}"/> 
+                            </p:column>
+                                <p:column headerText="Horario de Entrada" filterBy="#{gerenciador.gerenciador_horarioEntrada}"> 
+                                <p:outputLabel value="#{gerenciador.gerenciador_horarioEntrada}"/> 
                             </p:column>
                                 
                                 <p:column style="width: 81px;" headerText="Opções" >

@@ -1,5 +1,7 @@
 package br.com.senacrs.TO;
 
+import java.util.Date;
+
 
 public class Gerenciador  implements java.io.Serializable {
 
@@ -10,17 +12,20 @@ public class Gerenciador  implements java.io.Serializable {
      private String gerenciador_cnpjFornecedor;
      private String gerenciador_placaCaminhao;
      private String gerenciador_nomeMotorista;
-
+     private Date gerenciador_horarioEntrada;
      
      public Gerenciador(){
          
      }
 
-    public Gerenciador(String gerenciador_cnpjFornecedor, String gerenciador_placaCaminhao, String gerenciador_nomeMotorista) {
+    public Gerenciador(String gerenciador_cnpjFornecedor, String gerenciador_placaCaminhao, String gerenciador_nomeMotorista, Date gerenciador_horarioEntrada) {
         this.gerenciador_cnpjFornecedor = gerenciador_cnpjFornecedor;
         this.gerenciador_placaCaminhao = gerenciador_placaCaminhao;
         this.gerenciador_nomeMotorista = gerenciador_nomeMotorista;
+        this.gerenciador_horarioEntrada = gerenciador_horarioEntrada;
     }
+
+
 
     public Integer getIdGerenciador() {
         return idGerenciador;
@@ -52,6 +57,14 @@ public class Gerenciador  implements java.io.Serializable {
 
     public void setGerenciador_nomeMotorista(String gerenciador_nomeMotorista) {
         this.gerenciador_nomeMotorista = gerenciador_nomeMotorista;
+    }
+
+    public Date getGerenciador_horarioEntrada() {
+        return gerenciador_horarioEntrada;
+    }
+
+    public void setGerenciador_horarioEntrada(Date gerenciador_horarioEntrada) {
+        this.gerenciador_horarioEntrada = gerenciador_horarioEntrada;
     }
 
    
