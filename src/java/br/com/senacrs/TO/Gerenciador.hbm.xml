@@ -8,17 +8,14 @@
       <column name="idGerenciador"/>
       <generator class="identity"/>
     </id>
-    <property name="placaCaminhao" type="string">
-      <column length="8" name="placaCaminhao" not-null="true" unique="true"/>
+    <property name="gerenciador_cnpjFornecedor" type="string">
+      <column length="45" name="gerenciador_cnpjFornecedor" not-null="true"/>
     </property>
-    <property name="modeloCaminhao" type="string">
-      <column length="45" name="modeloCaminhao" not-null="true"/>
+    <property name="gerenciador_placaCaminhao" type="string">
+      <column length="8" name="gerenciador_placaCaminhao" not-null="true"/>
     </property>
-    <property name="pesoInicialCaminhao" type="string">
-      <column length="45" name="pesoInicialCaminhao" not-null="true" />
-    </property>
-    <property name="pesoFinalCaminhao" type="string">
-      <column length="45" name="pesoFinalCaminhao" not-null="true" />
+    <property name="gerenciador_nomeMotorista" type="string">
+      <column length="45" name="gerenciador_nomeMotorista" not-null="true" />
     </property>
   </class>
 </hibernate-mapping>

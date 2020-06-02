@@ -7,21 +7,19 @@ public class Gerenciador  implements java.io.Serializable {
     
 
      private Integer idGerenciador;
-     private String nomeFornecedor;
-     private String placaCaminhao;
-     private String nomeMotorista;
-     private String cnhMotorista;
+     private String gerenciador_cnpjFornecedor;
+     private String gerenciador_placaCaminhao;
+     private String gerenciador_nomeMotorista;
 
      
      public Gerenciador(){
          
      }
 
-    public Gerenciador(String nomeFornecedor, String placaCaminhao, String nomeMotorista, String cnhMotorista) {
-        this.nomeFornecedor = nomeFornecedor;
-        this.placaCaminhao = placaCaminhao;
-        this.nomeMotorista = nomeMotorista;
-        this.cnhMotorista = cnhMotorista;
+    public Gerenciador(String gerenciador_cnpjFornecedor, String gerenciador_placaCaminhao, String gerenciador_nomeMotorista) {
+        this.gerenciador_cnpjFornecedor = gerenciador_cnpjFornecedor;
+        this.gerenciador_placaCaminhao = gerenciador_placaCaminhao;
+        this.gerenciador_nomeMotorista = gerenciador_nomeMotorista;
     }
 
     public Integer getIdGerenciador() {
@@ -32,36 +30,29 @@ public class Gerenciador  implements java.io.Serializable {
         this.idGerenciador = idGerenciador;
     }
 
-    public String getNomeFornecedor() {
-        return nomeFornecedor;
+    public String getGerenciador_cnpjFornecedor() {
+        return gerenciador_cnpjFornecedor;
     }
 
-    public void setNomeFornecedor(String nomeFornecedor) {
-        this.nomeFornecedor = nomeFornecedor;
+    public void setGerenciador_cnpjFornecedor(String gerenciador_cnpjFornecedor) {
+        this.gerenciador_cnpjFornecedor = gerenciador_cnpjFornecedor;
     }
 
-    public String getPlacaCaminhao() {
-        return placaCaminhao;
+    public String getGerenciador_placaCaminhao() {
+        return gerenciador_placaCaminhao;
     }
 
-    public void setPlacaCaminhao(String placaCaminhao) {
-        this.placaCaminhao = placaCaminhao;
+    public void setGerenciador_placaCaminhao(String gerenciador_placaCaminhao) {
+        this.gerenciador_placaCaminhao = gerenciador_placaCaminhao;
     }
 
-    public String getNomeMotorista() {
-        return nomeMotorista;
+    public String getGerenciador_nomeMotorista() {
+        return gerenciador_nomeMotorista;
     }
 
-    public void setNomeMotorista(String nomeMotorista) {
-        this.nomeMotorista = nomeMotorista;
+    public void setGerenciador_nomeMotorista(String gerenciador_nomeMotorista) {
+        this.gerenciador_nomeMotorista = gerenciador_nomeMotorista;
     }
 
-    public String getCnhMotorista() {
-        return cnhMotorista;
-    }
-
-    public void setCnhMotorista(String cnhMotorista) {
-        this.cnhMotorista = cnhMotorista;
-    }
    
 }
