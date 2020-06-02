@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/fe444528cd.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="wrapper d-flex align-items-stretch">
@@ -30,15 +31,15 @@
                 </div>
                 <ul class="list-unstyled components mb-5">
                     <li class="active"><a href="painelInicio.jsp"><span class="fa fa-home mr-3"></span> Inicio</a></li>
-                    <li><a href="painelGerenciador.jsp"> Gerenciador</a></li>
-                    <li><a href="painelFornecedor.jsp"> Fornecedor</a></li>
-                    <li><a href="painelCaminhao.jsp"> Caminhão</a></li>
-                    <li><a href="painelMotorista.jsp"> Motorista</a></li>
+                    <li><a href="painelGerenciador.jsp"><i class="fas fa-tasks mr-3"></i> Gerenciador</a></li>
+                    <li><a href="painelFornecedor.jsp"><i class="fas fa-users mr-3"></i> Fornecedor</a></li>
+                    <li><a href="painelCaminhao.jsp"><span class="fas fa-truck mr-3"></span>  Caminhão</a></li>
+                    <li><a href="painelMotorista.jsp"><span class="fas fa-truck mr-3"></span> Motorista</a></li>
                 </ul>
             </nav>
             <!-- Conteudo da Página  -->
             <div id="content" class="p-4 p-md-5 pt-5">
-                <h4>Checklist</h1>
+                <h4>Gerenciador</h1>
                 <div class="wrapper">  
                     <iframe scrolling="no" src="Cadastros/Gerenciador.xhtml" style="width: 100%;height:100%;" ></iframe>
                 </div>

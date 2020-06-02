@@ -1,7 +1,10 @@
 package br.com.senacrs.TO;
 
-
-public class Caminhao  implements java.io.Serializable {
+/**
+ *
+ * @author mlour
+ */
+public class Caminhao implements java.io.Serializable {
 
     //declaração das variaveis 
     

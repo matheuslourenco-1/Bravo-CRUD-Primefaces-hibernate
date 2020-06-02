@@ -28,9 +28,9 @@ public class CaminhaoController implements Serializable{
         cliente = new Caminhao();
     }
     //metodo listar
-    public List<Caminhao> listar(){
-        CaminhaoDAO client = new CaminhaoDAO();
-        return client.listar();
+    public List <Caminhao> listar(){
+        CaminhaoDAO caminhao = new CaminhaoDAO();
+        return caminhao.listar();
     }
     //metodo excluir
     public void remover(Caminhao cliente){
