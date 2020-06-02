@@ -3,7 +3,7 @@
 <!-- Generated 13/04/2016 09:29:45 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
   <!--Mapa de caminho da classes no banco de dados-->
-  <class catalog="Bravo" name="br.com.senacrs.TO.Motorista" optimistic-lock="version" table="tb_otorista">
+  <class catalog="Bravo" name="br.com.senacrs.TO.Motorista" optimistic-lock="version" table="tb_motorista">
     <id name="idMotorista" type="java.lang.Integer">
       <column name="idMotorista"/>
       <generator class="identity"/>
@@ -12,7 +12,7 @@
       <column length="45" name="nomeMotorista" not-null="true"/>
     </property>
     <property name="cnhMotorista" type="string">
-      <column length="45" name="cnhMotorista" not-null="true"/>
+      <column length="15" name="cnhMotorista" not-null="true"/>
     </property>
   </class>
 </hibernate-mapping>
