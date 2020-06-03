@@ -17,7 +17,7 @@
     <property name="gerenciador_nomeMotorista" type="string">
       <column length="45" name="gerenciador_nomeMotorista"  />
     </property>
-    <property name="gerenciador_horarioEntrada" type="java.util.Date">
+    <property name="gerenciador_horarioEntrada" type="java.sql.Time">
       <column  name="gerenciador_horarioEntrada"  />
     </property>
     
