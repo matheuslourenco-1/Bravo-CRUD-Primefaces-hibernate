@@ -13,22 +13,24 @@
                 <title>Cadastro Gerenciador</title>
             </f:facet>
             <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
-            <link type="text/css" rel="stylesheet" href="css/style.css" />
             		<style type="text/css">
                     .ui-widget-header {
+                        border: 0px solid #a8a8a8;
                         background: #333;
                         color: white;
                         font-weight: 500;
                     }
-                    
-			.ui-datalist ul {
-				padding: 0px 10px 0 20px;
-				margin: 5px 0;
-			}
-
-			.ui-datalist {
-				margin-bottom: 10px
-			}
+                    .p-datepicker-panel .ui-timepicker {
+                        text-align: center;
+                        padding: 0;
+                    }
+                    .ui-datalist ul {
+                        padding: 0px 10px 0 20px;
+                        margin: 5px 0;
+                    }
+                    .ui-datalist {
+                        margin-bottom: 10px
+                    }
 
 			.ui-noborder tr.ui-widget-content {
 				background: none;
@@ -49,6 +51,11 @@
                             width: auto;
                             text-indent: 0!important;
                         }
+                        .ui-datepicker {
+                            width: 10em;
+                            padding: 0px 0px 0px;
+                            display: none;
+                        }
 		</style>
 
         </h:head>
@@ -64,11 +71,9 @@
                             <p:outputLabel value="Nome do Motorista: "/>
                             <p:inputText value="#{gerenciadorController.gerenciador.gerenciador_nomeMotorista}"/>
                             <p:outputLabel for="timeonly" value="Horario de Entrada:" />
-                            <p:datePicker id="timeonly"  value="#{gerenciadorController.gerenciador.gerenciador_horarioEntrada}" timeOnly="true" pattern="HH:mm"/>
-                            <h:outputText value="Horario de Entrada:" />
-                            <h:outputText value="#{gerenciadorController.gerenciador.gerenciador_horarioEntrada}">
-                                <f:convertDateTime pattern="HH:mm" />
-                            </h:outputText>
+                            <p:datePicker maxlength="6" id="timeonly"  value="#{gerenciadorController.gerenciador.gerenciador_horarioEntrada}" timeOnly="true" pattern="HH:mm">
+
+                            </p:datePicker>
                             <i></i><p:commandButton value="Salvar"  action="#{gerenciadorController.salvar()}" update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;"/>
                         </p:panelGrid> 
                         <br />
