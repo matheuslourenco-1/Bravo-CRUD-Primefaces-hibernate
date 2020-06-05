@@ -68,6 +68,7 @@
             <div id="content" class="p-4 p-md-5 pt-5">
                 <h4 >Inicio</h1>
                 <div class="wrapper">  
+                     <iframe scrolling="no" src="Cadastros/Inicio.xhtml" style="width: 100%;height:100%;" ></iframe>
                 </div>
             </div>
         </div>

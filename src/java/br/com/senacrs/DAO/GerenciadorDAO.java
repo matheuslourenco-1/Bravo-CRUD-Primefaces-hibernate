@@ -3,9 +3,10 @@ package br.com.senacrs.DAO;
 import br.com.senacrs.TO.Gerenciador;
 import br.com.senacrs.util.HibernateUtil;
 import java.util.List;
+import javax.inject.Named;
 import org.hibernate.Session;
 
-
+@Named
 public class GerenciadorDAO {
     Session session;
 
@@ -13,6 +14,7 @@ public class GerenciadorDAO {
         session = HibernateUtil.getSessionFactory().openSession();
     }
     /*Construtor listar*/
+    
     public List<Gerenciador> listar(){
         List<Gerenciador> gerenciador = session.createCriteria(Gerenciador.class).list();
         session.close();

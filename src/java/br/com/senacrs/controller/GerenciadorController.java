@@ -23,12 +23,15 @@ public class GerenciadorController implements Serializable{
     public void setGerenciador(Gerenciador cliente) {
         this.cliente = cliente;
     }
+    
     //Metodo Salvar
     public void salvar(){
         GerenciadorDAO client = new GerenciadorDAO();
         client.salvar(cliente);
         cliente = new Gerenciador();
     }
+    
+
     //metodo listar
     public List<Gerenciador> listar(){
         GerenciadorDAO client = new GerenciadorDAO();

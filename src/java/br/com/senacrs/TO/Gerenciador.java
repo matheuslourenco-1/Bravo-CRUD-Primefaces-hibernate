@@ -1,32 +1,28 @@
 package br.com.senacrs.TO;
 
-import java.util.Date;
 
+import java.util.Date;
 
 public class Gerenciador  implements java.io.Serializable {
 
     //declaração das variaveis 
-    
-
      private Integer idGerenciador;
-     private String gerenciador_cnpjFornecedor;
+     private String gerenciador_nomeFornecedor;
      private String gerenciador_placaCaminhao;
      private String gerenciador_nomeMotorista;
      private Date gerenciador_horarioEntrada;
-     
+
      public Gerenciador(){
          
      }
 
-    public Gerenciador(String gerenciador_cnpjFornecedor, String gerenciador_placaCaminhao, String gerenciador_nomeMotorista, Date gerenciador_horarioEntrada) {
-        this.gerenciador_cnpjFornecedor = gerenciador_cnpjFornecedor;
+    public Gerenciador(String gerenciador_nomeFornecedor, String gerenciador_placaCaminhao, String gerenciador_nomeMotorista, Date gerenciador_horarioEntrada) {
+        this.gerenciador_nomeFornecedor = gerenciador_nomeFornecedor;
         this.gerenciador_placaCaminhao = gerenciador_placaCaminhao;
         this.gerenciador_nomeMotorista = gerenciador_nomeMotorista;
         this.gerenciador_horarioEntrada = gerenciador_horarioEntrada;
     }
-
-
-
+    
     public Integer getIdGerenciador() {
         return idGerenciador;
     }
@@ -35,12 +31,12 @@ public class Gerenciador  implements java.io.Serializable {
         this.idGerenciador = idGerenciador;
     }
 
-    public String getGerenciador_cnpjFornecedor() {
-        return gerenciador_cnpjFornecedor;
+    public String getGerenciador_nomeFornecedor() {
+        return gerenciador_nomeFornecedor;
     }
 
-    public void setGerenciador_cnpjFornecedor(String gerenciador_cnpjFornecedor) {
-        this.gerenciador_cnpjFornecedor = gerenciador_cnpjFornecedor;
+    public void setGerenciador_nomeFornecedor(String gerenciador_nomeFornecedor) {
+        this.gerenciador_nomeFornecedor = gerenciador_nomeFornecedor;
     }
 
     public String getGerenciador_placaCaminhao() {
