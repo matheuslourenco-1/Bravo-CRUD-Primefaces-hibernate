@@ -85,15 +85,15 @@
                         </p:panelGrid> 
                         <br />
                         
-                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Caminhaos">
+                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Caminhões">
                             <p:dataTable var="caminhao" value="#{caminhaoController.listar()}">
                             <p:column headerText="ID" filterBy="#{caminhao.idCaminhao}" > 
                                     <p:outputLabel value="#{caminhao.idCaminhao}"/> 
                             </p:column>
-                            <p:column headerText="Placa" filterBy="#{caminhao.nomeCaminhao}"> 
+                            <p:column headerText="Placa" filterBy="#{caminhao.placaCaminhao}"> 
                                     <p:outputLabel value="#{caminhao.placaCaminhao}"/> 
                             </p:column>    
-                            <p:column headerText="Modelo" filterBy="#{caminhao.cnhCaminhao}"> 
+                            <p:column headerText="Modelo" filterBy="#{caminhao.modeloCaminhao}"> 
                                     <p:outputLabel value="#{caminhao.modeloCaminhao}"/> 
                             </p:column>
                             <p:column headerText="Peso Inicial(kg)" filterBy="#{caminhao.pesoInicialCaminhao}"> 
@@ -101,6 +101,9 @@
                             </p:column>    
                             <p:column headerText="Peso Final(kg)" filterBy="#{caminhao.pesoFinalCaminhao}"> 
                                     <p:outputLabel value="#{caminhao.pesoFinalCaminhao}"/> 
+                            </p:column>
+                                <p:column headerText="ID Motorista" filterBy="#{caminhao.idMotorista}"> 
+                                    <p:outputLabel value="#{caminhao.idMotorista}"/> 
                             </p:column>
                                 
                                 <p:column style="width: 81px;" headerText="Opções" >

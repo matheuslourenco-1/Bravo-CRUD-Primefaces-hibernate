@@ -7,7 +7,7 @@ public class Motorista  implements java.io.Serializable {
      private Integer idMotorista;
      private String nomeMotorista;
      private String cnhMotorista;
-
+     
      public Motorista(){
          
      }

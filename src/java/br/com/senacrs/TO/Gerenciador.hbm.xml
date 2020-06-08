@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 13/04/2016 09:29:45 by Hibernate Tools 4.3.1 -->
-<hibernate-mapping>
+<hibernate-mapping package="br.com.senacrs.TO">
   <!--Mapeando banco de dados-->
   <class catalog="Bravo" name="br.com.senacrs.TO.Gerenciador" optimistic-lock="version" table="tb_gerenciador">
     <id name="idGerenciador" type="java.lang.Integer">
@@ -18,7 +18,16 @@
       <column length="50" name="gerenciador_nomeMotorista" not-null="true"/>
     </property>
     <property name="gerenciador_horarioEntrada" type="java.util.Date">
-      <column  name="gerenciador_horarioEntrada"  />
+      <column  name="gerenciador_horarioEntrada"  /> 
     </property>
+    <many-to-one name="idCaminhao" class="br.com.senacrs.TO.Caminhao">
+        <column name="idCaminhao" not-null="true" />
+    </many-to-one>   
+    <many-to-one name="idFornecedor" class="br.com.senacrs.TO.Fornecedor">
+        <column name="idFornecedor" not-null="true" />
+    </many-to-one>   
+    <many-to-one name="idMotorista" class="br.com.senacrs.TO.Motorista">
+        <column name="idMotorista" not-null="true" />
+    </many-to-one>   
   </class>
 </hibernate-mapping>
