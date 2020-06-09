@@ -23,8 +23,6 @@
                         border: 0 none;
                         height: 100%;  
                         min-height: 100%;
-                        overflow-y: hidden;
-                        /* -webkit-box-sizing: border-box; */
                         box-sizing: border-box;
                     }    
                 .ui-datalist ul {
@@ -66,6 +64,8 @@
                             <p:inputMask mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}"/>
                             <p:outputLabel value="Telefone: "/>
                             <p:inputMask mask="(99) 99999-9999" value="#{fornecedorController.fornecedor.contatoFornecedor}"/>
+                            <p:outputLabel value="ID Caminhao "/>
+                            <p:inputText value="#{fornecedorController.fornecedor.idCaminhao}"/>
                             <i></i><p:commandButton value="Salvar"  action="#{fornecedorController.salvar()}" update="formulario" icon="pi pi-save" style=" float: right;"/>
                         </p:panelGrid> 
                         <br />
@@ -83,6 +83,9 @@
                             </p:column>
                             <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
                                     <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
+                            </p:column>
+                                <p:column headerText="Telefone" filterBy="#{fornecedor.idCaminhao}"> 
+                                    <p:outputLabel value="#{fornecedor.idCaminhao}"/> 
                             </p:column>
                                 <p:column style="width: 81px;" headerText="Opções" >
                                     <p:commandButton value="" icon="pi pi-pencil" update=":formulario" style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center" >
