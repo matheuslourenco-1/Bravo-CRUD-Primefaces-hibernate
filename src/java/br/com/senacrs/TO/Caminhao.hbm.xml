@@ -20,9 +20,8 @@
     <property name="pesoFinalCaminhao" type="string">
       <column length="45" name="pesoFinalCaminhao" not-null="true" />
     </property>
-    <set name="idMotorista" inverse="true" cascade="all">
-        <key column="idMotorista" not-null="true" />
-        <one-to-many class="br.com.senacrs.TO.Motorista"/>
-    </set>
+    <many-to-one name="idMotorista" class="br.com.senacrs.TO.Motorista" fetch="select">
+        <column name="idMotorista" not-null="true" />
+    </many-to-one>
   </class>
 </hibernate-mapping>

@@ -3,6 +3,7 @@ package br.com.senacrs.DAO;
 import br.com.senacrs.TO.Caminhao;
 import br.com.senacrs.util.HibernateUtil;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.hibernate.Session;
 
 public class CaminhaoDAO {
@@ -20,17 +21,32 @@ public class CaminhaoDAO {
     }
     /*Construtor remover*/
     public void remover(Object caminhao){
-        session.beginTransaction();
-        session.delete(caminhao);
-        session.getTransaction().commit();
-        session.close();
+        try{        
+            session.beginTransaction();
+            session.delete(caminhao);
+            session.getTransaction().commit();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
     }
+    
     /*Construtor salvar*/
     public void salvar(Caminhao caminhao) {
+        try{       
         session.beginTransaction();
         session.saveOrUpdate(caminhao);
         session.getTransaction().commit();
-        session.close();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
+        } finally {
+            if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
     }
     
 }
