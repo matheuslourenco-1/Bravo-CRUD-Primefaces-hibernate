@@ -73,7 +73,10 @@
                         <br />
                         
                         <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Motoristas">
-                            <p:dataTable var="motorista" value="#{motoristaController.listar()}">
+                            <p:dataTable rows="10" paginator="true"
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                                         rowsPerPageTemplate="5,10,15" var="motorista" value="#{motoristaController.listar()}">
                             <p:column headerText="ID" filterBy="#{motorista.idMotorista}" > 
                                     <p:outputLabel value="#{motorista.idMotorista}"/> 
                             </p:column>

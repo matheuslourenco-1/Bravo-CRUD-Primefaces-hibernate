@@ -2,6 +2,8 @@ package br.com.senacrs.TO;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
 public class Motorista  implements java.io.Serializable {
 
@@ -10,15 +12,26 @@ public class Motorista  implements java.io.Serializable {
      private Integer idMotorista;
      private String nomeMotorista;
      private String cnhMotorista;
+     private Set moto = new HashSet(0);
     // private Set<Caminhao> caminhao = new HashSet<Caminhao>();
      public Motorista(){
          
      }
      //construtores
-    public Motorista(String nomeMotorista,  String cnhMotorista){
+    public Motorista(String nomeMotorista,  String cnhMotorista, Set moto){
         this.nomeMotorista = nomeMotorista;
         this.cnhMotorista = cnhMotorista;
+        this.moto = moto;
      }
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "moto")
+    public Set getMoto() {
+        return this.moto;
+    }
+
+    public void setMoto(Set moto) {
+        this.moto = moto;
+    }
 
     public Integer getIdMotorista() {
         return idMotorista;

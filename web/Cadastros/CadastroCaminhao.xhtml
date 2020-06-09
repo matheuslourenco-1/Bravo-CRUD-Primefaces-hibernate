@@ -88,7 +88,10 @@
                         <br />
                         
                         <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Caminhões">
-                            <p:dataTable var="caminhao" value="#{caminhaoController.listar()}">
+                            <p:dataTable rows="10" paginator="true"
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                                         rowsPerPageTemplate="5,10,15" var="caminhao" value="#{caminhaoController.listar()}">
                             <p:column headerText="ID" filterBy="#{caminhao.idCaminhao}" > 
                                     <p:outputLabel value="#{caminhao.idCaminhao}"/> 
                             </p:column>

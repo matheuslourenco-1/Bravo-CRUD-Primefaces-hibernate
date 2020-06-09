@@ -20,8 +20,9 @@
     <property name="pesoFinalCaminhao" type="string">
       <column length="45" name="pesoFinalCaminhao" not-null="true" />
     </property>
-    <many-to-one name="idMotorista" class="br.com.senacrs.Motorista" fetch="select">
-        <column name="idMotorista" not-null="true" />
-    </many-to-one>
+    <property name="idMotorista" type="int">
+      <column name="idMotorista" not-null="true" unique="true"/>
+    </property>
+    
   </class>
 </hibernate-mapping>

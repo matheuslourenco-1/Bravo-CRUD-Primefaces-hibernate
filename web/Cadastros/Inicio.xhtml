@@ -75,7 +75,10 @@
                         <br />
                         
                         <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista">
-                            <p:dataTable var="gerenciador" value="#{gerenciadorController.listar()}">
+                            <p:dataTable rows="10" paginator="true"
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                                         rowsPerPageTemplate="5,10,15" var="gerenciador" value="#{gerenciadorController.listar()}">
                             <p:column headerText="ID" filterBy="#{gerenciador.idGerenciador}" > 
                                     <p:outputLabel value="#{gerenciador.idGerenciador}"/> 
                             </p:column>
