@@ -17,8 +17,9 @@
     <property name="contatoFornecedor" type="string">
       <column length="45" name="contatoFornecedor"/>
     </property>
-    <many-to-one name="idCaminhao" class="br.com.senacrs.TO.Caminhao">
-            <column name="idCaminhao" not-null="true" />
-    </many-to-one>   
+    <set name="idCaminhao" inverse="true" cascade="all">
+        <key column="idCaminhao" not-null="true" />
+        <one-to-many class="br.com.senacrs.TO.Caminhao"/>
+    </set>
   </class>
 </hibernate-mapping>

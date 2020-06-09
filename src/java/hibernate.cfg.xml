@@ -8,9 +8,9 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bravo?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <!--Mapeamento do banco-->
-    <mapping resource="br/com/senacrs/TO/Fornecedor.hbm.xml"/>
     <mapping resource="br/com/senacrs/TO/Motorista.hbm.xml"/>
+    <mapping resource="br/com/senacrs/TO/Caminhao.hbm.xml"/>   
+    <mapping resource="br/com/senacrs/TO/Fornecedor.hbm.xml"/>
     <mapping resource="br/com/senacrs/TO/Gerenciador.hbm.xml"/>
-    <mapping resource="br/com/senacrs/TO/Caminhao.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

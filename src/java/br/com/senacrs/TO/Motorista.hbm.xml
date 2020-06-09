@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 13/04/2016 09:29:45 by Hibernate Tools 4.3.1 -->
-<hibernate-mapping>
+<hibernate-mapping package="br.com.senacrs.TO">
   <!--Mapeando banco de dados-->
   <class catalog="Bravo" name="br.com.senacrs.TO.Motorista" optimistic-lock="version" table="tb_motorista">
     <id name="idMotorista" type="java.lang.Integer">
