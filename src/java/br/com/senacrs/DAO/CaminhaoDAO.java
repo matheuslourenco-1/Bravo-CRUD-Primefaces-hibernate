@@ -2,6 +2,7 @@ package br.com.senacrs.DAO;
 
 import br.com.senacrs.TO.Caminhao;
 import br.com.senacrs.util.HibernateUtil;
+import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
@@ -20,7 +21,7 @@ public class CaminhaoDAO {
         return caminhao;
     }
     /*Construtor remover*/
-    public void remover(Object caminhao){
+    public void remover(Object caminhao) throws SQLException{
         try{        
             session.beginTransaction();
             session.delete(caminhao);
@@ -35,7 +36,7 @@ public class CaminhaoDAO {
     }
     
     /*Construtor salvar*/
-    public void salvar(Caminhao caminhao) {
+    public void salvar(Caminhao caminhao) throws SQLException{
         try{       
         session.beginTransaction();
         session.saveOrUpdate(caminhao);
