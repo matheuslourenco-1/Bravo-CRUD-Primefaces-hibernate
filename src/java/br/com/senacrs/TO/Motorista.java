@@ -1,5 +1,8 @@
 package br.com.senacrs.TO;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Motorista  implements java.io.Serializable {
 
     //declaração das variaveis 
@@ -7,7 +10,7 @@ public class Motorista  implements java.io.Serializable {
      private Integer idMotorista;
      private String nomeMotorista;
      private String cnhMotorista;
-     
+    // private Set<Caminhao> caminhao = new HashSet<Caminhao>();
      public Motorista(){
          
      }
@@ -40,4 +43,13 @@ public class Motorista  implements java.io.Serializable {
     public void setCnhMotorista(String cnhMotorista) {
         this.cnhMotorista = cnhMotorista;
     }
+
+   /* public Set<Caminhao> getCaminhao() {
+        return caminhao;
+    }
+
+    public void setCaminhao(Set<Caminhao> caminhao) {
+        this.caminhao = caminhao;
+    }*/
+    
 }

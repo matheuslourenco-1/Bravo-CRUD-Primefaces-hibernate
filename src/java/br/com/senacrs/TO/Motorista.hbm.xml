@@ -14,11 +14,9 @@
     <property name="cnhMotorista" type="string">
       <column length="15" name="cnhMotorista" not-null="true"/>
     </property>
-    <set name="idMotorista" table="tb_caminhao"  inverse="true" lazy="true" fetch="select">
-        <key>
-            <column name="idMotorista" not-null="true" />
-        </key>
-        <one-to-many class="br.com.senacrs.TO.Caminhao" />
+    <set name="Caminhao" inverse="true" cascade="all">
+        <key column="idCaminhao" not-null="true" />
+        <one-to-many class="br.com.senacrs.Caminhao"/>
     </set>
   </class>
 </hibernate-mapping>
