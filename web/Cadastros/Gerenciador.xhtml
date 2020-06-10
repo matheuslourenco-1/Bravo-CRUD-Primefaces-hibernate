@@ -91,6 +91,12 @@
                             <p:datePicker autocomplete="off" maxlength="6" id="timeonly" showTime="true"
                                 value="#{gerenciadorController.gerenciador.gerenciador_horarioEntrada}" timeOnly="true"
                                 pattern="HH:mm" />
+                             <p:outputLabel value="ID Fornecedor: " />
+                             <p:inputText value="#{gerenciadorController.gerenciador.idFornecedor}" />
+                             <p:outputLabel value="ID Caminhão " />
+                             <p:inputText value="#{gerenciadorController.gerenciador.idCaminhao}" />
+                             <p:outputLabel value="ID Motorista " />
+                             <p:inputText value="#{gerenciadorController.gerenciador.idMotorista}" />
                             <i></i>
                             <p:commandButton value="Salvar" action="#{gerenciadorController.salvar()}"
                                 update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;" />
@@ -128,6 +134,15 @@
                                 <p:outputLabel value="#{gerenciador.gerenciador_horarioEntrada}">
                                     <f:convertDateTime pattern="HH:mm" />
                                 </p:outputLabel>
+                            </p:column>
+                            <p:column headerText="ID Fornecedor" filterBy="#{gerenciador.idFornecedor}">
+                                <p:outputLabel value="#{gerenciador.idFornecedor}" />
+                            </p:column>
+                            <p:column headerText="ID Caminhão" filterBy="#{gerenciador.idCaminhao}">
+                                <p:outputLabel value="#{gerenciador.idCaminhao}" />
+                            </p:column>
+                            <p:column headerText="ID Motorista" filterBy="#{gerenciador.idMotorista}">
+                                <p:outputLabel value="#{gerenciador.idMotorista}" />
                             </p:column>
 
                             <p:column style="width: 81px;" headerText="Opções">

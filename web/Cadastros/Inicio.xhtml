@@ -82,10 +82,18 @@
                     <br />
 
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista">
-                        <p:dataTable rows="10" paginator="true"
+                        <br />
+                        <br />
+                        <p:dataTable id="gerenciador" rows="10" paginator="true"
                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="gerenciador" value="#{gerenciadorController.listar()}">
+                            <f:facet name="header">        
+                                <p:commandButton id="toggler" type="button" value="Colunas" style="float: right; width: 115px; font-weight: unset; background: #5f5f5f; color: white;" icon="pi pi-table" />
+                                <p:columnToggler datasource="gerenciador" trigger="toggler">
+                                    <p:ajax event="toggle" />
+                                </p:columnToggler>
+                            </f:facet>
                             <p:column headerText="ID" filterBy="#{gerenciador.idGerenciador}">
                                 <p:outputLabel value="#{gerenciador.idGerenciador}" />
                             </p:column>
@@ -105,9 +113,17 @@
                                     <f:convertDateTime pattern="HH:mm" />
                                 </p:outputLabel>
                             </p:column>
+                            <p:column headerText="ID Fornecedor" filterBy="#{gerenciador.idFornecedor}">
+                                <p:outputLabel value="#{gerenciador.idFornecedor}" />
+                            </p:column>
+                            <p:column headerText="ID Caminhão" filterBy="#{gerenciador.idCaminhao}">
+                                <p:outputLabel value="#{gerenciador.idCaminhao}" />
+                            </p:column>
+                            <p:column headerText="ID Motorista" filterBy="#{gerenciador.idMotorista}">
+                                <p:outputLabel value="#{gerenciador.idMotorista}" />
+                            </p:column>
 
                             <p:column style="width: 81px;" headerText="Opções">
-
                                 <p:commandButton value="" icon="pi pi-trash" update=":formulario"
                                     style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                     action="#{gerenciadorController.remover(gerenciador)}">
