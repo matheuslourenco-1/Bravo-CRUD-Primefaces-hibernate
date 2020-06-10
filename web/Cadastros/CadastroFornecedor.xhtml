@@ -61,10 +61,11 @@
     <h:body>
         <p:layout>
             <p:layoutUnit style="height: 790px;" position="center">
-                <h:form id="formulario">
+                <h:form id="formulario">                  
+                    <p:dialog focus="nome" header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
                     <p:panelGrid id="cadastro" columns="2">
-                        <p:outputLabel value="Nome: " />
-                        <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}" />
+                        <p:outputLabel for="nome" value="Nome: " />
+                        <p:inputText id="nome"  value="#{fornecedorController.fornecedor.nomeFornecedor}" />
                         <p:outputLabel value="CNPJ: " />
                         <p:inputMask mask="99.999.999/9999-99"
                             value="#{fornecedorController.fornecedor.cnpjFornecedor}" />
@@ -76,13 +77,16 @@
                         <i></i>
                         <p:commandButton value="Salvar" action="#{fornecedorController.salvar()}" update="formulario"
                             icon="pi pi-save" style=" float: right;" />
-                        <p:commandButton value="Update" action="#{fornecedorController.update()}" update="formulario"
-                            icon="pi pi-save" style=" float: right;" />
                     </p:panelGrid>
+                    </p:dialog>
                     <br />
-
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Fornecedores">
-                        <p:dataTable rows="10" paginator="true"
+                        <br />
+                        <br />
+                        <p:commandButton style="float: right; margin: -35px -1px 0px 0px; " value="Adicionar" type="button" onclick="PF('dlg1').show();" />
+                  
+                        
+                        <p:dataTable rows="10" paginator="true" editMode="cell" editable="true"
                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="fornecedor" value="#{fornecedorController.listar()}">
@@ -90,23 +94,36 @@
                                 <p:outputLabel value="#{fornecedor.idFornecedor}" />
                             </p:column>
                             <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}">
-                                <p:outputLabel value="#{fornecedor.nomeFornecedor}" />
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{fornecedor.nomeFornecedor}" /></f:facet>
+                                    <f:facet name="input"><p:inputText  value="#{fornecedor.nomeFornecedor}" style="width:96%"/></f:facet>
+                                </p:cellEditor>
                             </p:column>
                             <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}">
-                                <p:outputLabel value="#{fornecedor.cnpjFornecedor}" />
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{fornecedor.cnpjFornecedor}" /></f:facet>
+                                    <f:facet name="input"><p:inputMask mask="99.999.999/9999-99" value="#{fornecedor.cnpjFornecedor}" style="width:96%" label="cnpjFornecedor"/></f:facet>
+                                </p:cellEditor>
                             </p:column>
                             <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}">
-                                <p:outputLabel value="#{fornecedor.contatoFornecedor}" />
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{fornecedor.contatoFornecedor}" /></f:facet>
+                                    <f:facet name="input"><p:inputMask mask="(99) 99999-9999"  value="#{fornecedor.contatoFornecedor}" style="width:96%"/></f:facet>
+                                </p:cellEditor>
                             </p:column>
-                            <p:column headerText="ID Caminhao" filterBy="#{fornecedor.idCaminhao}">
-                                <p:outputLabel value="#{fornecedor.idCaminhao}" />
+                            <p:column headerText="ID Caminhao" filterBy="#{fornecedor.fornecedor.idCaminhao}">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{fornecedor.idCaminhao}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{fornecedor.idCaminhao}" style="width:96%" /></f:facet>
+                                </p:cellEditor>
                             </p:column>
                             <p:column style="width: 81px;" headerText="Opções">
-                                <p:commandButton value="" icon="pi pi-pencil" update=":formulario"
-                                    style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center">
-                                    <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
-                                        value="#{fornecedor}" />
+                                <h:outputLink  value="javascript:void(0)" onclick="PF('dlg1').show();" >
+                                <p:commandButton value="" update="formulario"  icon="pi pi-pencil"   style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center">
+                                    <f:setPropertyActionListener  target="#{fornecedorController.fornecedor}"
+                                        value="#{fornecedor}" /> 
                                 </p:commandButton>
+                                </h:outputLink>
                                 <p:commandButton value="" icon="pi pi-trash" update=":formulario"
                                     style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                     action="#{fornecedorController.remover(fornecedor)}">
@@ -117,73 +134,6 @@
                 </h:form>
                 <br />
                 <br />
-                <h:form id="form">
-                    <p:dataTable id="fornecedor" var="fornecedor" editMode="cell"
-                        value="#{fornecedorController.listar()}" editable="true" style="margin-bottom:20px">
-                        <p:ajax event="rowEdit" listener="#{fornecedorController.onRowEdit}" update=":form:msgs" />
-                        <p:ajax event="rowEditCancel" listener="#{ctabla.onRowCancel}" update=":form:msgs" />
-                        <f:facet name="header">
-                            Row Editing
-                        </f:facet>
-                        <p:column headerText="ID">
-                            <p:cellEditor>
-                                <f:facet name="output">
-                                    <h:outputText value="#{fornecedor.idFornecedor}" />
-                                </f:facet>
-                                <f:facet name="input">
-                                    <p:inputText value="#{fornecedor.idFornecedor}" style="width:100%" label="Nome" />
-                                </f:facet>
-                            </p:cellEditor>
-                        </p:column>
-                        <p:column headerText="Nome">
-                            <p:cellEditor>
-                                <f:facet name="output">
-                                    <h:outputText value="#{fornecedor.nomeFornecedor}" />
-                                </f:facet>
-                                <f:facet name="input">
-                                    <p:inputText value="#{fornecedor.nomeFornecedor}" style="width:100%" label="Nome" />
-                                </f:facet>
-                            </p:cellEditor>
-                        </p:column>
-                        <p:column headerText="CNPJ">
-                            <p:cellEditor>
-                                <f:facet name="output">
-                                    <h:outputText value="#{fornecedor.cnpjFornecedor}" />
-                                </f:facet>
-                                <f:facet name="input">
-                                    <p:inputText value="#{fornecedor.cnpjFornecedor}" style="width:100%" label="CNPJ" />
-                                </f:facet>
-                            </p:cellEditor>
-                        </p:column>
-                        <p:column headerText="Telefone">
-                            <p:cellEditor>
-                                <f:facet name="output">
-                                    <h:outputText value="#{fornecedor.contatoFornecedor}" />
-                                </f:facet>
-                                <f:facet name="input">
-                                    <p:inputText value="#{fornecedor.contatoFornecedor}" style="width:100%"
-                                        label="Telefone" />
-                                </f:facet>
-                            </p:cellEditor>
-                        </p:column>
-                        <p:column headerText="ID Caminhao">
-                            <p:cellEditor>
-                                <f:facet name="output">
-                                    <h:outputText value="#{fornecedor.idCaminhao}" />
-                                </f:facet>
-                                <f:facet name="input">
-                                    <p:inputText value="#{fornecedor.idCaminhao}" style="width:100%" label="idfk" />
-                                </f:facet>
-                            </p:cellEditor>
-                        </p:column>
-                        <p:column style="width:35px">
-                            <f:facet name="header">
-                                EDIT!
-                            </f:facet>
-                            <p:rowEditor saveTitle="Salvar" style="width: 50px;" editTitle="Editar" />
-                        </p:column>
-                    </p:dataTable>
-                </h:form>
             </p:layoutUnit>
         </p:layout>
     </h:body>

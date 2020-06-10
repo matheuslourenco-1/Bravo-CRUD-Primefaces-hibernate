@@ -5,10 +5,13 @@ import br.com.senacrs.TO.Fornecedor;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.swing.JOptionPane;
+import org.primefaces.event.RowEditEvent;
 
 
 @ManagedBean
@@ -37,16 +40,6 @@ public class FornecedorController implements Serializable{
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
         }
     }
-    // metodo update
-    public void update() throws SQLException{
-        try{
-            FornecedorDAO client = new FornecedorDAO();
-            client.update(cliente);
-            cliente = new Fornecedor();   
-        }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
-        }
-    }
     
     //metodo listar
     public List<Fornecedor> listar(){
@@ -63,14 +56,5 @@ public class FornecedorController implements Serializable{
         }
     }
     
-    public void onRowEdit(RowEditEvent<Fornecedor> event) {
-        FacesMessage msg = new FacesMessage("Fornecedor Editado", event.getObject().getIdFornecedor());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-     
-    public void onRowCancel(RowEditEvent<Fornecedor> event) {
-        FacesMessage msg = new FacesMessage("Fornecedor Excluido", event.getObject().getId());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
     
 }
