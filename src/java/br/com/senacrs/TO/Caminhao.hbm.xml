@@ -14,11 +14,11 @@
     <property name="modeloCaminhao" type="string">
       <column length="45" name="modeloCaminhao" not-null="true"/>
     </property>
-    <property name="pesoInicialCaminhao" type="string">
-      <column length="45" name="pesoInicialCaminhao" not-null="true" />
+    <property name="pesoInicialCaminhao" type="double">
+      <column length="45" name="pesoInicialCaminhao" not-null="false" />
     </property>
-    <property name="pesoFinalCaminhao" type="string">
-      <column length="45" name="pesoFinalCaminhao" not-null="true" />
+    <property name="pesoFinalCaminhao" type="double">
+      <column length="45" name="pesoFinalCaminhao" not-null="false" />
     </property>
     <property name="idMotorista" type="int">
       <column name="idMotorista" not-null="true" unique="true"/>

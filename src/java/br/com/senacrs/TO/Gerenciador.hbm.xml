@@ -20,14 +20,14 @@
     <property name="gerenciador_horarioEntrada" type="java.util.Date">
       <column  name="gerenciador_horarioEntrada"  /> 
     </property>
-    <many-to-one name="idCaminhao" class="br.com.senacrs.TO.Caminhao">
-        <column name="idCaminhao" not-null="true" />
-    </many-to-one>   
-    <many-to-one name="idFornecedor" class="br.com.senacrs.TO.Fornecedor">
-        <column name="idFornecedor" not-null="true" />
-    </many-to-one>   
-    <many-to-one name="idMotorista" class="br.com.senacrs.TO.Motorista">
-        <column name="idMotorista" not-null="true" />
-    </many-to-one>   
+    <property name="idCaminhao" type="int">
+      <column name="idCaminhao" not-null="true" unique="true"/>
+    </property>
+    <property name="idFornecedor" type="int">
+      <column name="idFornecedor" not-null="true" unique="true"/>
+    </property>
+    <property name="idMotorista" type="int">
+      <column name="idMotorista" not-null="true" unique="true"/>
+    </property>
   </class>
 </hibernate-mapping>

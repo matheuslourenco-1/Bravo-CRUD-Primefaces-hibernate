@@ -11,15 +11,15 @@ public class Caminhao implements java.io.Serializable {
      private Integer idCaminhao;
      private String placaCaminhao;
      private String modeloCaminhao;
-     private String pesoInicialCaminhao;
-     private String pesoFinalCaminhao;
+     private Double pesoInicialCaminhao;
+     private Double pesoFinalCaminhao;
      private Integer idMotorista;
      
      public Caminhao(){
          
      }
 
-    public Caminhao(String placaCaminhao, Integer idMotorista, String modeloCaminhao, String pesoInicialCaminhao, String pesoFinalCaminhao) {
+    public Caminhao(String placaCaminhao, Integer idMotorista, String modeloCaminhao, Double pesoInicialCaminhao, Double pesoFinalCaminhao) {
         this.placaCaminhao = placaCaminhao;
         this.modeloCaminhao = modeloCaminhao;
         this.pesoInicialCaminhao = pesoInicialCaminhao;
@@ -60,19 +60,19 @@ public class Caminhao implements java.io.Serializable {
         this.modeloCaminhao = modeloCaminhao;
     }
 
-    public String getPesoInicialCaminhao() {
+    public Double getPesoInicialCaminhao() {
         return pesoInicialCaminhao;
     }
 
-    public void setPesoInicialCaminhao(String pesoInicialCaminhao) {
+    public void setPesoInicialCaminhao(Double pesoInicialCaminhao) {
         this.pesoInicialCaminhao = pesoInicialCaminhao;
     }
 
-    public String getPesoFinalCaminhao() {
+    public Double getPesoFinalCaminhao() {
         return pesoFinalCaminhao;
     }
 
-    public void setPesoFinalCaminhao(String pesoFinalCaminhao) {
+    public void setPesoFinalCaminhao(Double pesoFinalCaminhao) {
         this.pesoFinalCaminhao = pesoFinalCaminhao;
     }
 

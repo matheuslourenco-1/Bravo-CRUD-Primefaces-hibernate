@@ -75,16 +75,16 @@
                                 <p:keyFilter mask="alphanum" />
                             </p:inputMask>
                             <p:outputLabel value="Modelo do Caminhao " />
-                            <p:inputMask placeholder="Ex.: Truck, Toco, Bitrem..."
+                            <p:inputText placeholder="Ex.: Truck, Toco, Bitrem..."
                                 value="#{caminhaoController.caminhao.modeloCaminhao}" />
                             <p:outputLabel value="Peso Inicial(kg): " />
-                            <p:inputText maxlength="5" value="#{caminhaoController.caminhao.pesoInicialCaminhao}">
+                            <p:inputNumber maxlength="5"  value="#{caminhaoController.caminhao.pesoInicialCaminhao}">
                                 <p:keyFilter mask="num" />
-                            </p:inputText>
+                            </p:inputNumber>
                             <p:outputLabel value="Peso Final(kg): " />
-                            <p:inputText maxlength="5" value="#{caminhaoController.caminhao.pesoFinalCaminhao}">
+                            <p:inputNumber maxlength="5" value="#{caminhaoController.caminhao.pesoFinalCaminhao}">
                                 <p:keyFilter mask="pnum" />
-                            </p:inputText>
+                            </p:inputNumber>
                             <p:outputLabel value="ID Motorista " />
                             <p:inputText value="#{caminhaoController.caminhao.idMotorista}" />
                             <i></i>
@@ -110,16 +110,20 @@
                                 <p:outputLabel value="#{caminhao.idCaminhao}" />
                             </p:column>
                             <p:column headerText="Placa" filterBy="#{caminhao.placaCaminhao}">
-                                <p:outputLabel value="#{caminhao.placaCaminhao}" />
+                                <p:outputLabel style="text-transform: uppercase;" value="#{caminhao.placaCaminhao}" />
                             </p:column>
                             <p:column headerText="Modelo" filterBy="#{caminhao.modeloCaminhao}">
                                 <p:outputLabel value="#{caminhao.modeloCaminhao}" />
                             </p:column>
                             <p:column headerText="Peso Inicial(kg)" filterBy="#{caminhao.pesoInicialCaminhao}">
-                                <p:outputLabel value="#{caminhao.pesoInicialCaminhao}" />
+                                <p:outputLabel value="#{caminhao.pesoInicialCaminhao}" >
+                                    <f:convertNumber pattern="#,##0" minFractionDigits="2"  />
+                                </p:outputLabel>
                             </p:column>
                             <p:column headerText="Peso Final(kg)" filterBy="#{caminhao.pesoFinalCaminhao}">
-                                <p:outputLabel value="#{caminhao.pesoFinalCaminhao}" />
+                                <p:outputLabel value="#{caminhao.pesoFinalCaminhao}" >
+                                     <f:convertNumber pattern="#,##0" minFractionDigits="2"  />
+                                </p:outputLabel>
                             </p:column>
                             <p:column headerText="ID Motorista" filterBy="#{caminhao.idMotorista}">
                                 <p:outputLabel value="#{caminhao.idMotorista}" />
@@ -128,7 +132,7 @@
                             <p:column style="width: 81px;" headerText="Opções">
                                 <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">
                                     <p:commandButton value="" update=":formulario" icon="pi pi-pencil"
-                                        style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center">
+                                        style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#2f89fc; color: white; font-weight: 500;  height:34px; text-align: center">
                                         <f:setPropertyActionListener target="#{caminhaoController.caminhao}"
                                             value="#{caminhao}" />
                                     </p:commandButton>

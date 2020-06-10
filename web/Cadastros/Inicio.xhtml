@@ -1,116 +1,126 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
-    <f:view contentType="text/html">
-        <h:head>
-            
-            <f:facet name="first">
-                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Inicio</title>
-            </f:facet>
-            <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
-            		<style type="text/css">
-                    .ui-widget-header {
-                        border: 0px solid #a8a8a8;
-                        background: #333;
-                        color: white;
-                        font-weight: 500;
-                    }
-                    .p-datepicker-panel .ui-timepicker {
-                        text-align: center;
-                        padding: 0;
-                    }
-                    .ui-datalist ul {
-                        padding: 0px 10px 0 20px;
-                        margin: 5px 0;
-                    }
-                    .ui-datalist {
-                        margin-bottom: 10px
-                    }
+<f:view contentType="text/html">
+    <h:head>
 
-			.ui-noborder tr.ui-widget-content {
-				background: none;
-			}
-                        .ui-state-default{
-                                box-shadow: inset 0 0px 0 #fff;
-                        }
-                        .ui-panel{
-                            padding: 0em;
-                        }
-                        .ui-layout{
-                            height:100%;
-                        }
-                        .ui-widget .ui-icon.pi, .ui-icon.pi {
-                            background: none repeat scroll 0 0 transparent!important;
-                            margin: -13px 0px 0px -7px;
-                            height: auto;
-                            width: auto;
-                            text-indent: 0!important;
-                        }
-                        .ui-datepicker {
-                            width: 10em;
-                            padding: 0px 0px 0px;
-                            display: none;
-                        }
-                    .ui-layout-unit .ui-layout-unit-content {
-                        padding: .2em 0;
-                        border: 0 none;
-                        height: 100%;  
-                        min-height: 100%;
-                        overflow-y: hidden;
-                        /* -webkit-box-sizing: border-box; */
-                        box-sizing: border-box;
-                    }    
-		</style>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+            <title>Inicio</title>
+        </f:facet>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <style type="text/css">
+            .ui-widget-header {
+                border: 0px solid #a8a8a8;
+                background: #333;
+                color: white;
+                font-weight: 500;
+            }
 
-        </h:head>
-        <h:body>
-            <p:layout>   
-                <p:layoutUnit position="center">
-                    <h:form id="formulario">
-                        <br />
-                        
-                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista">
-                            <p:dataTable rows="10" paginator="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                                         rowsPerPageTemplate="5,10,15" var="gerenciador" value="#{gerenciadorController.listar()}">
-                            <p:column headerText="ID" filterBy="#{gerenciador.idGerenciador}" > 
-                                    <p:outputLabel value="#{gerenciador.idGerenciador}"/> 
+            .p-datepicker-panel .ui-timepicker {
+                text-align: center;
+                padding: 0;
+            }
+
+            .ui-datalist ul {
+                padding: 0px 10px 0 20px;
+                margin: 5px 0;
+            }
+
+            .ui-datalist {
+                margin-bottom: 10px
+            }
+
+            .ui-noborder tr.ui-widget-content {
+                background: none;
+            }
+
+            .ui-state-default {
+                box-shadow: inset 0 0px 0 #fff;
+            }
+
+            .ui-panel {
+                padding: 0em;
+            }
+
+            .ui-layout {
+                height: 100%;
+            }
+
+            .ui-widget .ui-icon.pi,
+            .ui-icon.pi {
+                background: none repeat scroll 0 0 transparent !important;
+                margin: -13px 0px 0px -7px;
+                height: auto;
+                width: auto;
+                text-indent: 0 !important;
+            }
+
+            .ui-datepicker {
+                width: 10em;
+                padding: 0px 0px 0px;
+                display: none;
+            }
+
+            .ui-layout-unit .ui-layout-unit-content {
+                padding: .2em 0;
+                border: 0 none;
+                height: 100%;
+                min-height: 100%;
+                overflow-y: hidden;
+                /* -webkit-box-sizing: border-box; */
+                box-sizing: border-box;
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+        <p:layout>
+            <p:layoutUnit position="center">
+                <h:form id="formulario">
+                    <br />
+
+                    <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista">
+                        <p:dataTable rows="10" paginator="true"
+                            paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                            currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                            rowsPerPageTemplate="5,10,15" var="gerenciador" value="#{gerenciadorController.listar()}">
+                            <p:column headerText="ID" filterBy="#{gerenciador.idGerenciador}">
+                                <p:outputLabel value="#{gerenciador.idGerenciador}" />
                             </p:column>
-                            <p:column headerText="Nome Fornecedor" filterBy="#{gerenciador.gerenciador_nomeFornecedor}"> 
-                                    <p:outputLabel value="#{gerenciador.gerenciador_nomeFornecedor}"/> 
-                            </p:column>    
-                            <p:column headerText="Placa" filterBy="#{gerenciador.gerenciador_placaCaminhao}"> 
-                                    <p:outputLabel style="text-transform: uppercase;" value="#{gerenciador.gerenciador_placaCaminhao}"/> 
+                            <p:column headerText="Nome Fornecedor" filterBy="#{gerenciador.gerenciador_nomeFornecedor}">
+                                <p:outputLabel value="#{gerenciador.gerenciador_nomeFornecedor}" />
                             </p:column>
-                            <p:column headerText="Nome Motorista" filterBy="#{gerenciador.gerenciador_nomeMotorista}"> 
-                                    <p:outputLabel value="#{gerenciador.gerenciador_nomeMotorista}"/> 
+                            <p:column headerText="Placa" filterBy="#{gerenciador.gerenciador_placaCaminhao}">
+                                <p:outputLabel style="text-transform: uppercase;"
+                                    value="#{gerenciador.gerenciador_placaCaminhao}" />
                             </p:column>
-                                <p:column headerText="Horario de Entrada" filterBy="#{gerenciador.gerenciador_horarioEntrada}"> 
+                            <p:column headerText="Nome Motorista" filterBy="#{gerenciador.gerenciador_nomeMotorista}">
+                                <p:outputLabel value="#{gerenciador.gerenciador_nomeMotorista}" />
+                            </p:column>
+                            <p:column headerText="Horario de Entrada"
+                                filterBy="#{gerenciador.gerenciador_horarioEntrada}">
                                 <p:outputLabel value="#{gerenciador.gerenciador_horarioEntrada}">
                                     <f:convertDateTime pattern="HH:mm" />
                                 </p:outputLabel>
                             </p:column>
-                                
-                                <p:column style="width: 81px;" headerText="Opções" >
-                                   
-                                    <p:commandButton value="" icon="pi pi-trash" update=":formulario" style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
-                                                     action="#{gerenciadorController.remover(gerenciador)}">
-                                    </p:commandButton>
-                                    
-                                </p:column>
-                            </p:dataTable>
-                        </p:panel>
-                    </h:form>
-                </p:layoutUnit>
-            </p:layout>
 
-        </h:body>
-    </f:view>
+                            <p:column style="width: 81px;" headerText="Opções">
+
+                                <p:commandButton value="" icon="pi pi-trash" update=":formulario"
+                                    style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                    action="#{gerenciadorController.remover(gerenciador)}">
+                                </p:commandButton>
+
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+
+    </h:body>
+</f:view>
+
 </html>
-
