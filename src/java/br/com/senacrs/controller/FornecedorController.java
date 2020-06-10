@@ -7,20 +7,22 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.swing.JOptionPane;
 
 
 @ManagedBean
 @SessionScoped
+@ViewScoped
 public class FornecedorController implements Serializable{
     private static final long serialVersionUID = 1L;
     private Fornecedor cliente = new Fornecedor();
-    
-    
+     
     
     public Fornecedor getFornecedor() {
         return cliente;
     }
+   
 
     public void setFornecedor(Fornecedor cliente) {
         this.cliente = cliente;
@@ -35,6 +37,7 @@ public class FornecedorController implements Serializable{
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
         }
     }
+    // metodo update
     public void update() throws SQLException{
         try{
             FornecedorDAO client = new FornecedorDAO();

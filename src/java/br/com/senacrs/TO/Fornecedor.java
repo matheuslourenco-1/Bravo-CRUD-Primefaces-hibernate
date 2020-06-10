@@ -1,5 +1,6 @@
 package br.com.senacrs.TO;
 
+
 public class Fornecedor  implements java.io.Serializable {
 
     //declaração das variaveis 
