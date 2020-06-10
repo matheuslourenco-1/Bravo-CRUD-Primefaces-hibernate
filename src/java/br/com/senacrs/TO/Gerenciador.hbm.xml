@@ -8,15 +8,6 @@
       <column name="idGerenciador"/>
       <generator class="identity"/>
     </id>
-    <property name="gerenciador_nomeFornecedor" type="string">
-      <column length="60" name="gerenciador_nomeFornecedor" not-null="true"/>
-    </property>
-    <property name="gerenciador_placaCaminhao" type="string">
-      <column length="8" name="gerenciador_placaCaminhao" not-null="true"/>
-    </property>
-    <property name="gerenciador_nomeMotorista" type="string">
-      <column length="50" name="gerenciador_nomeMotorista" not-null="true"/>
-    </property>
     <property name="gerenciador_horarioEntrada" type="java.util.Date">
       <column  name="gerenciador_horarioEntrada"  /> 
     </property>

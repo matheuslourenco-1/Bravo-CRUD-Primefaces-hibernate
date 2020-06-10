@@ -119,22 +119,6 @@
                             <p:column headerText="ID" filterBy="#{gerenciador.idGerenciador}">
                                 <p:outputLabel value="#{gerenciador.idGerenciador}" />
                             </p:column>
-                            <p:column headerText="Nome Fornecedor" filterBy="#{gerenciador.gerenciador_nomeFornecedor}">
-                                <p:outputLabel value="#{gerenciador.gerenciador_nomeFornecedor}" />
-                            </p:column>
-                            <p:column headerText="Placa" filterBy="#{gerenciador.gerenciador_placaCaminhao}">
-                                <p:outputLabel style="text-transform: uppercase;"
-                                    value="#{gerenciador.gerenciador_placaCaminhao}" />
-                            </p:column>
-                            <p:column headerText="Nome Motorista" filterBy="#{gerenciador.gerenciador_nomeMotorista}">
-                                <p:outputLabel value="#{gerenciador.gerenciador_nomeMotorista}" />
-                            </p:column>
-                            <p:column headerText="Horario de Entrada"
-                                filterBy="#{gerenciador.gerenciador_horarioEntrada}">
-                                <p:outputLabel value="#{gerenciador.gerenciador_horarioEntrada}">
-                                    <f:convertDateTime pattern="HH:mm" />
-                                </p:outputLabel>
-                            </p:column>
                             <p:column headerText="ID Fornecedor" filterBy="#{gerenciador.idFornecedor}">
                                 <p:outputLabel value="#{gerenciador.idFornecedor}" />
                             </p:column>
@@ -144,13 +128,22 @@
                             <p:column headerText="ID Motorista" filterBy="#{gerenciador.idMotorista}">
                                 <p:outputLabel value="#{gerenciador.idMotorista}" />
                             </p:column>
+                            <p:column headerText="Horario de Entrada"
+                                filterBy="#{gerenciador.gerenciador_horarioEntrada}">
+                                <p:outputLabel value="#{gerenciador.gerenciador_horarioEntrada}">
+                                    <f:convertDateTime pattern="HH:mm"  timeZone="America/Sao_Paulo"/>
+                                </p:outputLabel>
+                            </p:column>
+
 
                             <p:column style="width: 81px;" headerText="Opções">
-                                <p:commandButton value="" icon="pi pi-pencil" update=":formulario"
-                                    style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29); margin:10px 10px 10px 0px; background:#2f89fc; color: white; font-weight: 500;  height:34px; text-align: center">
-                                    <f:setPropertyActionListener target="#{gerenciadorController.gerenciador}"
-                                        value="#{gerenciador}" />
-                                </p:commandButton>
+                                <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">
+                                    <p:commandButton value="" update=":formulario" icon="pi pi-pencil"
+                                        style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#2f89fc; color: white; font-weight: 500;  height:34px; text-align: center">
+                                        <f:setPropertyActionListener target="#{gerenciadorController.gerenciador}"
+                                            value="#{gerenciador}" />
+                                    </p:commandButton>
+                                </h:outputLink>
                                 <p:commandButton value="" icon="pi pi-trash" update=":formulario"
                                     style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                     action="#{gerenciadorController.remover(gerenciador)}">
