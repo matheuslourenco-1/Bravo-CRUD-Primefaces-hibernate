@@ -3,6 +3,7 @@ package br.com.senacrs.DAO;
 import br.com.senacrs.TO.Fornecedor;
 import br.com.senacrs.util.HibernateUtil;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
@@ -15,11 +16,20 @@ public class FornecedorDAO {
         session = HibernateUtil.getSessionFactory().openSession();
     }
     /*Construtor listar*/
+    
+    
     public List<Fornecedor> listar(){
         List<Fornecedor> fornecedor = session.createCriteria(Fornecedor.class).list();
         session.close();
         return fornecedor;
     }
+    
+    private static ArrayList<Fornecedor> listar2() = new ArrayList<Fornecedor>();
+    
+    public ArrayList<Fornecedor> getListar2(){
+        return listar2()
+    }
+    
     /*Construtor remover*/
     public void remover(Object fornecedor) throws SQLException{
         try{        
