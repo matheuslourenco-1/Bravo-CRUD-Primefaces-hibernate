@@ -63,4 +63,14 @@ public class FornecedorController implements Serializable{
         }
     }
     
+    public void onRowEdit(RowEditEvent<Fornecedor> event) {
+        FacesMessage msg = new FacesMessage("Fornecedor Editado", event.getObject().getIdFornecedor());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+     
+    public void onRowCancel(RowEditEvent<Fornecedor> event) {
+        FacesMessage msg = new FacesMessage("Fornecedor Excluido", event.getObject().getId());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+    
 }

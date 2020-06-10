@@ -1,143 +1,179 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
-    <f:view contentType="text/html">
-        <h:head>
-            <f:facet name="first">
-                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Cadastro Fornecedor</title>
-            </f:facet>
-            <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
-            <link type="text/css" rel="stylesheet" href="css/style.css" />
-            <style type="text/css">
-                .ui-widget-header {
-                    background: #333;
-                    color: white;
-                    font-weight: 500;
-                }
-                                    .ui-layout-unit .ui-layout-unit-content {
-                        padding: .2em 0;
-                        border: 0 none;
-                        height: 100%;  
-                        min-height: 100%;
-                        box-sizing: border-box;
-                    }    
-                .ui-datalist ul {
-                    padding: 0px 10px 0 20px;
-                    margin: 5px 0;
-                }
-                .ui-datalist {
-                    margin-bottom: 10px
-                }
-                .ui-noborder tr.ui-widget-content {
-                    background: none;
-                }
-                .ui-state-default{
-                    box-shadow: inset 0 0px 0 #fff;
-                }
-                .ui-panel{
-                    padding: 0em;
-                }
-                .ui-layout{
-                    height:100%;
-                }
-                .ui-widget .ui-icon.pi, .ui-icon.pi {
-                    background: none repeat scroll 0 0 transparent!important;
-                    margin: -13px 0px 0px -7px;
-                    height: auto;
-                    width: auto;
-                    text-indent: 0!important;
-                }
-            </style>
-        </h:head>
-        <h:body>
-            <p:layout>   
-                <p:layoutUnit style="height: 790px;" position="center">
-                    <h:form id="formulario">
-                        <p:panelGrid id="cadastro" columns="2">
-                            <p:outputLabel value="Nome: "/>
-                            <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}"/>
-                            <p:outputLabel value="CNPJ: "/>
-                            <p:inputMask mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}"/>
-                            <p:outputLabel value="Telefone: "/>
-                            <p:inputMask mask="(99) 99999-9999" value="#{fornecedorController.fornecedor.contatoFornecedor}"/>
-                            <p:outputLabel value="ID Caminhao "/>
-                            <p:inputText value="#{fornecedorController.fornecedor.idCaminhao}"/>
-                            <i></i><p:commandButton value="Salvar"  action="#{fornecedorController.salvar()}" update="formulario" icon="pi pi-save" style=" float: right;"/>
-                            <p:commandButton value="Update"  action="#{fornecedorController.update()}" update="formulario" icon="pi pi-save" style=" float: right;"/>
-                        </p:panelGrid> 
-                        <br />
-                        
-                        <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Fornecedores">
-                            <p:dataTable rows="10" paginator="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                                         rowsPerPageTemplate="5,10,15" var="fornecedor" value="#{fornecedorController.listar()}">
-                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}" > 
-                                    <p:outputLabel value="#{fornecedor.idFornecedor}"/> 
-                            </p:column>
-                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.nomeFornecedor}"/> 
-                            </p:column>    
-                            <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.cnpjFornecedor}"/> 
-                            </p:column>
-                            <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
-                                    <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
-                            </p:column>
-                                <p:column headerText="ID Caminhao" filterBy="#{fornecedor.idCaminhao}"> 
-                                    <p:outputLabel value="#{fornecedor.idCaminhao}"/> 
-                            </p:column>
-                                <p:column style="width: 81px;" headerText="Opções" >
-                                    <p:commandButton value="" icon="pi pi-pencil" update=":formulario" style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center" >
-                                        <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
-                                                                     value="#{fornecedor}" />      
-                                    </p:commandButton>
-                                    <p:commandButton value="" icon="pi pi-trash" update=":formulario" style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
-                                                     action="#{fornecedorController.remover(fornecedor)}">
-                                    </p:commandButton>
-                                </p:column>
-                            </p:dataTable>
-                        </p:panel>
-                    </h:form>
-                    <br /> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+    <h:head>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+            <title>Cadastro Fornecedor</title>
+        </f:facet>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <link type="text/css" rel="stylesheet" href="css/style.css" />
+        <style type="text/css">
+            .ui-widget-header {
+                background: #333;
+                color: white;
+                font-weight: 500;
+            }
+
+            .ui-layout-unit .ui-layout-unit-content {
+                padding: .2em 0;
+                border: 0 none;
+                height: 100%;
+                min-height: 100%;
+                box-sizing: border-box;
+            }
+
+            .ui-datalist ul {
+                padding: 0px 10px 0 20px;
+                margin: 5px 0;
+            }
+
+            .ui-datalist {
+                margin-bottom: 10px
+            }
+
+            .ui-noborder tr.ui-widget-content {
+                background: none;
+            }
+
+            .ui-state-default {
+                box-shadow: inset 0 0px 0 #fff;
+            }
+
+            .ui-panel {
+                padding: 0em;
+            }
+
+            .ui-layout {
+                height: 100%;
+            }
+
+            .ui-widget .ui-icon.pi,
+            .ui-icon.pi {
+                background: none repeat scroll 0 0 transparent !important;
+                margin: -13px 0px 0px -7px;
+                height: auto;
+                width: auto;
+                text-indent: 0 !important;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <p:layout>
+            <p:layoutUnit style="height: 790px;" position="center">
+                <h:form id="formulario">
+                    <p:panelGrid id="cadastro" columns="2">
+                        <p:outputLabel value="Nome: " />
+                        <p:inputText value="#{fornecedorController.fornecedor.nomeFornecedor}" />
+                        <p:outputLabel value="CNPJ: " />
+                        <p:inputMask mask="99.999.999/9999-99"
+                            value="#{fornecedorController.fornecedor.cnpjFornecedor}" />
+                        <p:outputLabel value="Telefone: " />
+                        <p:inputMask mask="(99) 99999-9999"
+                            value="#{fornecedorController.fornecedor.contatoFornecedor}" />
+                        <p:outputLabel value="ID Caminhao " />
+                        <p:inputText value="#{fornecedorController.fornecedor.idCaminhao}" />
+                        <i></i>
+                        <p:commandButton value="Salvar" action="#{fornecedorController.salvar()}" update="formulario"
+                            icon="pi pi-save" style=" float: right;" />
+                        <p:commandButton value="Update" action="#{fornecedorController.update()}" update="formulario"
+                            icon="pi pi-save" style=" float: right;" />
+                    </p:panelGrid>
                     <br />
-                    <h:form id="form">
-                        <p:dataTable id="fornecedor" var="fornecedor" editMode="cell" value="#{fornecedorController.listar()}" editable="true" style="margin-bottom:20px">
+
+                    <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Fornecedores">
+                        <p:dataTable rows="10" paginator="true"
+                            paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                            currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                            rowsPerPageTemplate="5,10,15" var="fornecedor" value="#{fornecedorController.listar()}">
+                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}">
+                                <p:outputLabel value="#{fornecedor.idFornecedor}" />
+                            </p:column>
+                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}">
+                                <p:outputLabel value="#{fornecedor.nomeFornecedor}" />
+                            </p:column>
+                            <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}">
+                                <p:outputLabel value="#{fornecedor.cnpjFornecedor}" />
+                            </p:column>
+                            <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}">
+                                <p:outputLabel value="#{fornecedor.contatoFornecedor}" />
+                            </p:column>
+                            <p:column headerText="ID Caminhao" filterBy="#{fornecedor.idCaminhao}">
+                                <p:outputLabel value="#{fornecedor.idCaminhao}" />
+                            </p:column>
+                            <p:column style="width: 81px;" headerText="Opções">
+                                <p:commandButton value="" icon="pi pi-pencil" update=":formulario"
+                                    style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center">
+                                    <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
+                                        value="#{fornecedor}" />
+                                </p:commandButton>
+                                <p:commandButton value="" icon="pi pi-trash" update=":formulario"
+                                    style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
+                                    action="#{fornecedorController.remover(fornecedor)}">
+                                </p:commandButton>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+                <br />
+                <br />
+                <h:form id="form">
+                    <p:dataTable id="fornecedor" var="fornecedor" editMode="cell"
+                        value="#{fornecedorController.listar()}" editable="true" style="margin-bottom:20px">
+                        <p:ajax event="rowEdit" listener="#{fornecedorController.onRowEdit}" update=":form:msgs" />
+                        <p:ajax event="rowEditCancel" listener="#{ctabla.onRowCancel}" update=":form:msgs" />
                         <f:facet name="header">
                             Row Editing
                         </f:facet>
                         <p:column headerText="ID">
                             <p:cellEditor>
-                                <f:facet name="output"><h:outputText value="#{fornecedor.idFornecedor}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{fornecedor.idFornecedor}" style="width:100%" label="Nome"/></f:facet>
+                                <f:facet name="output">
+                                    <h:outputText value="#{fornecedor.idFornecedor}" />
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{fornecedor.idFornecedor}" style="width:100%" label="Nome" />
+                                </f:facet>
                             </p:cellEditor>
                         </p:column>
                         <p:column headerText="Nome">
                             <p:cellEditor>
-                                <f:facet name="output"><h:outputText value="#{fornecedor.nomeFornecedor}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{fornecedor.nomeFornecedor}" style="width:100%" label="Nome"/></f:facet>
+                                <f:facet name="output">
+                                    <h:outputText value="#{fornecedor.nomeFornecedor}" />
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{fornecedor.nomeFornecedor}" style="width:100%" label="Nome" />
+                                </f:facet>
                             </p:cellEditor>
                         </p:column>
                         <p:column headerText="CNPJ">
                             <p:cellEditor>
-                                <f:facet name="output"><h:outputText value="#{fornecedor.cnpjFornecedor}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{fornecedor.cnpjFornecedor}" style="width:100%" label="CNPJ"/></f:facet>
+                                <f:facet name="output">
+                                    <h:outputText value="#{fornecedor.cnpjFornecedor}" />
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{fornecedor.cnpjFornecedor}" style="width:100%" label="CNPJ" />
+                                </f:facet>
                             </p:cellEditor>
                         </p:column>
                         <p:column headerText="Telefone">
                             <p:cellEditor>
-                                <f:facet name="output"><h:outputText value="#{fornecedor.contatoFornecedor}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{fornecedor.contatoFornecedor}" style="width:100%" label="Telefone"/></f:facet>
+                                <f:facet name="output">
+                                    <h:outputText value="#{fornecedor.contatoFornecedor}" />
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{fornecedor.contatoFornecedor}" style="width:100%"
+                                        label="Telefone" />
+                                </f:facet>
                             </p:cellEditor>
                         </p:column>
                         <p:column headerText="ID Caminhao">
                             <p:cellEditor>
-                                <f:facet name="output"><h:outputText value="#{fornecedor.idCaminhao}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{fornecedor.idCaminhao}" style="width:100%" label="idfk"/></f:facet>
+                                <f:facet name="output">
+                                    <h:outputText value="#{fornecedor.idCaminhao}" />
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{fornecedor.idCaminhao}" style="width:100%" label="idfk" />
+                                </f:facet>
                             </p:cellEditor>
                         </p:column>
                         <p:column style="width:35px">
@@ -146,11 +182,11 @@
                             </f:facet>
                             <p:rowEditor saveTitle="Salvar" style="width: 50px;" editTitle="Editar" />
                         </p:column>
-                    </p:dataTable>  
-                    </h:form>
-                </p:layoutUnit>
-            </p:layout>
-        </h:body>
-    </f:view>
-</html>
+                    </p:dataTable>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</f:view>
 
+</html>
