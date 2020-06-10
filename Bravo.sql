@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_caminhao` (
   `idCaminhao` INT(11) NOT NULL AUTO_INCREMENT,
   `placaCaminhao` VARCHAR(8) NOT NULL,
   `modeloCaminhao` VARCHAR(45) NOT NULL,
-  `pesoFinalCaminhao` VARCHAR(45) NOT NULL,
-  `pesoInicialCaminhao` VARCHAR(45) NOT NULL,
+  `pesoFinalCaminhao` DOUBLE NOT NULL,
+  `pesoInicialCaminhao` DOUBLE NOT NULL,
   `idMotorista` INT(11) NOT NULL,
   PRIMARY KEY (`idCaminhao`),
   UNIQUE INDEX `placa_UNIQUE` (`placaCaminhao` ASC) ,
@@ -82,9 +82,6 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_fornecedor` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bravo`.`tb_gerenciador` (
   `idGerenciador` INT(11) NOT NULL AUTO_INCREMENT,
-  `gerenciador_nomeFornecedor` VARCHAR(60) NOT NULL,
-  `gerenciador_placaCaminhao` VARCHAR(8) NOT NULL,
-  `gerenciador_nomeMotorista` VARCHAR(50) NOT NULL,
   `gerenciador_horarioEntrada` TIME NOT NULL,
   `idFornecedor` INT(11) NOT NULL,
   `idCaminhao` INT(11) NOT NULL,
