@@ -1,5 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <f:view contentType="text/html">
     <h:head>
         <f:facet name="first">
@@ -61,68 +62,60 @@
     <h:body>
         <p:layout>
             <p:layoutUnit style="height: 790px;" position="center">
-                <h:form id="formulario">                  
-                    <p:dialog focus="nome" header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
-                    <p:panelGrid id="cadastro" columns="2">
-                        <p:outputLabel for="nome" value="Nome: " />
-                        <p:inputText id="nome"  value="#{fornecedorController.fornecedor.nomeFornecedor}" />
-                        <p:outputLabel value="CNPJ: " />
-                        <p:inputMask mask="99.999.999/9999-99"
-                            value="#{fornecedorController.fornecedor.cnpjFornecedor}" />
-                        <p:outputLabel value="Telefone: " />
-                        <p:inputMask mask="(99) 99999-9999"
-                            value="#{fornecedorController.fornecedor.contatoFornecedor}" />
-                        <p:outputLabel value="ID Caminhao " />
-                        <p:inputText value="#{fornecedorController.fornecedor.idCaminhao}" />
-                        <i></i>
-                        <p:commandButton value="Salvar" action="#{fornecedorController.salvar()}" update="formulario"
-                            icon="pi pi-save" style=" float: right;" />
-                    </p:panelGrid>
-                    </p:dialog>
-                    <br />
+                <p:dialog id="dialog" header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
+                    <h:form id="formulario">
+                        <p:panelGrid id="cadastro" columns="2">
+                            <p:outputLabel for="nome" value="Nome: " />
+                            <p:inputText id="nome" value="#{fornecedorController.fornecedor.nomeFornecedor}" />
+                            <p:outputLabel value="CNPJ: " />
+                            <p:inputMask mask="99.999.999/9999-99"
+                                value="#{fornecedorController.fornecedor.cnpjFornecedor}" />
+                            <p:outputLabel value="Telefone: " />
+                            <p:inputMask mask="(99) 99999-9999"
+                                value="#{fornecedorController.fornecedor.contatoFornecedor}" />
+                            <p:outputLabel value="ID Caminhao " />
+                            <p:inputText value="#{fornecedorController.fornecedor.idCaminhao}" />
+                            <i></i>
+                            <p:commandButton value="Salvar" action="#{fornecedorController.salvar()}"
+                                update="formulario" icon="pi pi-save" style=" float: right;" />
+                        </p:panelGrid>
+                        <br />
+                    </h:form>
+                </p:dialog>
+                <h:form>
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Fornecedores">
                         <br />
                         <br />
-                        <p:commandButton style="float: right; margin: -35px -1px 0px 0px; " value="Adicionar" type="button" onclick="PF('dlg1').show();" />
-                  
-                        
-                        <p:dataTable rows="10" paginator="true" editMode="cell" editable="true"
+                        <p:commandButton style="float: right; margin: -35px -1px 0px 0px; " value="Adicionar"
+                            type="button" onclick="PF('dlg1').show();" />
+
+
+                        <p:dataTable rows="10" paginator="true"
                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="fornecedor" value="#{fornecedorController.listar()}">
-                            <p:column headerText="ID" filterBy="#{fornecedor.idFornecedor}">
+                            <p:column style="width: 50px;" headerText="ID" filterBy="#{fornecedor.idFornecedor}">
                                 <p:outputLabel value="#{fornecedor.idFornecedor}" />
                             </p:column>
-                            <p:column headerText="Nome" filterBy="#{fornecedor.nomeFornecedor}">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{fornecedor.nomeFornecedor}" /></f:facet>
-                                    <f:facet name="input"><p:inputText  value="#{fornecedor.nomeFornecedor}" style="width:96%"/></f:facet>
-                                </p:cellEditor>
+                            <p:column headerText="Nome do Fornecedor" filterBy="#{fornecedor.nomeFornecedor}">
+                                <p:outputLabel value="#{fornecedor.nomeFornecedor}" />
                             </p:column>
                             <p:column headerText="CNPJ" filterBy="#{fornecedor.cnpjFornecedor}">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{fornecedor.cnpjFornecedor}" /></f:facet>
-                                    <f:facet name="input"><p:inputMask mask="99.999.999/9999-99" value="#{fornecedor.cnpjFornecedor}" style="width:96%" label="cnpjFornecedor"/></f:facet>
-                                </p:cellEditor>
+                                <p:outputLabel value="#{fornecedor.cnpjFornecedor}" />
                             </p:column>
                             <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{fornecedor.contatoFornecedor}" /></f:facet>
-                                    <f:facet name="input"><p:inputMask mask="(99) 99999-9999"  value="#{fornecedor.contatoFornecedor}" style="width:96%"/></f:facet>
-                                </p:cellEditor>
+                                <p:outputLabel value="#{fornecedor.contatoFornecedor}" />
                             </p:column>
-                            <p:column headerText="ID Caminhao" filterBy="#{fornecedor.fornecedor.idCaminhao}">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{fornecedor.idCaminhao}" /></f:facet>
-                                    <f:facet name="input"><p:inputText value="#{fornecedor.idCaminhao}" style="width:96%" /></f:facet>
-                                </p:cellEditor>
+                            <p:column headerText="ID Motorista" filterBy="#{fornecedor.idCaminhao}">
+                                <p:outputLabel value="#{fornecedor.idCaminhao}" />
                             </p:column>
                             <p:column style="width: 81px;" headerText="Opções">
-                                <h:outputLink  value="javascript:void(0)" onclick="PF('dlg1').show();" >
-                                <p:commandButton value="" update="formulario"  icon="pi pi-pencil"   style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center">
-                                    <f:setPropertyActionListener  target="#{fornecedorController.fornecedor}"
-                                        value="#{fornecedor}" /> 
-                                </p:commandButton>
+                                <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">
+                                    <p:commandButton value="" update=":formulario" icon="pi pi-pencil"
+                                        style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#1976d2; color: white; font-weight: 500;  height:34px; text-align: center">
+                                        <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
+                                            value="#{fornecedor}" />
+                                    </p:commandButton>
                                 </h:outputLink>
                                 <p:commandButton value="" icon="pi pi-trash" update=":formulario"
                                     style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"

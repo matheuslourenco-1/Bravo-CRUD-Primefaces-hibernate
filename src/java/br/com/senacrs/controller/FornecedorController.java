@@ -46,6 +46,7 @@ public class FornecedorController implements Serializable{
         FornecedorDAO client = new FornecedorDAO();
         return client.listar();
     }
+    
     //metodo excluir
     public void remover(Fornecedor cliente) throws SQLException{
         try{

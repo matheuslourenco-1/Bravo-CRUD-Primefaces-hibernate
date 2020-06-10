@@ -23,12 +23,7 @@ public class FornecedorDAO {
         session.close();
         return fornecedor;
     }
-    
-    private static ArrayList<Fornecedor> listar2() = new ArrayList<Fornecedor>();
-    
-    public ArrayList<Fornecedor> getListar2(){
-        return listar2()
-    }
+   
     
     /*Construtor remover*/
     public void remover(Object fornecedor) throws SQLException{
