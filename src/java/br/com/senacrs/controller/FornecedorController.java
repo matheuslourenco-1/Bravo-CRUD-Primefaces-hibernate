@@ -35,6 +35,16 @@ public class FornecedorController implements Serializable{
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
         }
     }
+    public void update() throws SQLException{
+        try{
+            FornecedorDAO client = new FornecedorDAO();
+            client.update(cliente);
+            cliente = new Fornecedor();   
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
+        }
+    }
+    
     //metodo listar
     public List<Fornecedor> listar(){
         FornecedorDAO client = new FornecedorDAO();

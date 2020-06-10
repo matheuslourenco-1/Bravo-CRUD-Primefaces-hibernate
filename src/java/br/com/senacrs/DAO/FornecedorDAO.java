@@ -39,12 +39,26 @@ public class FornecedorDAO {
     public void salvar(Fornecedor fornecedor) throws SQLException{
         try{       
         session.beginTransaction();
-        session.saveOrUpdate(fornecedor);
+        session.save(fornecedor);
         session.getTransaction().commit();
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
         } finally {
             if(session != null && session.isOpen()){
+                session.close();
+            }
+        }
+    }
+    
+    public void update (Fornecedor fornecedor) throws SQLException{
+        try{
+            session.beginTransaction();
+            session.update(fornecedor);
+            session.getTransaction().commit();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.OK_OPTION);
+        }finally{
+            if(session !=null && session.isOpen()){
                 session.close();
             }
         }

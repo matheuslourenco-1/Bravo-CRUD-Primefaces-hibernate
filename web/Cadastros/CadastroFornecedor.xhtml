@@ -87,7 +87,7 @@
                             <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}"> 
                                     <p:outputLabel value="#{fornecedor.contatoFornecedor}"/> 
                             </p:column>
-                                <p:column headerText="Telefone" filterBy="#{fornecedor.idCaminhao}"> 
+                                <p:column headerText="ID Caminhao" filterBy="#{fornecedor.idCaminhao}"> 
                                     <p:outputLabel value="#{fornecedor.idCaminhao}"/> 
                             </p:column>
                                 <p:column style="width: 81px;" headerText="Opções" >
@@ -101,6 +101,42 @@
                                 </p:column>
                             </p:dataTable>
                         </p:panel>
+                    </h:form>
+                    <br /> 
+                    <br />
+                    <h:form id="form">
+                    <p:dataTable var="fornecedor" value="#{fornecedorController.listar()}" editable="true" style="margin-bottom:20px">
+                        <f:facet name="header">
+                            Row Editing
+                        </f:facet>
+                        <p:column headerText="Nome">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{fornecedor.nomeFornecedor}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{fornecedor.nomeFornecedor}" style="width:100%" label="Nome"/></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column headerText="CNPJ">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{fornecedor.cnpjFornecedor}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{fornecedor.cnpjFornecedor}" style="width:100%" label="CNPJ"/></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column headerText="Telefone">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{fornecedor.contatoFornecedor}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{fornecedor.contatoFornecedor}" style="width:100%" label="Telefone"/></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column headerText="ID Caminhao">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{fornecedor.idCaminhao}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{fornecedor.idCaminhao}" style="width:100%" label="idfk"/></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column style="width:35px">
+                            <p:rowEditor saveTitle="Salvar" style="width: 50px;" editTitle="Editar" />
+                        </p:column>
+                    </p:dataTable>  
                     </h:form>
                 </p:layoutUnit>
             </p:layout>
