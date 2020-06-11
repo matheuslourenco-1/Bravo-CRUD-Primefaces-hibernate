@@ -4,6 +4,7 @@ import br.com.senacrs.DAO.CaminhaoDAO;
 import br.com.senacrs.TO.Caminhao;
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -48,6 +49,5 @@ public class CaminhaoController implements Serializable{
         }catch (SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error!", JOptionPane.OK_OPTION);
         }
-    }
-    
+    }    
 }

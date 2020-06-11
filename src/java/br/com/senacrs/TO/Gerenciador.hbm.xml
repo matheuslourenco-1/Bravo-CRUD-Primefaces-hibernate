@@ -11,6 +11,9 @@
     <property name="gerenciador_horarioEntrada" type="java.util.Date">
       <column  name="gerenciador_horarioEntrada"  /> 
     </property>
+    <property name="gerenciador_classificacao" type="string">
+      <column name="gerenciador_classificacao" not-null="true" />
+    </property>
     <property name="idCaminhao" type="int">
       <column name="idCaminhao" not-null="true" unique="true"/>
     </property>

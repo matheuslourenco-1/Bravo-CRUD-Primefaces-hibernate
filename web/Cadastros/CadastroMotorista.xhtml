@@ -82,16 +82,14 @@
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Motoristas">
                         <br />
                         <br />
-                        <p:commandButton style="float: right; margin: -35px -1px 0px 0px; " value="Adicionar"
-                            type="button" onclick="PF('dlg1').show();" />
-
-
+                        <p:commandButton  style="background: #2198dd; font-weight: 100; color: white; float: right; margin: -35px -1px 0px 0px; border: 1px solid #fff; " value="Adicionar"
+                                         type="button" onclick="PF('dlg1').show();" />
                         <p:dataTable id="CadastroMotorista" rows="10" paginator="true"
                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="motorista" value="#{motoristaController.listar()}">
                             <f:facet name="header">        
-                                <p:commandButton id="toggler" type="button" value="Colunas" style="float: right; width: 115px; font-weight: unset; background: #5f5f5f; color: white;" icon="fas fa-border-all" />
+                                <p:commandButton id="toggler" type="button" value="Colunas" style="float: right;height: 31px;  width: 115px; font-weight: unset; background: #5f5f5f; color: white;" icon="fas fa-border-all" />
                                 <p:columnToggler datasource="CadastroMotorista" trigger="toggler">
                                     <p:ajax event="toggle" />
                                 </p:columnToggler>
