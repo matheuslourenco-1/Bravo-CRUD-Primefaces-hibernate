@@ -10,7 +10,7 @@
             <title>Cadastro Gerenciador</title>
         </f:facet>
         <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
-                <script src="https://kit.fontawesome.com/fe444528cd.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/fe444528cd.js" crossorigin="anonymous"></script>
         <style type="text/css">
             .ui-widget-header {
                 border: 0px solid #a8a8a8;
@@ -70,6 +70,7 @@
                 height: 100%;
                 min-height: 100%;
             }
+
             .ui-selectonemenu {
                 display: inline-block;
                 position: relative;
@@ -82,18 +83,22 @@
                 padding-right: 22px;
                 vertical-align: top;
             }
+
             .ui-selectonemenu-panel .ui-selectonemenu-list {
                 border: 0 none;
                 padding: 0;
             }
+
             .ui-selectonemenu-panel .ui-selectonemenu-list-item {
                 border: 0 none;
                 padding: 3px 5px;
                 text-align: left;
                 white-space: nowrap;
             }
+
             .ui-datepicker-table {}
-            .button{
+
+            .button {
                 background: #000;
             }
         </style>
@@ -110,21 +115,22 @@
                                 value="#{gerenciadorController.gerenciador.gerenciador_horarioEntrada}" timeOnly="true"
                                 pattern="HH:mm" />
                             <p:outputLabel value="Classificação:" />
-                            <p:selectOneMenu autoWidth="false" class="ui-selectonemenu" value="#{gerenciadorController.gerenciador.gerenciador_classificacao}">
+                            <p:selectOneMenu autoWidth="false" class="ui-selectonemenu"
+                                value="#{gerenciadorController.gerenciador.gerenciador_classificacao}">
                                 <f:selectItem itemLabel="Selecione Um " itemValue="ui-selectonemenu" />
                                 <f:selectItem itemLabel="Carga" itemValue="Carga" />
                                 <f:selectItem itemLabel="Descarga" itemValue="Descarga" />
                                 <f:facet name="footer">
-                                    <p:separator />   
-                                    <h:outputText value="2 Itens" style="font-weight:bold;"/>
+                                    <p:separator />
+                                    <h:outputText value="2 Itens" style="font-weight:bold;" />
                                 </f:facet>
                             </p:selectOneMenu>
-                             <p:outputLabel value="ID Fornecedor: " />
-                             <p:inputText value="#{gerenciadorController.gerenciador.idFornecedor}" />
-                             <p:outputLabel value="ID Caminhão: " />
-                             <p:inputText value="#{gerenciadorController.gerenciador.idCaminhao}" />
-                             <p:outputLabel value="ID Motorista: " />
-                             <p:inputText value="#{gerenciadorController.gerenciador.idMotorista}" />
+                            <p:outputLabel value="ID Fornecedor: " />
+                            <p:inputText value="#{gerenciadorController.gerenciador.idFornecedor}" />
+                            <p:outputLabel value="ID Caminhão: " />
+                            <p:inputText value="#{gerenciadorController.gerenciador.idCaminhao}" />
+                            <p:outputLabel value="ID Motorista: " />
+                            <p:inputText value="#{gerenciadorController.gerenciador.idMotorista}" />
                             <i></i>
                             <p:commandButton value="Salvar" action="#{gerenciadorController.salvar()}"
                                 update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;" />
@@ -133,19 +139,20 @@
                     </h:form>
                 </p:dialog>
                 <h:form>
-
-
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista">
                         <br />
                         <br />
-                        <p:commandButton  style="background: #2198dd; font-weight: 300; color: white; font-family: Poppins, Arial, sans-serif; float: right; letter-spacing: 1px; margin: 3px 10px 0px 0px; border: 1px solid #fff; " value="Adicionar"
-                                         type="button" onclick="PF('dlg1').show();" />
+                        <p:commandButton
+                            style="background: #2198dd; font-weight: 300; color: white; font-family: Poppins, Arial, sans-serif; float: right; letter-spacing: 1px; margin: 3px 10px 0px 0px; border: 1px solid #fff; "
+                            value="Adicionar" type="button" onclick="PF('dlg1').show();" />
                         <p:dataTable id="Gerenciador" rows="10" paginator="true"
                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="gerenciador" value="#{gerenciadorController.listar()}">
-                            <f:facet name="header">        
-                                <p:commandButton id="toggler" type="button" value="Colunas" style="float: left; width: 115px; font-weight: unset; height: 31px;  background: #5f5f5f; color: white;" icon="fas fa-border-all"></p:commandButton>
+                            <f:facet name="header">
+                                <p:commandButton id="toggler" type="button" value="Colunas"
+                                    style="float: left; width: 115px; font-weight: unset; height: 31px;  background: #5f5f5f; color: white;"
+                                    icon="fas fa-border-all"></p:commandButton>
                                 <p:columnToggler datasource="Gerenciador" trigger="toggler">
                                     <p:ajax event="toggle" />
                                 </p:columnToggler>
@@ -164,14 +171,12 @@
                             </p:column>
                             <p:column style="width: 60px; text-align: center;" headerText="Entrada">
                                 <p:outputLabel value="#{gerenciador.gerenciador_horarioEntrada}">
-                                    <f:convertDateTime pattern="HH:mm"  timeZone="America/Sao_Paulo"/>
+                                    <f:convertDateTime pattern="HH:mm" timeZone="America/Sao_Paulo" />
                                 </p:outputLabel>
                             </p:column>
                             <p:column headerText="Classificação" filterBy="#{gerenciador.gerenciador_classificacao}">
                                 <p:outputLabel value="#{gerenciador.gerenciador_classificacao}" />
                             </p:column>
-
-
                             <p:column style="width: 81px;" headerText="Opções">
                                 <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">
                                     <p:commandButton value="" update=":formulario" icon="pi pi-pencil"
@@ -184,14 +189,12 @@
                                     style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                     action="#{gerenciadorController.remover(gerenciador)}">
                                 </p:commandButton>
-
                             </p:column>
                         </p:dataTable>
                     </p:panel>
                 </h:form>
             </p:layoutUnit>
         </p:layout>
-
     </h:body>
 </f:view>
 

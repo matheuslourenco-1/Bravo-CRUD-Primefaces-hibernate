@@ -1,10 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
-
 <f:view contentType="text/html">
     <h:head>
-
         <f:facet name="first">
             <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
             <title>Cadastro Caminhao</title>
@@ -84,7 +82,6 @@
                 white-space: nowrap;
             }
         </style>
-
     </h:head>
     <h:body>
         <p:layout>
@@ -92,7 +89,6 @@
                 <p:dialog id="dialog" header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
                     <h:form id="formulario">
                         <p:panelGrid id="cadastro" columns="2">
-
                             <p:outputLabel value="Placa do Caminhao: " />
                             <p:inputMask size="6" mask="aaa-9999" style="text-transform:uppercase;" placeholder="ABC-1234"
                                 value="#{caminhaoController.caminhao.placaCaminhao}">
@@ -170,7 +166,6 @@
                             <p:column headerText="ID Motorista" filterBy="#{caminhao.idMotorista}">
                                 <p:outputLabel value="#{caminhao.idMotorista}" />
                             </p:column>
-
                             <p:column style="width: 81px;" headerText="Opções">
                                 <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">
                                     <p:commandButton value="" update=":formulario" icon="pi pi-pencil"
@@ -183,15 +178,12 @@
                                     style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                     action="#{caminhaoController.remover(caminhao)}">
                                 </p:commandButton>
-
                             </p:column>
                         </p:dataTable>
                     </p:panel>
                 </h:form>
             </p:layoutUnit>
         </p:layout>
-
     </h:body>
 </f:view>
-
 </html>
