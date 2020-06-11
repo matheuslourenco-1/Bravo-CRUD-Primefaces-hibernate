@@ -11,6 +11,7 @@
         </f:facet>
         <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
         <link type="text/css" rel="stylesheet" href="css/style.css" />
+          <script src="https://kit.fontawesome.com/fe444528cd.js" crossorigin="anonymous"></script>
         <style type="text/css">
             .ui-widget-header {
                 background: #333;
@@ -60,6 +61,28 @@
                 width: auto;
                 text-indent: 0 !important;
             }
+            .ui-selectonemenu {
+                display: inline-block;
+                position: relative;
+                width: 205px;
+                oz-transform: scaleX(1);
+                -o-transform: scaleX(1);
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+                cursor: pointer;
+                padding-right: 22px;
+                vertical-align: top;
+            }
+            .ui-selectonemenu-panel .ui-selectonemenu-list {
+                border: 0 none;
+                padding: 0;
+            }
+            .ui-selectonemenu-panel .ui-selectonemenu-list-item {
+                border: 0 none;
+                padding: 3px 5px;
+                text-align: left;
+                white-space: nowrap;
+            }
         </style>
 
     </h:head>
@@ -71,22 +94,36 @@
                         <p:panelGrid id="cadastro" columns="2">
 
                             <p:outputLabel value="Placa do Caminhao: " />
-                            <p:inputMask mask="aaa-9999" style="text-transform:uppercase;" placeholder="ABC-1234"
+                            <p:inputMask size="6" mask="aaa-9999" style="text-transform:uppercase;" placeholder="ABC-1234"
                                 value="#{caminhaoController.caminhao.placaCaminhao}">
                                 <p:keyFilter mask="alphanum" />
                             </p:inputMask>
-                            <p:outputLabel value="Modelo do Caminhao " />
-                            <p:inputText placeholder="Ex.: Truck, Toco, Bitrem..."
-                                value="#{caminhaoController.caminhao.modeloCaminhao}" />
+                            <p:outputLabel value="Modelo do Caminhão: "  />
+                            <p:selectOneMenu autoWidth="false" class="ui-selectonemenu" value="#{caminhaoController.caminhao.modeloCaminhao}">
+                                <f:selectItem itemLabel="Selecione Um              " itemValue="ui-selectonemenu" />
+                                <f:selectItem itemLabel="3/4 ou VUC" itemValue="3/4 ou VUC" />
+                                <f:selectItem itemLabel="Toco" itemValue="Toco" />
+                                <f:selectItem itemLabel="Truck" itemValue="Truck" />
+                                <f:selectItem itemLabel="Cavalo Mecânico Simples" itemValue="Cavalo Mecânico Simples" />
+                                <f:selectItem itemLabel="Cavalo Mecânico Trucado" itemValue="Cavalo Mecânico Trucado" />
+                                <f:selectItem itemLabel="Carreta 2 eixos + Cavalo Mecânico Simples" itemValue="Carreta 2 eixos + Cavalo Mecânico Simples" />
+                                <f:selectItem itemLabel="Carreta 3 eixos + Cavalo Mecânico Simples" itemValue="Carreta 3 eixos + Cavalo Mecânico Simples" />
+                                <f:selectItem itemLabel="Bitrem" itemValue="Bitrem" />
+                                <f:selectItem itemLabel="Rodotrem" itemValue="Rodotrem" />
+                                <f:facet name="footer">
+                                    <p:separator />   
+                                    <h:outputText value="9 Itens" style="font-weight:bold;"/>
+                                </f:facet>
+                            </p:selectOneMenu>
                             <p:outputLabel value="Peso Inicial(kg): " />
-                            <p:inputNumber maxlength="5"  value="#{caminhaoController.caminhao.pesoInicialCaminhao}">
+                            <p:inputNumber maxValue="100000"  value="#{caminhaoController.caminhao.pesoInicialCaminhao}">
                                 <p:keyFilter mask="num" />
                             </p:inputNumber>
                             <p:outputLabel value="Peso Final(kg): " />
-                            <p:inputNumber maxlength="5" value="#{caminhaoController.caminhao.pesoFinalCaminhao}">
+                            <p:inputNumber  maxValue="100000"  value="#{caminhaoController.caminhao.pesoFinalCaminhao}">
                                 <p:keyFilter mask="pnum" />
                             </p:inputNumber>
-                            <p:outputLabel value="ID Motorista " />
+                            <p:outputLabel value="ID Motorista: " />
                             <p:inputText value="#{caminhaoController.caminhao.idMotorista}" />
                             <i></i>
                             <p:commandButton value="Salvar" action="#{caminhaoController.salvar()}" update="formulario"
@@ -103,13 +140,13 @@
                         <br />
                         <p:commandButton style="float: right; margin: -35px -1px 0px 0px; " value="Adicionar"
                             type="button" onclick="PF('dlg1').show();" />
-                        <p:dataTable id="CdastroCaminhao" rows="10" paginator="true"
+                        <p:dataTable id="CadastroCaminhao" rows="10" paginator="true"
                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="caminhao" value="#{caminhaoController.listar()}">
                             <f:facet name="header">        
-                                <p:commandButton id="toggler" type="button" value="Colunas" style="float: right; width: 115px; font-weight: unset; background: #5f5f5f; color: white;" icon="pi pi-table" />
-                                <p:columnToggler datasource="CdastroCaminhao" trigger="toggler">
+                                <p:commandButton id="toggler" type="button" value="Colunas" style="float: right; width: 115px; font-weight: unset; background: #5f5f5f; color: white;" icon="fas fa-border-all" />
+                                <p:columnToggler datasource="CadastroCaminhao" trigger="toggler">
                                     <p:ajax event="toggle" />
                                 </p:columnToggler>
                             </f:facet>
