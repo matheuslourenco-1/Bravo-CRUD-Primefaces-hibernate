@@ -15,22 +15,9 @@
 <!-- Page Wrapper -->
 			<div id="page-wrapper">
 
-				<!-- Header -->
+				<!-- Cabeçalho -->
 					<header id="header">
 						<h1><a href="index.jsp">Bravo Logistica</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">Inicio</a></li>
-											<li><a href="login.html" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);margin: 5px 0px 0px 2px;"><img class="avatar" src="images/login.png" alt="">Login</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
 					</header>
 
 				<!-- Main -->
