@@ -57,10 +57,10 @@
                     </div>
                 </div>
                 <ul class="list-unstyled components mb-5">
-                    <li class="active"><a href="painelInicio.jsp"><span class="fa fa-home mr-3"></span> Inicio</a></li>
+                    <li><a href="painelInicio.jsp"><span class="fa fa-home mr-3"></span> Inicio</a></li>
                     <li><a href="painelGerenciador.jsp"><i class="fas fa-tasks mr-3"></i> Gerenciador</a></li>
                     <li><a href="painelFornecedor.jsp"><i class="fas fa-users mr-3"></i> Fornecedor</a></li>
-                    <li><a href="painelCaminhao.jsp"><span class="fas fa-truck mr-3"></span>  Caminhão</a></li>
+                    <li class="active"><a href="painelCaminhao.jsp"><span class="fas fa-truck mr-3"></span>  Caminhão</a></li>
                     <li><a href="painelMotorista.jsp"><span class="fas fa-truck mr-3"></span> Motorista</a></li>
                 </ul>
             </nav>
