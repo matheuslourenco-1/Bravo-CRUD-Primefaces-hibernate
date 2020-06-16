@@ -122,7 +122,7 @@
                             <p:outputLabel value="ID Motorista: " />
                             <p:inputText value="#{caminhaoController.caminhao.idMotorista}" />
                             <i></i>
-                            <p:commandButton value="Salvar" action="#{caminhaoController.salvar()}" update="formulario"
+                            <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{caminhaoController.salvar()}" update="formulario"
                                 icon="pi pi-save" style="margin-left: 30px; float: right;" />
                         </p:panelGrid>
                         <br />

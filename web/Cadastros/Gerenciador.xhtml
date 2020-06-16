@@ -107,7 +107,7 @@
     <h:body>
         <p:layout>
             <p:layoutUnit style="height: 790px;" position="center">
-                <p:dialog id="dialog" header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
+                <p:dialog id="dialog"  header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
                     <h:form id="formulario">
                         <p:panelGrid id="gerenciador" columns="2">
                             <p:outputLabel for="timeonly" value="Horario de Entrada:" />
@@ -132,8 +132,8 @@
                             <p:outputLabel value="ID Motorista: " />
                             <p:inputText value="#{gerenciadorController.gerenciador.idMotorista}" />
                             <i></i>
-                            <p:commandButton value="Salvar" action="#{gerenciadorController.salvar()}"
-                                update="formulario" icon="pi pi-save" style="margin-left: 30px; float: right;" />
+                            <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{gerenciadorController.salvar()}"
+                                update=":formulario" icon="pi pi-save" style="margin-left: 30px; float: right;" />
                         </p:panelGrid>
                         <br />
                     </h:form>
@@ -179,7 +179,7 @@
                             </p:column>
                             <p:column style="width: 81px;" headerText="Opções">
                                 <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">
-                                    <p:commandButton title="Editar" value="" update=":formulario" icon="pi pi-pencil"
+                                    <p:commandButton  title="Editar" value="" update=":formulario" icon="pi pi-pencil"
                                         style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#2f89fc; color: white; font-weight: 500;  height:34px; text-align: center">
                                         <f:setPropertyActionListener target="#{gerenciadorController.gerenciador}"
                                             value="#{gerenciador}" />

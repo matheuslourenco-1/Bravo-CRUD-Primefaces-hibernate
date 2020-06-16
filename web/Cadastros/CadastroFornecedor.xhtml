@@ -78,7 +78,7 @@
                             <p:outputLabel value="ID Caminhao " />
                             <p:inputText value="#{fornecedorController.fornecedor.idCaminhao}" />
                             <i></i>
-                            <p:commandButton value="Salvar" action="#{fornecedorController.salvar()}"
+                            <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{fornecedorController.salvar()}"
                                 update="formulario" icon="pi pi-save" style=" float: right;" />
                         </p:panelGrid>
                         <br />

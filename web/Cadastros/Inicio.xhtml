@@ -113,12 +113,9 @@
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista">
                         <br />
                         <br />
-                        <p:dataTable id="Gerenciador" rows="10" paginator="true"
-                            paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                            currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                            rowsPerPageTemplate="5,10,15" var="gerenciador" value="#{gerenciadorController.listar()}">
+                        <p:dataTable id="Gerenciador"  reflow="true" rows="5" paginator="true" var="gerenciador" value="#{gerenciadorController.listar()}">
                             <f:facet name="header">        
-                                <p:commandButton title="Editar quantidade de colunas visualizadas." id="toggler" type="button" value="Colunas" style="float: left; width: 115px; font-weight: unset; height: 31px; background: #5f5f5f; color: white;" icon="fas fa-border-all"></p:commandButton>
+                                <p:commandButton  title="Editar quantidade de colunas visualizadas." id="toggler" type="button" value="Colunas" style="float: left; width: 115px;     margin: 0px -115px 0px 0px; font-weight: unset; height: 31px; background: #5f5f5f; color: white;" icon="fas fa-border-all"></p:commandButton>
                                 <p:columnToggler datasource="Gerenciador" trigger="toggler">
                                     <p:ajax event="toggle" />
                                 </p:columnToggler>
@@ -126,10 +123,10 @@
                             <p:column style="width:16px">
                                 <p:rowToggler />
                             </p:column>
-                            <p:column headerText="ID" filterBy="#{gerenciador.idGerenciador}">
+                            <p:column  headerText="ID" filterBy="#{gerenciador.idGerenciador}">
                                 <p:outputLabel value="#{gerenciador.idGerenciador}" />
                             </p:column>
-                            <p:column style="width: 60px; text-align: center;" headerText="Entrada">
+                            <p:column style="  text-align: center;" headerText="Entrada">
                                 <p:outputLabel value="#{gerenciador.gerenciador_horarioEntrada}">
                                     <f:convertDateTime pattern="HH:mm"  timeZone="America/Sao_Paulo"/>
                                 </p:outputLabel>

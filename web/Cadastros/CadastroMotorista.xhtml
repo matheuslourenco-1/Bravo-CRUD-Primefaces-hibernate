@@ -72,7 +72,7 @@
                             <p:outputLabel value="CNH " />
                             <p:inputMask mask="99999999999" value="#{motoristaController.motorista.cnhMotorista}" />
                             <i></i>
-                            <p:commandButton value="Salvar" action="#{motoristaController.salvar()}" update="formulario"
+                            <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{motoristaController.salvar()}" update="formulario"
                                 icon="pi pi-save" style=" float: right;" />
                         </p:panelGrid>
                         <br />
