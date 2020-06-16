@@ -126,6 +126,8 @@
                 <p:dialog id="dialog"  header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
                         <h:form id="cadastro">
                         <p:panelGrid id="gerenciador" columns="2">
+                            <p:outputLabel for="popup" value="Popup:" />
+                            <p:datePicker id="popup" value="#{gerenciadorController.gerenciador.gerenciador_dataEntrada}" pattern="dd/MM/yyyy" />
                             <p:outputLabel for="timeonly" value="Horario de Entrada:" />
                             <p:datePicker autocomplete="off" maxlength="6" id="timeonly" showTime="true"
                                 value="#{gerenciadorController.gerenciador.gerenciador_horarioEntrada}" timeOnly="true"
@@ -183,7 +185,12 @@
                             <p:column headerText="ID Motorista" filterBy="#{gerenciador.idMotorista}">
                                 <p:outputLabel value="#{gerenciador.idMotorista}" />
                             </p:column>
-                            <p:column style=" text-align: center;" headerText="Entrada">
+                             <p:column style=" text-align: center;" filterBy="#{gerenciador.gerenciador_dataEntrada}" headerText="Data Entrada">
+                                 <h:outputText value="#{gerenciador.gerenciador_dataEntrada}">
+                                     <f:convertDateTime pattern="dd/MM/yyyy" timeZone="#{initParam.timezone}" locale="Brazil" />
+                                 </h:outputText>
+                             </p:column>
+                            <p:column style=" text-align: center;" headerText="Horario Entrada">
                                 <p:outputLabel value="#{gerenciador.gerenciador_horarioEntrada}">
                                     <f:convertDateTime pattern="HH:mm" timeZone="America/Sao_Paulo" />
                                 </p:outputLabel>

@@ -8,6 +8,7 @@ public class Gerenciador  implements java.io.Serializable {
     //declaração das variaveis 
      private Integer idGerenciador;
      private Date gerenciador_horarioEntrada;
+     private Date gerenciador_dataEntrada;
      private String gerenciador_classificacao;
      private Integer idMotorista;
      private Integer idCaminhao;
@@ -16,7 +17,7 @@ public class Gerenciador  implements java.io.Serializable {
          
      }
 
-    public Gerenciador(String gerenciador_classificacao, Date gerenciador_horarioEntrada) {
+    public Gerenciador(String gerenciador_classificacao, Date gerenciador_dataEntrada, Date gerenciador_horarioEntrada) {
         this.gerenciador_horarioEntrada = gerenciador_horarioEntrada;
         this.gerenciador_classificacao = gerenciador_classificacao;
     }
@@ -25,6 +26,14 @@ public class Gerenciador  implements java.io.Serializable {
         this.idMotorista = idMotorista;
         this.idCaminhao = idCaminhao;
         this.idFornecedor = idFornecedor;
+    }
+
+    public Date getGerenciador_dataEntrada() {
+        return gerenciador_dataEntrada;
+    }
+
+    public void setGerenciador_dataEntrada(Date gerenciador_dataEntrada) {
+        this.gerenciador_dataEntrada = gerenciador_dataEntrada;
     }
 
     public Integer getIdMotorista() {
