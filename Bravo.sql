@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_gerenciador` (
   `idGerenciador` INT(11) NOT NULL AUTO_INCREMENT,
   `gerenciador_horarioEntrada` TIME NOT NULL,
   `gerenciador_classificacao` VARCHAR(45) NOT NULL,
+  `gerenciador_dataEntrada` DATE NOT NULL,
   `idFornecedor` INT(11) NOT NULL,
   `idCaminhao` INT(11) NOT NULL,
   `idMotorista` INT(11) NOT NULL,

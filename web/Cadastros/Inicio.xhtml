@@ -128,7 +128,7 @@
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista">
                         <br />
                         <br />
-                        <p:dataTable id="Gerenciador"  reflow="true" rows="10" paginator="true" var="gerenciador" value="#{gerenciadorController.listar()}">
+                        <p:dataTable id="Gerenciador"  reflow="true" rows="15" paginator="true" var="gerenciador" value="#{gerenciadorController.listar()}">
                             <f:facet name="header">        
                                 <p:commandButton  title="Editar quantidade de colunas visualizadas." id="toggler" type="button" value="Colunas" style="float: left; width: 115px;     margin: 0px -115px 0px 0px; font-weight: unset; height: 31px; background: #5f5f5f; color: white;" icon="fas fa-list"></p:commandButton>
                                 <p:columnToggler datasource="Gerenciador" trigger="toggler">
@@ -141,7 +141,7 @@
                             <p:column style="  text-align: center;" headerText="ID" filterBy="#{gerenciador.idGerenciador}">
                                 <p:outputLabel value="#{gerenciador.idGerenciador}" />
                             </p:column>
-                             <p:column style=" text-align: center;" headerText="Data Entrada">
+                             <p:column style=" text-align: center;" filterBy="#{gerenciador.gerenciador_dataEntrada}" headerText="Data Entrada">
                                  <h:outputText value="#{gerenciador.gerenciador_dataEntrada}">
                                      <f:convertDateTime pattern="dd/MM/yyyy" />
                                  </h:outputText>
