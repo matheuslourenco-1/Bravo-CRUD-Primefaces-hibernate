@@ -12,7 +12,6 @@ public class Gerenciador  implements java.io.Serializable {
      private Integer idMotorista;
      private Integer idCaminhao;
      private Integer idFornecedor;
-     private Caminhao placaCaminhao;
      public Gerenciador(){
          
      }
@@ -22,13 +21,10 @@ public class Gerenciador  implements java.io.Serializable {
         this.gerenciador_classificacao = gerenciador_classificacao;
     }
 
-    public Gerenciador(Integer idMotorista, Integer idCaminhao, Integer idFornecedor) {
+    public Gerenciador( Integer idMotorista, Integer idCaminhao, Integer idFornecedor) {
         this.idMotorista = idMotorista;
         this.idCaminhao = idCaminhao;
         this.idFornecedor = idFornecedor;
-    }
-        public Caminhao getPlacaCaminhao() {
-        return placaCaminhao;
     }
 
     public Integer getIdMotorista() {

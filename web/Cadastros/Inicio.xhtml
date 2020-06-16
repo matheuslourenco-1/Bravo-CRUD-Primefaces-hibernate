@@ -101,6 +101,22 @@
             .button {
                 background: #000;
             }
+            .ui-widget-overlay {
+              background-color: transparent;
+              opacity: 0;
+            }
+            .ui-dialog .ui-dialog-buttonpane {
+                text-align: center;
+                background-image: none;   
+                margin: .5em 0 0 0;
+                padding: .3em 1em .5em .4em;
+            }
+            .ui-button-text-icon-left .ui-icon.fa{
+                margin-top: -9px;
+            }
+            .ui-widget-content .ui-icon {
+                margin-top: 3px;
+            }
         </style>
 
     </h:head>
@@ -137,20 +153,13 @@
                                 <p:commandButton title="Excluir" value="" icon="pi pi-trash" update=":formulario"
                                     style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                     action="#{gerenciadorController.remover(gerenciador)}">
+                                            <p:confirm header="Confirmação" message="Tem certeza que deseja excluir?" />
                                 </p:commandButton>
+                                <p:confirmDialog  global="true" >
+                                    <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" style="font-size: 17px;" icon="fa fa-check" />
+                                    <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" style="font-size: 17px;" icon="fa fa-times" />
+                                </p:confirmDialog>   
                             </p:column>
-                            <p:rowExpansion>
-                                <p:panelGrid  columns="2" columnClasses="label,value" style="width:300px">
-                                    <h:outputText value="ID:" />
-                                    <h:outputText value="#{gerenciador.idGerenciador}" />
-                                    <h:outputText value="ID Fornecedor:" />
-                                    <h:outputText value="#{gerenciador.idFornecedor}" />
-                                    <h:outputText value="ID Caminhão:" />
-                                    <h:outputText value="#{gerenciador.idCaminhao}"/>
-                                    <h:outputText value="ID Motorista:" />
-                                    <h:outputText value="#{gerenciador.idMotorista}" />
-                                </p:panelGrid>
-                            </p:rowExpansion>
                         </p:dataTable>
                     </p:panel>
                 </h:form>
