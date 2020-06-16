@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_motorista` (
   `cnhMotorista` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`idMotorista`)) 
   ENGINE = InnoDB
-  AUTO_INCREMENT = 680
+  AUTO_INCREMENT = 1001
   DEFAULT CHARACTER SET = latin1;
 
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_caminhao` (
   KEY `fk_tb_caminhao_tb_motorista_id` (`idMotorista` ASC) ,
   CONSTRAINT `fk_tb_caminhao_tb_motorista_id`  FOREIGN KEY (`idMotorista`) REFERENCES `bravo`.`tb_motorista` (`idMotorista`))
   ENGINE = InnoDB
-  AUTO_INCREMENT = 581
+  AUTO_INCREMENT = 2001
   DEFAULT CHARACTER SET = latin1;
 
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_fornecedor` (
   KEY `fk_tb_fornecedor_tb_caminhao_id` (`idCaminhao` ASC),
   CONSTRAINT `fk_tb_fornecedor_tb_caminhao_id` FOREIGN KEY (`idCaminhao`) REFERENCES `bravo`.`tb_caminhao` (`idCaminhao`))
   ENGINE = InnoDB
-  AUTO_INCREMENT = 362
+  AUTO_INCREMENT = 3001
   DEFAULT CHARACTER SET = latin1;
 
 -- -----------------------------------------------------
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_gerenciador` (
   CONSTRAINT `fk_tb_gerenciador_tb_fornecedor_id` FOREIGN KEY (`idFornecedor`) REFERENCES `bravo`.`tb_fornecedor` (`idFornecedor`),
   CONSTRAINT `fk_tb_gerenciador_tb_motorista_id` FOREIGN KEY (`idMotorista`)  REFERENCES `bravo`.`tb_motorista` (`idMotorista`))
   ENGINE = InnoDB
-  AUTO_INCREMENT = 150
+  AUTO_INCREMENT = 1
   DEFAULT CHARACTER SET = latin1;
 
 

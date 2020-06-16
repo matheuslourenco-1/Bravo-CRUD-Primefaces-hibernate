@@ -88,7 +88,7 @@
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Fornecedores">
                         <br />
                         <br />
-                        <p:commandButton
+                        <p:commandButton title="Adicionar novo Fornecedor." 
                             style="background: #2198dd; font-weight: 300; color: white; font-family: Poppins, Arial, sans-serif; float: right; letter-spacing: 1px; margin: 3px 10px 0px 0px; border: 1px solid #fff; "
                             value="Adicionar" type="button" onclick="PF('dlg1').show();" />
                         <p:dataTable id="CdastroFornecedor" rows="10" paginator="true"
@@ -96,7 +96,7 @@
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="fornecedor" value="#{fornecedorController.listar()}">
                             <f:facet name="header">
-                                <p:commandButton id="toggler" type="button" value="Colunas"
+                                <p:commandButton title="Editar quantidade de colunas visualizadas." id="toggler" type="button" value="Colunas"
                                     style="float: left;  height: 31px;  width: 115px; font-weight: unset; background: #5f5f5f; color: white;"
                                     icon="fas fa-border-all" />
                                 <p:columnToggler datasource="CdastroFornecedor" trigger="toggler">
@@ -120,13 +120,13 @@
                             </p:column>
                             <p:column style="width: 81px;" headerText="Opções">
                                 <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">
-                                    <p:commandButton value="" update=":formulario" icon="pi pi-pencil"
+                                    <p:commandButton title="Editar" value="" update=":formulario" icon="pi pi-pencil"
                                         style="font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);      margin: 10px 10px 10px 0px; background:#2f89fc; color: white; font-weight: 500;  height:34px; text-align: center">
                                         <f:setPropertyActionListener target="#{fornecedorController.fornecedor}"
                                             value="#{fornecedor}" />
                                     </p:commandButton>
                                 </h:outputLink>
-                                <p:commandButton value="" icon="pi pi-trash" update=":formulario"
+                                <p:commandButton title="Excluir" value="" icon="pi pi-trash" update=":formulario"
                                     style=" font-size:23px; width: 34px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.29);  height:34px; background:#ff0000; color:white; font-weight: 500; text-align: center"
                                     action="#{fornecedorController.remover(fornecedor)}">
                                 </p:commandButton>

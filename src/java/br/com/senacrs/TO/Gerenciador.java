@@ -12,6 +12,7 @@ public class Gerenciador  implements java.io.Serializable {
      private Integer idMotorista;
      private Integer idCaminhao;
      private Integer idFornecedor;
+     private Caminhao placaCaminhao;
      public Gerenciador(){
          
      }
@@ -25,6 +26,9 @@ public class Gerenciador  implements java.io.Serializable {
         this.idMotorista = idMotorista;
         this.idCaminhao = idCaminhao;
         this.idFornecedor = idFornecedor;
+    }
+        public Caminhao getPlacaCaminhao() {
+        return placaCaminhao;
     }
 
     public Integer getIdMotorista() {
