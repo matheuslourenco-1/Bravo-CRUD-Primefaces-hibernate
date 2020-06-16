@@ -139,12 +139,12 @@
                             <p:inputText value="#{caminhaoController.caminhao.idMotorista}" />
                             <i></i>
                             <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{caminhaoController.salvar()}" update="formulario"
-                                icon="pi pi-save" style="margin-left: 30px; float: right;" />
+icon="fas fa-save" style="font-size: 16px; float: right;"  />
                         </p:panelGrid>
                         <br />
                     </h:form>
                 </p:dialog>
-
+                <h:form>
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Caminhões">
                         <br />
                         <br />
@@ -202,7 +202,7 @@
                             </p:column>
                         </p:dataTable>
                     </p:panel>
-
+                </h:form>
             </p:layoutUnit>
         </p:layout>
     </h:body>

@@ -89,11 +89,13 @@
                             <p:inputMask mask="99999999999" value="#{motoristaController.motorista.cnhMotorista}" />
                             <i></i>
                             <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{motoristaController.salvar()}" update="formulario"
-                                icon="pi pi-save" style=" float: right;" />
+                                icon="fas fa-save" style="font-size: 16px; float: right;" />
                         </p:panelGrid>
                         <br />
                     </h:form>
                 </p:dialog>
+                <h:form>
+                    
                     <p:panel id="listagem" style="min-height: 100%; min-width: 99%;" header="Lista de Motoristas">
                         <br />
                         <br />
@@ -138,6 +140,7 @@
                             </p:column>
                         </p:dataTable>
                     </p:panel>
+                </h:form>
                 <br />
                 <br />
             </p:layoutUnit>
