@@ -155,7 +155,7 @@ icon="fas fa-save" style="font-size: 16px; float: right;"  />
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="caminhao" value="#{caminhaoController.listar()}">
                             <f:facet name="header">        
-                                <p:commandButton title="Editar quantidade de colunas visualizadas." id="toggler" type="button" value="Colunas" style="float: left;  height: 31px; width: 115px; font-weight: unset; background: #5f5f5f; color: white;" icon="fas fa-border-all" />
+                                <p:commandButton title="Editar quantidade de colunas visualizadas." id="toggler" type="button" value="Colunas" style="float: left;  height: 31px; width: 115px; font-weight: unset; background: #5f5f5f; color: white;" icon="fas fa-list" />
                                 <p:columnToggler datasource="CadastroCaminhao" trigger="toggler">
                                     <p:ajax event="toggle" />
                                 </p:columnToggler>
