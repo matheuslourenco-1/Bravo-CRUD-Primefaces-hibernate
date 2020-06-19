@@ -50,11 +50,8 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_caminhao` (
   `modeloCaminhao` VARCHAR(45) NOT NULL,
   `pesoFinalCaminhao` DOUBLE NOT NULL,
   `pesoInicialCaminhao` DOUBLE NOT NULL,
-  `idMotorista` INT(11) NOT NULL,
   PRIMARY KEY (`idCaminhao`),
-  UNIQUE INDEX `placa_UNIQUE` (`placaCaminhao` ASC) ,
-  KEY `fk_tb_caminhao_tb_motorista_id` (`idMotorista` ASC) ,
-  CONSTRAINT `fk_tb_caminhao_tb_motorista_id`  FOREIGN KEY (`idMotorista`) REFERENCES `bravo`.`tb_motorista` (`idMotorista`))
+  UNIQUE INDEX `placa_UNIQUE` (`placaCaminhao` ASC))
   ENGINE = InnoDB
   AUTO_INCREMENT = 2001
   DEFAULT CHARACTER SET = latin1;
@@ -68,11 +65,8 @@ CREATE TABLE IF NOT EXISTS `bravo`.`tb_fornecedor` (
   `nomeFornecedor` VARCHAR(50) NOT NULL,
   `cnpjFornecedor` VARCHAR(45) NOT NULL,
   `contatoFornecedor` VARCHAR(45) NULL DEFAULT NULL,
-  `idCaminhao` INT(11) NOT NULL,
   PRIMARY KEY (`idFornecedor`),
-  UNIQUE INDEX `cnpjFornecedor_UNIQUE` (`cnpjFornecedor` ASC),
-  KEY `fk_tb_fornecedor_tb_caminhao_id` (`idCaminhao` ASC),
-  CONSTRAINT `fk_tb_fornecedor_tb_caminhao_id` FOREIGN KEY (`idCaminhao`) REFERENCES `bravo`.`tb_caminhao` (`idCaminhao`))
+  UNIQUE INDEX `cnpjFornecedor_UNIQUE` (`cnpjFornecedor` ASC))
   ENGINE = InnoDB
   AUTO_INCREMENT = 3001
   DEFAULT CHARACTER SET = latin1;

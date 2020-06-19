@@ -9,7 +9,6 @@ public class Fornecedor  implements java.io.Serializable {
      private String nomeFornecedor;
      private String cnpjFornecedor;
      private String contatoFornecedor;
-     private Integer idCaminhao;
 
      public Fornecedor(){
          
@@ -24,16 +23,8 @@ public class Fornecedor  implements java.io.Serializable {
         this.nomeFornecedor = nomeFornecedor;
         this.cnpjFornecedor = cnpjFornecedor;
         this.contatoFornecedor = contatoFornecedor;
-        this.idCaminhao = idCaminhao;
     }
 
-    public Integer getIdCaminhao() {
-        return idCaminhao;
-    }
-
-    public void setIdCaminhao(Integer idCaminhao) {
-        this.idCaminhao = idCaminhao;
-    }
     
 
     public Integer getIdFornecedor() {

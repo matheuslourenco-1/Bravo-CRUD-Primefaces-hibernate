@@ -20,9 +20,6 @@
     <property name="pesoFinalCaminhao" type="double">
       <column length="45" name="pesoFinalCaminhao" not-null="false" />
     </property>
-    <property name="idMotorista" type="int">
-      <column name="idMotorista" not-null="false" unique="true"/>
-    </property>
     
   </class>
 </hibernate-mapping>

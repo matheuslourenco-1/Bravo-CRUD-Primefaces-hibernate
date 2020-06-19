@@ -104,14 +104,17 @@
             <p:layoutUnit style="height: 790px;" position="center">
                 <p:dialog id="dialog" header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
                     <h:form id="formulario">
-                        <p:panelGrid id="cadastro" columns="2">
-                            <p:outputLabel value="Placa do Caminhao: " />
-                            <p:inputMask size="6" mask="aaa-9999" style="text-transform:uppercase;" placeholder="ABC-1234"
-                                value="#{caminhaoController.caminhao.placaCaminhao}">
+                        <p:messages id="msgs" />
+                        <h:panelGrid id="cadastro" columns="3">
+                            <p:outputLabel for="placa" value="Placa do Caminhao: " />
+                            <p:inputMask id="placa" size="6" mask="aaa-9999" style="text-transform:uppercase;" placeholder="ABC-1234"
+                                         value="#{caminhaoController.caminhao.placaCaminhao}" required="true" requiredMessage="Obrigatório campo Placa!" label="Placa">
                                 <p:keyFilter mask="alphanum" />
+
                             </p:inputMask>
-                            <p:outputLabel value="Modelo do Caminhão: "  />
-                            <p:selectOneMenu autoWidth="false" class="ui-selectonemenu" value="#{caminhaoController.caminhao.modeloCaminhao}">
+                            <p:message for="placa" id="msgPlaca" display="icon" />
+                            <p:outputLabel for="modelo" value="Modelo do Caminhão: "  />
+                            <p:selectOneMenu id="modelo" autoWidth="false" class="ui-selectonemenu" value="#{caminhaoController.caminhao.modeloCaminhao}" required="true" requiredMessage="Obrigatório campo Modelo!" label="Modelo"> 
                                 <f:selectItem itemLabel="Selecione Um              " itemValue="ui-selectonemenu" />
                                 <f:selectItem itemLabel="3/4 ou VUC" itemValue="3/4 ou VUC" />
                                 <f:selectItem itemLabel="Toco" itemValue="Toco" />
@@ -127,20 +130,21 @@
                                     <h:outputText value="9 Itens" style="font-weight:bold;"/>
                                 </f:facet>
                             </p:selectOneMenu>
+                            <p:message for="modelo" id="msgModelo" display="icon" />
                             <p:outputLabel value="Peso Inicial(kg): " />
-                            <p:inputNumber maxValue="100000"  value="#{caminhaoController.caminhao.pesoInicialCaminhao}">
+                            <p:inputNumber maxValue="100000"  value="#{caminhaoController.caminhao.pesoInicialCaminhao}" label="Peso Incial:">
                                 <p:keyFilter mask="num" />
                             </p:inputNumber>
+                            <h:outputText />
                             <p:outputLabel value="Peso Final(kg): " />
-                            <p:inputNumber  maxValue="100000"  value="#{caminhaoController.caminhao.pesoFinalCaminhao}">
+                            <p:inputNumber  maxValue="100000"  value="#{caminhaoController.caminhao.pesoFinalCaminhao}" label="Peso Final:">
                                 <p:keyFilter mask="pnum" />
-                            </p:inputNumber>
-                            <p:outputLabel value="ID Motorista: " />
-                            <p:inputText value="#{caminhaoController.caminhao.idMotorista}" />
+                            </p:inputNumber>                          
                             <i></i>
-                            <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{caminhaoController.salvar()}" update="formulario"
+                            <h:outputText />
+                            <p:commandButton value="Salvar" action="#{caminhaoController.salvar()}" update="formulario"
 icon="fas fa-save" style="font-size: 16px; float: right;"  />
-                        </p:panelGrid>
+                        </h:panelGrid>
                         <br />
                     </h:form>
                 </p:dialog>
@@ -178,9 +182,6 @@ icon="fas fa-save" style="font-size: 16px; float: right;"  />
                                 <p:outputLabel value="#{caminhao.pesoFinalCaminhao}" >
                                      <f:convertNumber pattern="#,##0" minFractionDigits="2"  />
                                 </p:outputLabel>
-                            </p:column>
-                            <p:column headerText="ID Motorista" filterBy="#{caminhao.idMotorista}">
-                                <p:outputLabel value="#{caminhao.idMotorista}" />
                             </p:column>
                             <p:column style="width: 81px;" headerText="Opções">
                                 <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">

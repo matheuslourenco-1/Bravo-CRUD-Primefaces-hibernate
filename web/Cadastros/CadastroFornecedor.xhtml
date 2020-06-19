@@ -82,21 +82,24 @@
             <p:layoutUnit style="height: 790px;" position="center">
                 <p:dialog id="dialog" header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
                     <h:form id="formulario">
-                        <p:panelGrid id="cadastro" columns="2">
+                        <p:messages id="msgs" />
+                        <h:panelGrid id="cadastro" columns="3">
                             <p:outputLabel for="nome" value="Nome: " />
-                            <p:inputText id="nome" value="#{fornecedorController.fornecedor.nomeFornecedor}" />
-                            <p:outputLabel value="CNPJ: " />
-                            <p:inputMask mask="99.999.999/9999-99"
-                                value="#{fornecedorController.fornecedor.cnpjFornecedor}" />
-                            <p:outputLabel value="Telefone: " />
-                            <p:inputMask mask="(99) 99999-9999"
+                            <p:inputText id="nome" value="#{fornecedorController.fornecedor.nomeFornecedor}" required="true" requiredMessage="Obrigatório campo Nome!" label="Nome" />
+                            <p:message for="nome" display="icon" />
+                            <p:outputLabel for="CNPJ" value="CNPJ: " />
+                            <p:inputMask id="CNPJ" mask="99.999.999/9999-99" value="#{fornecedorController.fornecedor.cnpjFornecedor}" label="CNH" required="true" requiredMessage="Obrigatório campo CNPJ!">
+                                <p:ajax update="msgCNPJ" event="keyup" />
+                            </p:inputMask>
+                            <p:message for="CNPJ" id="msgCNPJ" display="icon" />
+                            <p:outputLabel for="telefone" value="Telefone: " />
+                            <p:inputMask id="telefone" mask="(99) 99999-9999"
                                 value="#{fornecedorController.fornecedor.contatoFornecedor}" />
-                            <p:outputLabel value="ID Caminhao " />
-                            <p:inputText value="#{fornecedorController.fornecedor.idCaminhao}" />
+                            <h:outputText />
                             <i></i>
-                            <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{fornecedorController.salvar()}"
-                                update="formulario" icon="fas fa-save" style="font-size: 16px; float: right;"  />
-                        </p:panelGrid>
+                            <p:commandButton  value="Salvar" action="#{fornecedorController.salvar()}"
+                                update="formulario" icon="fas fa-save" style="font-size: 16px; margin-top:5px; float: right;"  />
+                        </h:panelGrid>
                         <br />
                     </h:form>
                 </p:dialog>
@@ -130,9 +133,6 @@
                             </p:column>
                             <p:column headerText="Telefone" filterBy="#{fornecedor.contatoFornecedor}">
                                 <p:outputLabel value="#{fornecedor.contatoFornecedor}" />
-                            </p:column>
-                            <p:column headerText="ID Motorista" filterBy="#{fornecedor.idCaminhao}">
-                                <p:outputLabel value="#{fornecedor.idCaminhao}" />
                             </p:column>
                             <p:column style="width: 81px;" headerText="Opções">
                                 <h:outputLink id="Dialog" value="javascript:void(0)" onclick="PF('dlg1').show();">

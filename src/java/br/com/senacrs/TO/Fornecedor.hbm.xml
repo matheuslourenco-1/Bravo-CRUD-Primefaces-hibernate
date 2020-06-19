@@ -17,8 +17,5 @@
     <property name="contatoFornecedor" type="string">
       <column length="45" name="contatoFornecedor"/>
     </property>
-    <property name="idCaminhao" type="int">
-      <column name="idCaminhao" not-null="true" unique="true"/>
-    </property>
   </class>
 </hibernate-mapping>

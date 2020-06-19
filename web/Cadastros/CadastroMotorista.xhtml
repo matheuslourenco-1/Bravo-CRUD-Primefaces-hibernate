@@ -80,19 +80,23 @@
     <h:body>
         <p:layout>
             <p:layoutUnit style="height: 790px;" position="center">
-                <p:dialog id="dialog" header="Cadastrar Novo" widgetVar="dlg1" minHeight="40">
+                <p:dialog id="dialog" header="Cadastrar Novo" widgetVar="dlg1" minHeight="90">
                     <h:form id="formulario">
-                        <p:panelGrid id="cadastro" columns="2">
-                            <p:outputLabel for="nome" value="Nome: " />
-                            <p:inputText id="nome" value="#{motoristaController.motorista.nomeMotorista}" />
-                            <p:outputLabel value="CNH " />
-                            <p:inputMask mask="99999999999" value="#{motoristaController.motorista.cnhMotorista}" />
-                            <i></i>
-                            <p:commandButton oncomplete="PF('dlg1').hide();" value="Salvar" action="#{motoristaController.salvar()}" update="formulario"
-                                icon="fas fa-save" style="font-size: 16px; float: right;" />
-                        </p:panelGrid>
-                        <br />
-                    </h:form>
+                        <p:messages id="msgs" />
+                            <h:panelGrid id="cadastro" columns="3">
+                                <p:outputLabel for="nome" value="Nome:" />
+                                <p:inputText id="nome" value="#{motoristaController.motorista.nomeMotorista}" required="true" requiredMessage="Obrigatório ter nome!" label="Nome">
+                                </p:inputText>    
+                                <p:message for="nome" display="icon" />                        
+                                <p:outputLabel for="CNH" value="CNH:" />
+                                <p:inputMask id="CNH" mask="99999999999" value="#{motoristaController.motorista.cnhMotorista}" label="CNH" required="true" requiredMessage="Obrigatório o motorista ter CNH!">
+                                    <p:ajax update="msgCNH" event="keyup" />
+                                </p:inputMask>
+                                <p:message for="CNH" id="msgCNH"  display="icon" />
+                                <i></i>
+                                <p:commandButton value="salvar" update="formulario" action="#{motoristaController.salvar()}" icon="fas fa-save" style="font-size: 16px; float: right;" />
+                            </h:panelGrid>
+                        </h:form>
                 </p:dialog>
                 <h:form>
                     
@@ -102,7 +106,7 @@
                        <p:commandButton title="Adicionar novo Motorista."   style="background: #2198dd; font-weight: 300; color: white; font-family: Poppins, Arial, sans-serif; float: right; letter-spacing: 1px; margin: 3px 10px 0px 0px; border: 1px solid #fff; " value="Adicionar"
                                          type="button" onclick="PF('dlg1').show();" />
                         <p:dataTable id="CadastroMotorista" rows="10" paginator="true"
-                            paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                            paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
                             currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                             rowsPerPageTemplate="5,10,15" var="motorista" value="#{motoristaController.listar()}">
                             <f:facet name="header">        
